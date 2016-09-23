@@ -38,6 +38,14 @@ flushdns () {
   sudo killall -HUP mDNSResponder
 }
 
+update-dotfiles() {
+  cd ~/.dotfiles
+  git pull --rebase
+  ~/.dotfiles/script/update
+  source ~/.zshrc
+  cd -
+}
+
 # Git Aliases
 alias gs="git status -s"
 alias gd="git diff"

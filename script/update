@@ -6,5 +6,7 @@ cd $DOTFILES_DIR
 source $DOTFILES_DIR/script/.shared
 out "dotfiles/script/update"
 
+run "git pull --rebase"
+
 # script/setup should be idempotent
 script/setup
