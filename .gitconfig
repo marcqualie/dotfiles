@@ -11,7 +11,7 @@
 	verbose = true
 
 [core]
-	excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = ~/.gitignore-global
 	editor = atom -w
 	mergeoptions = --no-edit
 
