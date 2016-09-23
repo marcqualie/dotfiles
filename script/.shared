@@ -2,25 +2,35 @@
 
 out() {
   COLOR="37"
+  PREFIX="--> "
   if [ "$2" != "" ]; then COLOR="$2"; fi
-  printf "\033[1m\033[${COLOR}m--> ${1}\033[0m\n"
+  if [ "$3" != "" ]; then PREFIX="$3"; fi
+  printf "\033[1m\033[${COLOR}m${PREFIX}${1}\033[0m\n"
 }
 
 run() {
-  out "$@" "33"
-  OUTPUT=$(sh -c "$@ 2>&1")
+  PREFIX="  $ "
+  COMMAND=$(echo "$1" | sed "s#$HOME#~#g")
+  out "$COMMAND" "33" "$PREFIX"
+  OUTPUT=$(sh -c "$COMMAND 2>&1")
   STATUS="$?"
   printf "\033[1A\r\033[K"
   if [ "$STATUS" == "0" ]; then
-    out "$@" "32"
-    #printf "\033[32m    success\033[0m\n"
+    out "$COMMAND" "32" "$PREFIX"
   else
-    out "$@" "31"
-    #printf "\033[31m    failed\033[0m\n"
+    out "$COMMAND" "31" "$PREFIX"
   fi
   if [ "$OUTPUT" != "" ]; then
     while read LINE; do
       printf "    $LINE\n"
     done <<< $OUTPUT
   fi
+}
+
+symlink_dotfile() {
+  DOTFILE=".$1"
+  SYMLINK_AS=~/$DOTFILE
+  if [ "$2" != "" ]; then SYMLINK_AS=$2; fi
+  #out "symlink_dotfile $1"
+  run "ln -fs $DOTFILES_DIR/$DOTFILE $SYMLINK_AS"
 }
