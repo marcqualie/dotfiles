@@ -1,0 +1,33 @@
+[include]
+	path = ~/.gitconfig-user
+
+
+
+[color]
+	ui = auto
+
+[commit]
+	gpgsign = false
+	verbose = true
+
+[core]
+	excludesfile = /opt/boxen/config/git/gitignore
+	editor = atom -w
+	mergeoptions = --no-edit
+
+[credential]
+	helper = /opt/boxen/bin/boxen-git-credential
+
+[fetch]
+	prune = 1
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[hub]
+	protocol = https
+
+[push]
+	default = simple

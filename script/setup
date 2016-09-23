@@ -7,3 +7,6 @@ source $DOTFILES_DIR/script/.shared
 out "dotfiles/script/setup"
 
 run "ln -fs $DOTFILES_DIR/.zshrc ~/.zshrc"
+run "ln -fs $DOTFILES_DIR/.gitconfig ~/.gitconfig"
+run "ln -fs $DOTFILES_DIR/.gitconfig-user ~/.gitconfig-user"
+run "ln -fs $DOTFILES_DIR/.gitignore ~/.gitignore"
