@@ -10,3 +10,5 @@ run "ln -fs $DOTFILES_DIR/.zshrc ~/.zshrc"
 run "ln -fs $DOTFILES_DIR/.gitconfig ~/.gitconfig"
 run "ln -fs $DOTFILES_DIR/.gitconfig-user ~/.gitconfig-user"
 run "ln -fs $DOTFILES_DIR/.gitignore-global ~/.gitignore-global"
+
+run "ln -fs ~/Library/Mobile\ Documents/com\~apple\~CloudDocs ~/iCloud\ Drive"
