@@ -1,1 +1,10 @@
 #!/bin/sh
+
+DOTFILES_DIR=$(cd "$(dirname $0)/.."; pwd)
+cd $DOTFILES_DIR
+
+source $DOTFILES_DIR/script/.shared
+out "dotfiles/script/update"
+
+# script/setup should be idempotent
+script/setup

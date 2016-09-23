@@ -1,0 +1,26 @@
+#!/bin/sh
+
+out() {
+  COLOR="37"
+  if [ "$2" != "" ]; then COLOR="$2"; fi
+  printf "\033[1m\033[${COLOR}m--> ${1}\033[0m\n"
+}
+
+run() {
+  out "$@" "33"
+  OUTPUT=$(sh -c "$@ 2>&1")
+  STATUS="$?"
+  printf "\033[1A\r\033[K"
+  if [ "$STATUS" == "0" ]; then
+    out "$@" "32"
+    #printf "\033[32m    success\033[0m\n"
+  else
+    out "$@" "31"
+    #printf "\033[31m    failed\033[0m\n"
+  fi
+  if [ "$OUTPUT" != "" ]; then
+    while read LINE; do
+      printf "    $LINE\n"
+    done <<< $OUTPUT
+  fi
+}

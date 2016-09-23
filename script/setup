@@ -1,7 +1,9 @@
 #!/bin/sh
 
-DOTFILES_DIR=$(dirname $0)
+DOTFILES_DIR=$(cd "$(dirname $0)/.."; pwd)
+cd $DOTFILES_DIR
 
-echo "DOTFILES_DIR = $DOTFILES_DIR"
+source $DOTFILES_DIR/script/.shared
+out "dotfiles/script/setup"
 
-ln -fs $DOTFILES_DIR/.zshrc ~/.zshrc
+run "ln -fs $DOTFILES_DIR/.zshrc ~/.zshrc"
