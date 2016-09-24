@@ -17,7 +17,9 @@ symlink_dotfile rbenv/default-gems
 
 echo ""
 symlink "$DOTFILES_DIR/etc/dnsmasq.conf" "/usr/local/etc/dnsmasq.conf"
-symlink "$DOTFILES_DIR/etc/nginx.conf" "/usr/local/etc/nginx/nginx.conf"
+symlink "$DOTFILES_DIR/etc/nginx/nginx.conf" "/usr/local/etc/nginx/nginx.conf"
+symlink "$DOTFILES_DIR/etc/nginx/server_defaults" "/usr/local/etc/nginx/server_defaults"
+symlink "$DOTFILES_DIR/etc/nginx/public" "/usr/local/etc/nginx/public"
 symlink "$DOTFILES_DIR/etc/redis.conf" "/usr/local/etc/redis.conf"
 
 echo ""
