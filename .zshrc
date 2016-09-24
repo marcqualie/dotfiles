@@ -2,7 +2,7 @@ ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 
 export ZSH=/Users/marc/.oh-my-zsh
-export SHELL=/bin/zsh
+export SHELL=/usr/local/bin/zsh
 export UPDATE_ZSH_DAYS=7
 export LANG=en_US.UTF-8
 export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"

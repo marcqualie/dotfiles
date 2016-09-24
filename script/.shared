@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/local/bin/zsh
 
 out() {
   LINE=$(echo "$1" | sed "s#$HOME#~#g")
@@ -14,10 +14,10 @@ run() {
   PREFIX="  $ "
   COMMAND=$1
   out "$COMMAND" "33" "$PREFIX"
-  OUTPUT=$(/bin/zsh -c "$COMMAND 2>&1")
+  OUTPUT=$(zsh -c "$COMMAND 2>&1")
   STATUS="$?"
   printf "\033[1A\r\033[K"
-  if [ "$STATUS" == "0" ]; then
+  if [ "$STATUS" -eq "0" ]; then
     out "$COMMAND" "32" "$PREFIX"
   else
     out "$COMMAND" "31" "$PREFIX"
