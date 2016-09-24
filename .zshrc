@@ -7,8 +7,6 @@ export UPDATE_ZSH_DAYS=7
 export LANG=en_US.UTF-8
 export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"
 
-#fpath=(/opt/boxen/homebrew/share/zsh-completions $fpath)
-
 plugins=(git)
 
 eval "$(rbenv init -)"

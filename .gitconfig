@@ -16,7 +16,7 @@
 	mergeoptions = --no-edit
 
 [credential]
-	helper = /opt/boxen/bin/boxen-git-credential
+	helper = osxkeychain
 
 [fetch]
 	prune = 1
