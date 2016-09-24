@@ -12,6 +12,7 @@ export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"
 plugins=(git)
 
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh

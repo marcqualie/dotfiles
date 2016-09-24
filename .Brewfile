@@ -44,6 +44,7 @@ brew 'mailhog'
 brew 'mpfr'
 brew 'nginx-full', args: ['with-http2'], service_restart: true
 brew 'nmap'
+brew 'nodenv'
 brew 'oniguruma'
 brew 'openssl'
 brew 'pcre'
