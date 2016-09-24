@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 DOTFILES_DIR=$(cd "$(dirname $0)/.."; pwd)
 cd $DOTFILES_DIR
@@ -12,6 +12,7 @@ symlink_dotfile gitconfig
 symlink_dotfile gitconfig-user
 symlink_dotfile gitignore-global
 symlink_dotfile zshrc
+symlink_dotfile zsh
 
 echo ""
 symlink ~/Library/Mobile\ Documents/com\~apple\~CloudDocs ~/iCloud\ Drive

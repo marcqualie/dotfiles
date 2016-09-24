@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 DOTFILES_DIR=$(cd "$(dirname $0)/.."; pwd)
 cd $DOTFILES_DIR
@@ -9,4 +9,5 @@ out "dotfiles/script/update"
 run "git pull --rebase"
 
 # script/setup should be idempotent
+echo ""
 script/setup

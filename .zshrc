@@ -28,23 +28,7 @@ else
 fi
 export BUNDLER_EDITOR=atom
 
-# Docker
-docker-init () {
-  eval "$(docker-machine env fgdo)"
-}
-
-flushdns () {
-  dscacheutil -flushcache
-  sudo killall -HUP mDNSResponder
-}
-
-update-dotfiles() {
-  cd ~/.dotfiles
-  git pull --rebase
-  ~/.dotfiles/script/update
-  source ~/.zshrc
-  cd -
-}
+source ~/.zsh/functions.sh
 
 # Git Aliases
 alias gs="git status -s"
