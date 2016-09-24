@@ -16,7 +16,7 @@ symlink_dotfile zsh
 symlink_dotfile rbenv/default-gems
 
 echo ""
-symlink "$DOTFILES_DIR/dnsmasq.conf" "/usr/local/etc/dnsmasq.conf"
+symlink "$DOTFILES_DIR/etc/dnsmasq.conf" "/usr/local/etc/dnsmasq.conf"
 
 echo ""
 symlink ~/Library/Mobile\ Documents/com\~apple\~CloudDocs ~/iCloud\ Drive
