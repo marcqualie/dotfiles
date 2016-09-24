@@ -13,6 +13,10 @@ symlink_dotfile gitconfig-user
 symlink_dotfile gitignore-global
 symlink_dotfile zshrc
 symlink_dotfile zsh
+symlink_dotfile rbenv/default-gems
+
+echo ""
+symlink "$DOTFILES_DIR/dnsmasq.conf" "/usr/local/etc/dnsmasq.conf"
 
 echo ""
 symlink ~/Library/Mobile\ Documents/com\~apple\~CloudDocs ~/iCloud\ Drive

@@ -1,24 +1,20 @@
 ZSH_THEME="robbyrussell"
-export ZSH=/Users/marc/.oh-my-zsh
-export SHELL=/opt/boxen/homebrew/bin/zsh
-export UPDATE_ZSH_DAYS=13
-export LANG=en_US.UTF-8
 COMPLETION_WAITING_DOTS="true"
 
-fpath=(/opt/boxen/homebrew/share/zsh-completions $fpath)
+export ZSH=/Users/marc/.oh-my-zsh
+export SHELL=/bin/zsh
+export UPDATE_ZSH_DAYS=7
+export LANG=en_US.UTF-8
+export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"
+
+#fpath=(/opt/boxen/homebrew/share/zsh-completions $fpath)
 
 plugins=(git)
 
-export GOPATH=/Users/marc/go
-export GOBIN=$GOPATH/bin
-
-export PATH="bin:/Users/marc/bin:$GOBIN:/opt/boxen/heroku/bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:node_modules/.bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-
-export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"
-
-export ANDROID_HOME=/usr/local/opt/android-sdk
+eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/functions.sh
 
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
@@ -27,8 +23,6 @@ else
   export EDITOR='atom -w'
 fi
 export BUNDLER_EDITOR=atom
-
-source ~/.zsh/functions.sh
 
 # Git Aliases
 alias gs="git status -s"

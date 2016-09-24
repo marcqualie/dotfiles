@@ -1,0 +1,7 @@
+bundler
+foreman
+puma
+rails
+redis
+sidekiq
+rubocop
