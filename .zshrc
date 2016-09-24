@@ -14,6 +14,8 @@ plugins=(git)
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 
+export PATH="bin:$PATH"
+
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
 
