@@ -34,7 +34,11 @@ symlink() {
   if [[ -e "$2" || "$POINTING_TO" != "" ]]; then
     if [ "$POINTING_TO" != "$1" ]; then
       out "ln -s ${1/ /\\ } ${2/ /\\ }" "31" "  $ "
-      out "is pointing to $POINTING_TO" "31" "    "
+      if [ "$POINTING_TO" = "" ]; then
+        out "is already a hard file" "31" "    "
+      else
+        out "is pointing to $POINTING_TO" "31" "    "
+      fi
     else
       out "ln -s ${1/ /\\ } ${2/ /\\ } \033[32m(already exists)" "37" "  $ "
     fi
