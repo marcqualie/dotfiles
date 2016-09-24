@@ -1,9 +1,11 @@
+index index.html;
+client_max_body_size 16M;
+
+# Errors
 error_page 502 /502.html;
 error_page 503 /503.html;
 error_page 504 /504.html;
 error_page 404 /404.html;
-index index.html;
-
 location ~ /([0-9]+).html {
   root /usr/local/etc/nginx/public;
 }
