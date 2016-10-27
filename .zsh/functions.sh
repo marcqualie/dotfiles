@@ -52,3 +52,9 @@ update-dotfiles() {
   source ~/.zshrc
   cd -
 }
+
+
+
+src() {
+  cd ~/src/$1
+}
