@@ -17,6 +17,9 @@ export PATH="bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
 
+# Autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
