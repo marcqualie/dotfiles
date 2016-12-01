@@ -58,3 +58,9 @@ update-dotfiles() {
 src() {
   cd ~/src/$1
 }
+
+
+
+rspec() {
+  bundle exec rspec $@
+}
