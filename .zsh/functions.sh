@@ -64,3 +64,9 @@ src() {
 rspec() {
   bundle exec rspec $@
 }
+
+
+
+lock-screen() {
+  automator ~/.dotfiles/automator/Lock\ Screen.workflow
+}
