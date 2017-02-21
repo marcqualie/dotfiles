@@ -79,8 +79,12 @@ cask 'skype'
 cask 'spotify'
 cask 'xquartz'
 mas 'Airmail 3', id: 918858936
+mas 'Clocks', id: 414554506
 mas 'CloudApp', id: 417602904
 mas 'macOS Server', id: 883878097
+mas 'Microsoft Remote Desktop', id: 715768417
 mas 'Moom', id: 419330170
 mas 'Navicat Essentials for PostgreSQL', id: 466725643
 mas 'Slack', id: 803453959
+mas 'Twitter', id: 409789998
+mas 'Xcode', id: 497799835
