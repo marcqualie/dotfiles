@@ -8,6 +8,6 @@ out "dotfiles/script/update"
 
 run "git pull --rebase"
 
-# script/setup should be idempotent
+# script/bootstrap should be idempotent
 echo ""
-script/setup
+script/bootstrap
