@@ -12,10 +12,16 @@ plugins=(git)
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH="bin":${PATH}
+# Android Development
+export ANT_HOME=/usr/local/opt/ant
+export MAVEN_HOME=/usr/local/opt/maven
+export GRADLE_HOME=/usr/local/opt/gradle
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+export PATH=bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
