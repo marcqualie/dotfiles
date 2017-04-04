@@ -70,3 +70,9 @@ rspec() {
 lock-screen() {
   automator ~/.dotfiles/automator/Lock\ Screen.workflow
 }
+
+
+
+boost-timemachine() {
+  sudo sysctl debug.lowpri_throttle_enabled=0
+}
