@@ -63,6 +63,7 @@ brew 'nmap'
 brew 'node-build'
 brew 'nodenv'
 brew 'postgresql', restart_service: true
+brew 'pyenv'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'rbenv-default-gems'

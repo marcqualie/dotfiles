@@ -11,6 +11,7 @@ plugins=(git)
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+eval "$(pyenv init -)"
 
 # Android Development
 export ANT_HOME=/usr/local/opt/ant
