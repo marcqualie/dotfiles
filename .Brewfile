@@ -17,7 +17,6 @@ brew 'freetype'
 brew 'fontconfig'
 brew 'gettext'
 brew 'libffi'
-brew 'pcre'
 brew 'glib'
 brew 'pixman'
 brew 'cairo'
@@ -35,7 +34,6 @@ brew 'isl@0.14'
 brew 'mpfr'
 brew 'libmpc'
 brew 'gcc@5'
-brew 'gdbm'
 brew 'git'
 brew 'sqlite'
 brew 'python'
@@ -44,10 +42,10 @@ brew 'gnome-doc-utils'
 brew 'gnu-tar'
 brew 'gnupg'
 brew 'go'
-brew 'pkg-config'
 brew 'gobject-introspection'
 brew 'gradle'
 brew 'gtk-doc'
+brew 'heroku'
 brew 'hub'
 brew 'icu4c'
 brew 'itstool'
@@ -60,7 +58,6 @@ brew 'mailhog'
 brew 'mas'
 brew 'maven'
 brew 'nmap'
-brew 'node-build'
 brew 'nodenv'
 brew 'postgresql', restart_service: true
 brew 'pyenv'
@@ -106,5 +103,6 @@ mas 'Pages', id: 409201541
 mas 'Server', id: 883878097
 mas 'Simplenote', id: 692867256
 mas 'Slack', id: 803453959
+mas 'Telegram', id: 747648890
 mas 'Twitter', id: 409789998
 mas 'Xcode', id: 497799835
