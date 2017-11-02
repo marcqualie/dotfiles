@@ -22,7 +22,7 @@ export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
-export PATH=bin:$PATH
+export PATH=bin:./node_modules/.bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
