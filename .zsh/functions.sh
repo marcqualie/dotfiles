@@ -63,6 +63,10 @@ src() {
 
 
 rspec() {
+  if [ -f "bin/rspec" ]; then
+    bin/rspec $@
+    return $?
+  fi
   bundle exec rspec $@
 }
 
