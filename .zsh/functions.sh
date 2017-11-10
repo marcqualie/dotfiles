@@ -102,6 +102,6 @@ function +env() {
   fi
   envz[$cmd]=$cmd
 
-  echo "Initializing ${cmd}"
+  # echo "Initializing ${cmd}"
   eval "$(${cmd} init -)"
 }
