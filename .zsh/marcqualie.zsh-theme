@@ -7,10 +7,14 @@ function maybe_src_path() {
   local wd=$(pwd)
   if [[ "${wd}" =~ '/src/[^/]+/' ]]; then
     local parent=$(dirname "$wd" | xargs basename)
-    echo "%{$fg[grey]%}$parent/$fg[cyan]%c"
+    echo "$(color 008)$parent$(color 232)/$(color 014)%c"
   else
     echo "%c"
   fi
+}
+
+function color() {
+  echo "\e[38;5;${1}m"
 }
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
