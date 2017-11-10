@@ -54,6 +54,10 @@ update-dotfiles() {
   cd -
 }
 
+dotfiles() {
+  cd ~/.dotfiles
+}
+
 
 
 src() {
