@@ -25,11 +25,6 @@ source ~/.zsh/functions.sh
 
 # Always enable ruby, it's kind of a big deal
 +env ruby
-+env node
-+env python
-
-# Autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
