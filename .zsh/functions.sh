@@ -85,3 +85,23 @@ lock-screen() {
 boost-timemachine() {
   sudo sysctl debug.lowpri_throttle_enabled=0
 }
+
+
+
+typeset -AHg envz
+function +env() {
+  local cmd="${1}env"
+  case $1 in
+    node) cmd="nodenv" ;;
+    ruby) cmd="rbenv" ;;
+    python) cmd="pyenv" ;;
+  esac
+  if [ "$envz[$cmd]" != "" ]; then
+    echo "${cmd} is already initialized!"
+    return 1
+  fi
+  envz[$cmd]=$cmd
+
+  echo "Initializing ${cmd}"
+  eval "$(${cmd} init -)"
+}

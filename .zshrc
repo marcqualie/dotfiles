@@ -9,10 +9,6 @@ export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"
 
 plugins=(git)
 
-eval "$(rbenv init -)"
-eval "$(nodenv init -)"
-eval "$(pyenv init -)"
-
 # Android Development
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
@@ -26,6 +22,11 @@ export PATH=bin:./node_modules/.bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
+
+# Always enable ruby, it's kind of a big deal
++env ruby
++env node
++env python
 
 # Autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
