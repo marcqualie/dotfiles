@@ -18,13 +18,16 @@ export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
-export PATH=bin:./node_modules/.bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
 
 # Always enable ruby, it's kind of a big deal
 +env ruby
+
+# Modify PATH after rbenv is initiated
+# TODO: Normalise this after each +env run
+export PATH=bin:./node_modules/.bin:$PATH
 
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
