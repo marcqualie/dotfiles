@@ -1,5 +1,4 @@
 tap "heroku/brew"
-tap "homebrew/nginx"
 tap "homebrew/core"
 tap "homebrew/versions"
 tap "homebrew/bundle"
@@ -64,6 +63,7 @@ brew "mailhog", restart_service: true
 brew "mas"
 brew "maven"
 brew "mysql"
+brew "nginx", restart_service: true
 brew "nmap"
 brew "node"
 brew "node-build"
@@ -82,7 +82,6 @@ brew "watchman"
 brew "wget"
 brew "zsh"
 brew "heroku/brew/heroku"
-brew "homebrew/nginx/nginx-full", args: ["with-http2"]
 cask "android-sdk"
 cask "android-studio"
 cask "atom"
