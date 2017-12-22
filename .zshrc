@@ -22,8 +22,9 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
 
-# Always enable ruby, it's kind of a big deal
+# Always enable ruby and node, they're kind of a big deal
 +env ruby
++env node
 
 # Modify PATH after rbenv is initiated
 # TODO: Normalise this after each +env run
