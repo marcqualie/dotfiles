@@ -105,3 +105,9 @@ function +env() {
   # echo "Initializing ${cmd}"
   eval "$(${cmd} init -)"
 }
+
+
+
+function vs() {
+  open -a "Visual Studio Code" $@
+}
