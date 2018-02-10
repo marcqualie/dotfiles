@@ -9,6 +9,9 @@ export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"
 
 plugins=(git)
 
+# Some homebrew forumlae install to /usr/local/sbin
+export PATH=/usr/local/sbin:$PATH
+
 # Android Development
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
