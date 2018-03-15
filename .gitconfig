@@ -12,11 +12,17 @@
 
 [core]
 	excludesfile = ~/.gitignore-global
-	editor = atom -w
+	editor = code --wait
 	mergeoptions = --no-edit
 
 [credential]
 	helper = osxkeychain
+
+[diff]
+  tool = default-difftool
+
+[difftool "default-difftool"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 
 [fetch]
 	prune = 1
