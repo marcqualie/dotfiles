@@ -109,5 +109,6 @@ function +env() {
 
 
 function vs() {
-  open -a "Visual Studio Code" $@
+  echo "\e[1;33mDEPRECATED\e[0;33m: Please just use \e[1mcode\e[0;33m directly\e[0m"
+  code $@
 }
