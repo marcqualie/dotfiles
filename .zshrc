@@ -21,6 +21,9 @@ export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+# Go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
