@@ -21,6 +21,9 @@ export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
+# Kubernetes
+export PATH=$HOME/.conduit/bin:$PATH
+
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
