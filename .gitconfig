@@ -7,7 +7,7 @@
 	ui = auto
 
 [commit]
-	gpgsign = false
+	gpgSign = true
 	verbose = true
 
 [core]
@@ -38,3 +38,7 @@
 
 [push]
 	default = simple
+[user]
+	signingKey = 822B03FBDEEA045B
+[gpg]
+	program = gpg

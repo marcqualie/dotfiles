@@ -24,6 +24,9 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 # Kubernetes
 export PATH=$HOME/.conduit/bin:$PATH
 
+# GPG
+export GPG_TTY=$(tty)
+
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
