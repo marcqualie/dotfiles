@@ -58,3 +58,7 @@ alias gfo="git fetch origin --prune"
 
 # https://marcqualie.com/2015/08/remove-deleted-git-branches
 alias git-branch-cleanup="git branch -vv | grep gone | awk '{print $1}' | xargs git branch -D"
+
+# Vault Autocompletes
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
