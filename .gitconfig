@@ -41,4 +41,4 @@
 [user]
 	signingKey = 822B03FBDEEA045B
 [gpg]
-	program = gpg
+	program = /usr/local/bin/gpg
