@@ -40,5 +40,7 @@
 	default = simple
 [user]
 	signingKey = 822B03FBDEEA045B
+	name = Marc Qualie
+	email = marc@marcqualie.com
 [gpg]
 	program = /usr/local/bin/gpg
