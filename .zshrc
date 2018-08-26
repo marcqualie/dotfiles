@@ -38,10 +38,6 @@ source ~/.zsh/functions.sh
 +env ruby
 +env node
 
-# Modify PATH after rbenv is initiated
-# TODO: Normalise this after each +env run
-export PATH=bin:./node_modules/.bin:$PATH
-
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'

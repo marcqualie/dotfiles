@@ -104,6 +104,10 @@ function +env() {
 
   # echo "Initializing ${cmd}"
   eval "$(${cmd} init -)"
+
+  # We need to make sure the PATH is put back to normal
+  # TODO: Ensure each entry is only in PATH once
+  export PATH=bin:./node_modules/.bin:$PATH
 }
 
 
