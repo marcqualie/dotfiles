@@ -37,6 +37,7 @@ source ~/.zsh/functions.sh
 # Always enable ruby and node, they're kind of a big deal
 +env ruby
 +env node
++env go
 
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
