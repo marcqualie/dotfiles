@@ -42,9 +42,9 @@ source ~/.zsh/functions.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
 else
-  export EDITOR='atom -w'
+  export EDITOR='code -w'
 fi
-export BUNDLER_EDITOR=atom
+export BUNDLER_EDITOR=code
 
 # Git Aliases
 source ~/.zsh/aliases.sh
