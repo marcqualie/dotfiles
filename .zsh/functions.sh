@@ -1,5 +1,8 @@
 #!/usr/local/bin/zsh
 
+cds() {
+  cd ~/src/$1
+}
 
 
 db-dump() {
