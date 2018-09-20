@@ -1,5 +1,5 @@
 ZSH_THEME="../../.zsh/marcqualie"
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 export ZSH=/Users/marc/.oh-my-zsh
 export SHELL=/usr/local/bin/zsh
