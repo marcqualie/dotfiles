@@ -15,9 +15,7 @@ function color() {
   echo "\e[38;5;${1}m"
 }
 
-PROMPT='
-%{$fg_bold[white]%}$%{$reset_color%} $(maybe_src_path) $(git_prompt_info)
-%{$fg_bold[white]%}$%{$reset_color%} '
+PROMPT='$(maybe_src_path) $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
