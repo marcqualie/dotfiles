@@ -1,15 +1,13 @@
 # Shows parent directory if within source code base directory
 # e.g ~/src/project1/web shows "project1/web" instead of just "web" for ambiguous diectories
-#
-# Based on https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/robbyrussell.zsh-theme
 
 function maybe_src_path() {
   local wd=$(pwd)
   if [[ "${wd}" =~ '/src/[^/]+/' ]]; then
-    local parent=$(dirname "$wd" | xargs basename)
-    echo "$(color 008)$parent$(color 232)/$(color 014)%c"
+    local parent=$(dirname "$wd")
+    echo "%{$fg[cyan]%}${parent/$HOME\/src\//} %{$fg_bold[cyan]%}%c%{$reset_color%}"
   else
-    echo "%c"
+    echo "%{$fg_bold[cyan]%}%c%{$reset_color%}"
   fi
 }
 
@@ -17,8 +15,9 @@ function color() {
   echo "\e[38;5;${1}m"
 }
 
-local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT='${ret_status} %{$fg[cyan]%}$(maybe_src_path)%{$reset_color%} $(git_prompt_info)'
+PROMPT='
+%{$fg_bold[white]%}$%{$reset_color%} $(maybe_src_path) $(git_prompt_info)
+%{$fg_bold[white]%}$%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
