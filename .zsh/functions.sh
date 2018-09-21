@@ -4,6 +4,16 @@ cds() {
   cd ~/src/$1
 }
 
+cd() {
+  builtin cd $1
+  loadenv
+}
+
+loadenv() {
+  if [[ -f Gemfile ]]; then; +env ruby; fi
+  if [[ -f package.json ]]; then; +env node; fi
+  if [[ $(ls -1 | grep '.go$' | wc -l | awk '{$1=$1};1') != '0' ]]; then; +env go; fi
+}
 
 db-dump() {
   DB_DIR="/Users/$USER/iCloud Drive/Database Backups"
@@ -100,8 +110,10 @@ function +env() {
     python) cmd="pyenv" ;;
   esac
   if [ "$envz[$cmd]" != "" ]; then
-    echo "${cmd} is already initialized!"
+    echo "+env ${cmd} ${fg[black]}(cached)${reset_color}"
     return 1
+  else
+    echo "+env ${cmd}"
   fi
   envz[$cmd]=$cmd
 

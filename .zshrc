@@ -34,10 +34,8 @@ export PATH=$GOPATH/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
 
-# Always enable ruby and node, they're kind of a big deal
-+env ruby
-+env node
-+env go
+# Trigger loadenv as soon as shell is available. Also triggered on directory change
+loadenv
 
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
