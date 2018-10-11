@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# JavaScript
+if [ -e yarn.lock ]; then
+  yarn install
+fi
+
+# Ruby
+if [ -e Gemfile ]; then
+  bundle -j 2
+fi

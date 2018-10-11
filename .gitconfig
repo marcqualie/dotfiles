@@ -14,6 +14,7 @@
 	excludesfile = ~/.gitignore-global
 	editor = code --wait
 	mergeoptions = --no-edit
+	hooksPath = ~/.dotfiles/.githooks
 
 [credential]
 	helper = osxkeychain
