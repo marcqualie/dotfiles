@@ -10,5 +10,5 @@ fi
 
 # Ruby
 if [ -e Gemfile ]; then
-  bundle -j 2
+  bundle install -j `sysctl -n hw.ncpu`
 fi
