@@ -1,7 +1,10 @@
-#!/bin/sh
+#!/usr/local/bin/zsh
+
+# Ensure ZSH environment is loaded
+source ~/.zshrc
 
 # JavaScript
-if [ -e yarn.lock ]; then
+if [ -e yarn.lock ] || [ -e package.json ]; then
   yarn install
 fi
 
