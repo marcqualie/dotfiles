@@ -16,7 +16,7 @@
 	ui = auto
 
 [commit]
-	# gpgSign = true
+	gpgSign = true
 	verbose = true
 
 [core]
