@@ -1,7 +1,16 @@
-[include]
-	path = ~/.gitconfig-user
+[user]
+	signingKey = 822B03FBDEEA045B
+	name = Marc Qualie
+	email = marc@marcqualie.com
 
+[github]
+	user = marcqualie
 
+[gpg]
+	program = /usr/local/bin/gpg
+
+[credential]
+	helper = osxkeychain
 
 [color]
 	ui = auto
@@ -15,9 +24,6 @@
 	editor = code --wait
 	mergeoptions = --no-edit
 	hooksPath = ~/.dotfiles/.githooks
-
-[credential]
-	helper = osxkeychain
 
 [diff]
   tool = default-difftool
@@ -39,9 +45,3 @@
 
 [push]
 	default = simple
-[user]
-	signingKey = 822B03FBDEEA045B
-	name = Marc Qualie
-	email = marc@marcqualie.com
-[gpg]
-	program = /usr/local/bin/gpg

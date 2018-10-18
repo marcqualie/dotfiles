@@ -9,7 +9,6 @@ out "dotfiles/script/setup"
 echo ""
 symlink_dotfile Brewfile
 symlink_dotfile gitconfig
-symlink_dotfile gitconfig-user
 symlink_dotfile gitignore-global
 symlink_dotfile zshrc
 symlink_dotfile zsh
