@@ -7,8 +7,6 @@ export UPDATE_ZSH_DAYS=7
 export LANG=en_US.UTF-8
 export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"
 
-plugins=(git)
-
 # Some homebrew forumlae install to /usr/local/sbin
 export PATH=/usr/local/sbin:$PATH
 
