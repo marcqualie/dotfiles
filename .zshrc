@@ -36,8 +36,3 @@ source ~/.zsh/aliases.sh
 
 # https://marcqualie.com/2015/08/remove-deleted-git-branches
 alias git-branch-cleanup="git branch -vv | grep gone | awk '{print $1}' | xargs git branch -D"
-
-# Vault
-export VAULT_ADDR='http://127.0.0.1:8200'
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
