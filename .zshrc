@@ -9,15 +9,6 @@ export BASHDOWN_DEFAULT_COMMAND="open -a /Applications/Google\ Chrome.app"
 # Some homebrew forumlae install to /usr/local/sbin
 export PATH=/usr/local/sbin:$PATH
 
-# Android Development
-export ANT_HOME=/usr/local/opt/ant
-export MAVEN_HOME=/usr/local/opt/maven
-export GRADLE_HOME=/usr/local/opt/gradle
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
 # GPG
 export GPG_TTY=$(tty)
 
