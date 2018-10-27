@@ -33,6 +33,3 @@ export BUNDLER_EDITOR=code
 
 # Git Aliases
 source ~/.zsh/aliases.sh
-
-# https://marcqualie.com/2015/08/remove-deleted-git-branches
-alias git-branch-cleanup="git branch -vv | grep gone | awk '{print $1}' | xargs git branch -D"
