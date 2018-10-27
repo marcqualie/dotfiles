@@ -120,9 +120,16 @@ function +env() {
   # echo "Initializing ${cmd}"
   eval "$(${cmd} init -)"
 
-  # We need to make sure the PATH is put back to normal
-  # TODO: Ensure each entry is only in PATH once
-  export PATH=bin:./node_modules/.bin:$PATH
+  # Each of these tools put their own path at the front, we don't want that
+  loadprepath
+}
+
+
+
+# Ensure our own paths are user first
+function loadprepath() {
+  PREPATH="bin:./node_modules/.bin:"
+  export PATH=$PREPATH${PATH/$PREPATH/}
 }
 
 

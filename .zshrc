@@ -34,6 +34,7 @@ source ~/.zsh/functions.sh
 
 # Trigger loadenv as soon as shell is available. Also triggered on directory change
 loadenv
+loadprepath
 
 # Editor
 if [[ -n $SSH_CONNECTION ]]; then
