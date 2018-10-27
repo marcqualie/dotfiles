@@ -16,20 +16,19 @@ export GPG_TTY=$(tty)
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
+# Custom ZSH extensions
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
+source ~/.zsh/aliases.sh
 
 # Trigger loadenv as soon as shell is available. Also triggered on directory change
 loadenv
 loadprepath
 
-# Editor
+# Override default editors
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
 else
   export EDITOR='code -w'
 fi
 export BUNDLER_EDITOR=code
-
-# Git Aliases
-source ~/.zsh/aliases.sh
