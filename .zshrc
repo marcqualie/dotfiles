@@ -1,5 +1,4 @@
 ZSH_THEME="../../.zsh/marcqualie"
-# COMPLETION_WAITING_DOTS="true"
 
 export ZSH=/Users/marc/.oh-my-zsh
 export SHELL=/usr/local/bin/zsh
@@ -18,9 +17,6 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-
-# Kubernetes
-export PATH=$HOME/.conduit/bin:$PATH
 
 # GPG
 export GPG_TTY=$(tty)
