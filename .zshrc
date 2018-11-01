@@ -8,9 +8,6 @@ export LANG=en_US.UTF-8
 # Some homebrew forumlae install to /usr/local/sbin
 export PATH=/usr/local/sbin:$PATH
 
-# GPG
-export GPG_TTY=$(tty)
-
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH

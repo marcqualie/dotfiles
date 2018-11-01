@@ -17,6 +17,8 @@ symlink_dotfile gemrc
 symlink_dotfile editorconfig
 symlink_dotfile eslintrc.json
 symlink_dotfile tigrc
+symlink_dotfile gnupg/gpg.conf
+symlink_dotfile gnupg/gpg-agent.conf
 
 echo ""
 symlink "$DOTFILES_DIR/etc/dnsmasq.conf" "/usr/local/etc/dnsmasq.conf"
