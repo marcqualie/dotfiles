@@ -12,4 +12,4 @@ alias gcam="git commit -a -m"
 alias gpoh="git push -u origin HEAD"
 
 # https://marcqualie.com/2015/08/remove-deleted-git-branches
-alias git-branch-cleanup="git --no-pager branch -vv | grep ': gone]' | awk '{print $1}' | xargs echo"
+alias git-branch-cleanup="git --no-pager branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
