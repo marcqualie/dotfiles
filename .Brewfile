@@ -28,7 +28,6 @@ brew "cfssl"
 brew "dnsmasq", restart_service: true
 brew "docbook"
 brew "docbook-xsl"
-brew "elixir-build"
 brew "jpeg"
 brew "libtiff"
 brew "exenv"
@@ -50,7 +49,6 @@ brew "gradle"
 brew "graphviz"
 brew "gtk-doc"
 brew "hub"
-brew "hugo"
 brew "icu4c"
 brew "itstool"
 brew "oniguruma"
@@ -59,8 +57,6 @@ brew "libevent"
 brew "libyaml"
 brew "mailhog", restart_service: true
 brew "mas"
-brew "maven"
-brew "mysql"
 brew "nginx", restart_service: true
 brew "nmap"
 brew "node"
@@ -89,10 +85,6 @@ cask "firefox"
 cask "iterm2"
 cask "sketch"
 cask "spotify"
-cask "virtualbox"
-mas "Airmail 3", id: 918858936
-mas "Clocks", id: 414554506
-mas "CloudApp", id: 417602904
 mas "Keynote", id: 409183694
 mas "Moom", id: 419330170
 mas "Navicat Essentials for PostgreSQL", id: 466725643
@@ -100,5 +92,4 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Telegram", id: 747648890
 mas "The Unarchiver", id: 425424353
-mas "Trello", id: 1278508951
 mas "Xcode", id: 497799835
