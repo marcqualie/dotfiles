@@ -37,3 +37,6 @@ NGINX_CONFIG=${NGINX_CONFIG//\$\{HOME\}/$HOME}
 NGINX_CONFIG=${NGINX_CONFIG//\$\{NPROC\}/$(sysctl hw.physicalcpu | awk '{print $2}')}
 echo $NGINX_CONFIG > /usr/local/etc/nginx/nginx.conf
 out "configured /usr/local/etc/nginx/nginx.conf"
+
+# Permissions
+chmod -R 700 ~/.gnupg
