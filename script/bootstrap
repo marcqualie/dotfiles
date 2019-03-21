@@ -22,10 +22,18 @@ symlink_dotfile gnupg/gpg-agent.conf
 
 echo ""
 symlink "$DOTFILES_DIR/etc/dnsmasq.conf" "/usr/local/etc/dnsmasq.conf"
-symlink "$DOTFILES_DIR/etc/nginx/nginx.conf" "/usr/local/etc/nginx/nginx.conf"
 symlink "$DOTFILES_DIR/etc/nginx/server_defaults" "/usr/local/etc/nginx/server_defaults"
 symlink "$DOTFILES_DIR/etc/nginx/public" "/usr/local/etc/nginx/public"
 symlink "$DOTFILES_DIR/etc/redis.conf" "/usr/local/etc/redis.conf"
 
 echo ""
 symlink ~/Library/Mobile\ Documents/com\~apple\~CloudDocs ~/iCloud\ Drive
+
+# Nginx is templated, so we need to replace vars
+echo ""
+NGINX_CONFIG=$(cat $DOTFILES_DIR/etc/nginx/nginx.conf)
+NGINX_CONFIG=${NGINX_CONFIG//\$\{USER\}/$USER}
+NGINX_CONFIG=${NGINX_CONFIG//\$\{HOME\}/$HOME}
+NGINX_CONFIG=${NGINX_CONFIG//\$\{NPROC\}/$(sysctl hw.physicalcpu | awk '{print $2}')}
+echo $NGINX_CONFIG > /usr/local/etc/nginx/nginx.conf
+out "configured /usr/local/etc/nginx/nginx.conf"
