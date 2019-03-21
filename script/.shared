@@ -51,6 +51,7 @@ symlink_dotfile() {
   DOTFILE=".$1"
   SYMLINK_AS=~/$DOTFILE
   if [ "$2" != "" ]; then SYMLINK_AS=$2; fi
+  [[ -d $(dirname $SYMLINK_AS) ]] || mkdir -p $(dirname $SYMLINK_AS)
   #out "symlink_dotfile $1"
   symlink "$DOTFILES_DIR/$DOTFILE" "$SYMLINK_AS"
 }
