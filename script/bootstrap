@@ -21,6 +21,9 @@ symlink_dotfile gnupg/gpg.conf
 symlink_dotfile gnupg/gpg-agent.conf
 
 echo ""
+symlink_dotfile_force hyper.js # hyper keeps writing it back instantly
+
+echo ""
 symlink "$DOTFILES_DIR/etc/dnsmasq.conf" "/usr/local/etc/dnsmasq.conf"
 symlink "$DOTFILES_DIR/etc/nginx/server_defaults" "/usr/local/etc/nginx/server_defaults"
 symlink "$DOTFILES_DIR/etc/nginx/public" "/usr/local/etc/nginx/public"
