@@ -9,6 +9,17 @@ cd() {
   loadenv
 }
 
+cdabs() {
+  SYMPATH=$(pwd)
+  REALPATH=$(pwd -P)
+  if [[ "$SYMPATH" == "$REALPATH" ]]; then
+    echo "You are already in REALPATH"
+  else
+    echo "resolving to $REALPATH"
+    cd $REALPATH
+  fi
+}
+
 
 
 loadenv() {
