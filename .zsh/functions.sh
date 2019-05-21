@@ -87,6 +87,6 @@ function +env() {
 
 # Ensure our own paths are user first
 function loadprepath() {
-  PREPATH="bin:./node_modules/.bin:"
+  PREPATH="./bin:./node_modules/.bin:"
   export PATH=$PREPATH${PATH/$PREPATH/}
 }
