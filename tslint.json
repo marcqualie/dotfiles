@@ -1,0 +1,38 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "max-line-length": [
+      false
+    ],
+    "member-access": [
+      true,
+      "no-public"
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "arrays": "always",
+          "exports": "always",
+          "imports": "always",
+          "objects": "always",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        },
+        "singleline": "never"
+      }
+    ]
+  }
+}
