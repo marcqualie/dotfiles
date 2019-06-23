@@ -20,5 +20,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "gitlens.blame.separateLines": false,
   "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.codeLens.authors.enabled": false
+  "gitlens.codeLens.authors.enabled": false,
+  "workbench.settings.editor": "json"
 }
