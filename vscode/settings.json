@@ -1,0 +1,24 @@
+{
+  "atomKeymap.promptV3Features": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.formatOnPaste": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.activityBar.visible": false,
+  "go.coverOnSave": true,
+  "go.formatTool": "gofmt",
+  "go.gocodeAutoBuild": true,
+  "go.autocompleteUnimportedPackages": true,
+  "go.liveErrors": {
+    "enabled": false,
+    "delay": 250
+  },
+  "editor.scrollBeyondLastLine": false,
+  "window.zoomLevel": 0,
+  "explorer.confirmDragAndDrop": false,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "gitlens.blame.separateLines": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false
+}
