@@ -6,6 +6,10 @@ cd $DOTFILES_DIR
 source $DOTFILES_DIR/script/.shared
 out "dotfiles/script/setup"
 
+# Apply MacOS defaults
+echo ""
+run "sh $DOTFILES_DIR/macos/defaults.sh"
+
 echo ""
 symlink_dotfile Brewfile
 symlink_dotfile gitconfig
