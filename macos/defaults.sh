@@ -2,15 +2,15 @@
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock show-process-indicators -bool true
-defaults write com.apple.dock tilesize 32
+defaults write com.apple.dock tilesize -int 48
 killall Dock
 
 # Add a space to the Dock
 # defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="small-spacer-tile";}'; killall Dock
 
 # Keyboard
-defaults write NSGlobalDomain InitialKeyRepeat 10
-defaults write NSGlobalDomain KeyRepeat 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Security
 defaults write com.apple.screensaver askForPassword -int 1
