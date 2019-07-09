@@ -12,6 +12,7 @@
     "enabled": false,
     "delay": 250
   },
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.scrollBeyondLastLine": false,
   "window.zoomLevel": 0,
   "explorer.confirmDragAndDrop": false,
