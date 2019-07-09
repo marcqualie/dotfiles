@@ -26,3 +26,6 @@ defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRecentTags -bool false
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 killall Finder
+
+# Zoom patches: https://medium.com/@jonathan.leitschuh/zoom-zero-day-4-million-webcams-maybe-an-rce-just-get-them-to-visit-your-website-ac75c83f4ef5
+defaults write ~/Library/Preferences/us.zoom.config.plist ZDisableVideo 1
