@@ -1,7 +1,7 @@
 {
   "atomKeymap.promptV3Features": true,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.formatOnPaste": true,
+  "editor.formatOnPaste": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.activityBar.visible": false,
   "go.coverOnSave": true,
