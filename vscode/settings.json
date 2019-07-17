@@ -4,6 +4,7 @@
   "editor.formatOnPaste": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.activityBar.visible": false,
+  "workbench.tree.renderIndentGuides": "hover",
   "go.coverOnSave": true,
   "go.formatTool": "gofmt",
   "go.gocodeAutoBuild": true,
