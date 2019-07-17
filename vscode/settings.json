@@ -5,6 +5,9 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.activityBar.visible": false,
   "workbench.tree.renderIndentGuides": "hover",
+  "files.associations": {
+    "Dockerfile*": "dockerfile",
+  },
   "go.coverOnSave": true,
   "go.formatTool": "gofmt",
   "go.gocodeAutoBuild": true,
