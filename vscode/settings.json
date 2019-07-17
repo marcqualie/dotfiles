@@ -22,6 +22,7 @@
   "explorer.confirmDragAndDrop": false,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "gitlens.blame.separateLines": false,
   "gitlens.codeLens.recentChange.enabled": false,
