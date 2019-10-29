@@ -157,7 +157,15 @@ module.exports = {
   localPlugins: [],
 
   keymaps: {
-    // Example
-    // 'window:devtools': 'cmd+alt+o',
+    "tab:prev": [
+      "command+left",
+      "ctrl+shift+tab",
+    ],
+    "tab:next": [
+      "command+right",
+      "ctrl+tab",
+    ],
+    "editor:moveBeginningLine": "",
+    "editor:moveEndLine": "",
   },
 };
