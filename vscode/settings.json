@@ -16,6 +16,8 @@
     "enabled": false,
     "delay": 250
   },
+  "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.scrollBeyondLastLine": false,
   "window.zoomLevel": 0,
