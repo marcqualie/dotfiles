@@ -12,6 +12,7 @@ run "sh $DOTFILES_DIR/macos/defaults.sh"
 
 echo ""
 symlink_dotfile Brewfile
+symlink_dotfile railsrc
 symlink_dotfile gitconfig
 symlink_dotfile gitignore-global
 symlink_dotfile zshrc
