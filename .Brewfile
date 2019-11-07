@@ -52,6 +52,7 @@ cask "firefox"
 cask "hyper"
 cask "sketch"
 cask "spotify"
+cask "visual-studio-code"
 cask "xquartz"
 mas "Keynote", id: 409183694
 mas "Moom", id: 419330170
