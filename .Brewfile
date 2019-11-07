@@ -1,7 +1,6 @@
 tap "heroku/brew"
 tap "homebrew/core"
 tap "homebrew/bundle"
-tap "homebrew/cask-cask"
 tap "homebrew/services"
 brew "autoconf"
 brew "automake"
