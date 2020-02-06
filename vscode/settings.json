@@ -34,5 +34,6 @@
   "gitlens.views.lineHistory.location": "gitlens",
   "gitlens.views.compare.location": "gitlens",
   "gitlens.views.search.location": "gitlens",
-  "workbench.settings.editor": "json"
+  "workbench.settings.editor": "json",
+  "editor.tabSize": 2
 }
