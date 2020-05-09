@@ -3,8 +3,8 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.formatOnPaste": false,
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.activityBar.visible": false,
-  "workbench.tree.renderIndentGuides": "hover",
+  "workbench.activityBar.visible": true,
+  "workbench.tree.renderIndentGuides": "onHover",
   "files.associations": {
     "Dockerfile*": "dockerfile",
   },
