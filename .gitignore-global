@@ -18,3 +18,5 @@ ehthumbs.db
 .go-version
 venv
 *.code-workspace
+yarn-error.log
+node_modules
