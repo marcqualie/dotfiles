@@ -7,6 +7,7 @@
   "workbench.tree.renderIndentGuides": "onHover",
   "files.associations": {
     "Dockerfile*": "dockerfile",
+    "*.tmpl": "terraform"
   },
   "go.coverOnSave": true,
   "go.formatTool": "gofmt",
