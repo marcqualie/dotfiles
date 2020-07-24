@@ -37,6 +37,11 @@ symlink "$DOTFILES_DIR/etc/nginx/public" "/usr/local/etc/nginx/public"
 symlink "$DOTFILES_DIR/etc/redis.conf" "/usr/local/etc/redis.conf"
 symlink "$DOTFILES_DIR/macos/quick-actions/copy-path" "$HOME/Library/Services/copy-path.workflow"
 
+# vscode snippets cannot be symlinked
+echo ""
+mkdir -p "$HOME/Library/Application Support/Code/User/snippets"
+cp -r "$DOTFILES_DIR/vscode/snippets/" "$HOME/Library/Application Support/Code/User/snippets/"
+
 echo ""
 symlink ~/Library/Mobile\ Documents/com\~apple\~CloudDocs ~/iCloud\ Drive
 

@@ -1,0 +1,10 @@
+{
+  "vue": {
+    "prefix": "vue",
+    "body": [
+      "<template>\n  <div>$0</div>\n</template>",
+      "<script lang=\"ts\">\nimport Vue from 'vue'\n\nexport default Vue.extend({\n})\n</script>"
+    ],
+    "description": "Vue component"
+  }
+}
