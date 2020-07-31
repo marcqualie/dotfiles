@@ -18,6 +18,7 @@ source ~/.zsh/functions.sh
 source ~/.zsh/aliases.sh
 
 # Trigger loadenv as soon as shell is available. Also triggered on directory change
+eval "$(direnv hook zsh)"
 loadenv
 loadprepath
 
