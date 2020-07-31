@@ -12,7 +12,8 @@ function maybe_src_path() {
   local parent=$(dirname "$wd")
   local dir=$(basename "$wd")
   local prefix=""
-  local spacer="%{$fg[black]%}/"
+  local separator="%{$fg[black]%}/"
+  local spacer=" "
   if [[ "$wd" =~ "$GOPATH/src/" ]]; then
     prefix="%{$fg[green]%}go "
   elif [[ "$wd" =~ "$projdir" ]]; then
@@ -24,14 +25,27 @@ function maybe_src_path() {
   parent="${parent/$projdir/}"
   parent="${parent/$HOME\//~/}"
   parent="${parent/$HOME/~}"
-  [[ "$parent" == "" ]] && spacer=""
+  [[ "$parent" == "" ]] && separator=""
   if [[ "$wd" = "$projdir" ]]; then
     parent=""
-    spacer=""
+    separator=""
     dir=""
     prefix="%{$FG[240]%}github.com"
   fi
-  echo "${prefix}%{$fg[cyan]%}${parent}${spacer}%{$fg_bold[cyan]%}${dir}%{$reset_color%}"
+
+  # In vscode there is less horitzontal real estate, we can strip out the project root
+  if [[ "$VSCODE_WORKSPACE_ROOT" != "" ]]; then
+    parent="$(basename $VSCODE_WORKSPACE_ROOT)"
+    if [[ "$parent" == " " ]]; then; parent = ""; fi
+    prefix=""
+    dir=$(pwd)
+    dir="${dir/$VSCODE_WORKSPACE_ROOT\// }"
+    dir="${dir/$VSCODE_WORKSPACE_ROOT/}"
+    separator=""
+    spacer=""
+  fi
+
+  echo "${prefix}%{$fg[cyan]%}${parent}${spacer}%{$fg_bold[cyan]%}${dir}%{$reset_color%}${spacer}"
 }
 
 function color() {

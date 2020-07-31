@@ -28,6 +28,9 @@
   "editor.renderWhitespace": "all",
   "terminal.integrated.cwd": "${workspaceFolder}",
   "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "terminal.integrated.env.osx": {
+    "VSCODE_WORKSPACE_ROOT": "${workspaceFolder}"
+  },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "gitlens.blame.separateLines": false,
   "gitlens.codeLens.recentChange.enabled": false,
