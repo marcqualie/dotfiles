@@ -44,4 +44,5 @@
   "editor.tabSize": 2
   "go.inferGopath": true,
   "go.useLanguageServer": true,
+  "workbench.colorTheme": "GitHub Dark"
 }
