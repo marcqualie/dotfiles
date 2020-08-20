@@ -42,4 +42,6 @@
   "gitlens.views.search.location": "gitlens",
   "workbench.settings.editor": "json",
   "editor.tabSize": 2
+  "go.inferGopath": true,
+  "go.useLanguageServer": true,
 }
