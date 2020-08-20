@@ -49,9 +49,6 @@ brew "zsh"
 cask "bartender"
 cask "cyberduck"
 cask "dropbox"
-cask "firefox"
-cask "hyper"
-cask "sketch"
 cask "spotify"
 cask "visual-studio-code"
 cask "xquartz"
@@ -61,5 +58,4 @@ mas "Navicat Essentials for PostgreSQL", id: 466725643
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Telegram", id: 747648890
-mas "The Unarchiver", id: 425424353
 mas "Xcode", id: 497799835
