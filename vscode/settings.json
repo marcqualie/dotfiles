@@ -21,6 +21,18 @@
   "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
+  "editor.tabCompletion": "on",
   "editor.scrollBeyondLastLine": false,
   "window.zoomLevel": 0,
   "explorer.confirmDragAndDrop": false,
