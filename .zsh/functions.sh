@@ -28,12 +28,12 @@ loadenv() {
   if [[ $(ls -1 | grep '.go$' | wc -l | awk '{$1=$1};1') != '0' ]]; then; +env go; fi
 
   # Load everything when inside a vscode terminal
-  if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-    +env ruby
-    +env node
-    +env go
-    +env python
-  fi
+  # if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  #   +env ruby
+  #   +env node
+  #   +env go
+  #   +env python
+  # fi
 
   # Detect symlinked directories
   # This comes up quite a lot when working with Go
