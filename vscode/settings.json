@@ -42,6 +42,21 @@
   "gitlens.views.search.location": "gitlens",
   "workbench.settings.editor": "json",
   "editor.tabSize": 2
+  "terraform.indexing": {
+    "enabled": false,
+    "liveIndexing": false,
+    "delay": 500,
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ]
+  },
+  "terraform.languageServer": {
+    "external": true,
+    "args": [
+      "serve"
+    ]
+  },
   "go.inferGopath": true,
   "go.useLanguageServer": true,
   "workbench.colorTheme": "GitHub Dark"
