@@ -25,7 +25,7 @@ cdabs() {
 loadenv() {
   if [[ -f Gemfile ]]; then; +env ruby; fi
   if [[ -f package.json ]]; then; +env node; fi
-  if [[ $(ls -1 | grep '.go$' | wc -l | awk '{$1=$1};1') != '0' ]]; then; +env go; fi
+  # if [[ $(ls -1 | grep '.go$' | wc -l | awk '{$1=$1};1') != '0' ]]; then; +env go; fi
 
   # Load everything when inside a vscode terminal
   # if [[ "$TERM_PROGRAM" == "vscode" ]]; then
