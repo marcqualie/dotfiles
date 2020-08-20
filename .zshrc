@@ -1,4 +1,4 @@
-ZSH_THEME="../../.zsh/marcqualie"
+export ZSH_THEME="../../.zsh/marcqualie"
 
 export ZSH=$HOME/.oh-my-zsh
 export SHELL=/usr/local/bin/zsh
