@@ -42,6 +42,9 @@
   "gitlens.views.search.location": "gitlens",
   "workbench.settings.editor": "json",
   "editor.tabSize": 2
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "smooth",
   "explorer.confirmDelete": false,
   "terraform.indexing": {
     "enabled": false,
