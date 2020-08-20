@@ -42,6 +42,7 @@
   "gitlens.views.search.location": "gitlens",
   "workbench.settings.editor": "json",
   "editor.tabSize": 2
+  "explorer.confirmDelete": false,
   "terraform.indexing": {
     "enabled": false,
     "liveIndexing": false,
