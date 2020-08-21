@@ -7,6 +7,7 @@ brew "automake"
 brew "awscli"
 brew "certbot"
 brew "cfssl"
+brew 'cmake'
 brew "direnv"
 brew "dnsmasq", restart_service: true
 brew "glib"
