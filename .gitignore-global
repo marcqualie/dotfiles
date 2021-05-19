@@ -20,3 +20,4 @@ venv
 *.code-workspace
 yarn-error.log
 node_modules
+.ruby-version
