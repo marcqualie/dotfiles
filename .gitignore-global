@@ -20,4 +20,5 @@ venv
 *.code-workspace
 yarn-error.log
 node_modules
+Procfile.local
 .ruby-version
