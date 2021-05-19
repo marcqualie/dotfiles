@@ -28,6 +28,7 @@
   },
   "eslint.validate": [
     "javascript",
+    "typescript",
     "javascriptreact",
     "vue"
   ],
