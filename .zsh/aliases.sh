@@ -16,3 +16,5 @@ alias gbc="git --no-pager branch -vv | grep ': gone]' | awk '{print \$1}' | xarg
 alias git-branch-cleanup="gbc"
 
 alias rspec="bundle exec rspec"
+
+alias tf="terraform"
