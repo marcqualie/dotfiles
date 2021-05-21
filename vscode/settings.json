@@ -103,4 +103,9 @@
   "solargraph.checkGemVersion": false,
   "solargraph.bundlerPath": "/Users/marc/.rbenv/shims/bundle",
   "solargraph.commandPath": "/Users/marc/.rbenv/shims/solargraph",
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/marcqualie/ecsx/main/schema.json": [
+      "ecsx.yml"
+    ]
+  }
 }
