@@ -60,7 +60,6 @@
   "editor.cursorSmoothCaretAnimation": true,
   "editor.smoothScrolling": true,
   "editor.cursorBlinking": "smooth",
-  "ruby.rubocop.executePath": "/Users/marc/.rbenv/shims/",
   "explorer.confirmDelete": false,
   "terraform.indexing": {
     "enabled": false,
@@ -77,8 +76,6 @@
       "serve"
     ]
   },
-  "ruby.rubocop.useBundler": true,
-  "ruby.rubocop.suppressRubocopWarnings": true,
   "go.inferGopath": true,
   "go.useLanguageServer": true,
   "workbench.colorTheme": "GitHub Dark"
@@ -86,4 +83,24 @@
   "eslint.lintTask.enable": true,
   "eslint.packageManager": "yarn",
   "eslint.alwaysShowStatus": true,
+  // Ruby
+  "[ruby]": {
+    // "editor.defaultFormatter": "rebornix.ruby"
+  },
+  "ruby.rubocop.executePath": "/Users/marc/.rbenv/shims/",
+  "ruby.rubocop.suppressRubocopWarnings": true,
+  "ruby.rubocop.useBundler": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true
+    },
+  },
+  "ruby.intellisense": "rubyLocate",
+  "ruby.useBundler": true,
+  "ruby.format": "rubocop",
+  "ruby.useLanguageServer": true,
+  "solargraph.formatting": true,
+  "solargraph.checkGemVersion": false,
+  "solargraph.bundlerPath": "/Users/marc/.rbenv/shims/bundle",
+  "solargraph.commandPath": "/Users/marc/.rbenv/shims/solargraph",
 }
