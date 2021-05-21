@@ -56,7 +56,7 @@
   "gitlens.views.compare.location": "gitlens",
   "gitlens.views.search.location": "gitlens",
   "workbench.settings.editor": "json",
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
   "editor.cursorSmoothCaretAnimation": true,
   "editor.smoothScrolling": true,
   "editor.cursorBlinking": "smooth",
@@ -78,7 +78,7 @@
   },
   "go.inferGopath": true,
   "go.useLanguageServer": true,
-  "workbench.colorTheme": "GitHub Dark"
+  "workbench.colorTheme": "Default Dark+",
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.packageManager": "yarn",
