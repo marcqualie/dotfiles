@@ -21,7 +21,7 @@
   "editor.fontLigatures": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
@@ -32,6 +32,9 @@
     "javascriptreact",
     "vue"
   ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "editor.tabCompletion": "on",
   "editor.scrollBeyondLastLine": false,
   "window.zoomLevel": 0,
@@ -79,4 +82,8 @@
   "go.inferGopath": true,
   "go.useLanguageServer": true,
   "workbench.colorTheme": "GitHub Dark"
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.packageManager": "yarn",
+  "eslint.alwaysShowStatus": true,
 }
