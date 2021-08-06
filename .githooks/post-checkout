@@ -3,15 +3,4 @@
 # Ensure ZSH environment is loaded
 source ~/.zshrc
 
-# Only run out custom stuff inside project root
-if [[ "$PWD/" = $HOME/src/* ]]; then
-  # JavaScript
-  if [ -e yarn.lock ] || [ -e package.json ]; then
-    yarn install
-  fi
-
-  # Ruby
-  if [ -e Gemfile ]; then
-    bundle install -j `sysctl -n hw.ncpu`
-  fi
-fi
+source $(dirname $0)/update-dependencies

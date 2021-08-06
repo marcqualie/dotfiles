@@ -3,12 +3,4 @@
 # Ensure ZSH environment is loaded
 source ~/.zshrc
 
-# JavaScript
-if [ -e yarn.lock ] || [ -e package.json ]; then
-  yarn install
-fi
-
-# Ruby
-if [ -e Gemfile ]; then
-  bundle install -j `sysctl -n hw.ncpu`
-fi
+source $(dirname $0)/update-dependencies
