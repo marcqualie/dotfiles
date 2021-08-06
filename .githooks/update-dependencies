@@ -6,7 +6,9 @@ source $(dirname $0)/shared-functions
 if [[ "$PWD/" = $HOME/src/* ]]; then
   # JavaScript
   if [ -e yarn.lock ] || [ -e package.json ]; then; yarn_install; fi
+  if [ -e frontend/yarn.lock ] || [ -e frontend/package.json ]; then (cd frontend; yarn_install); fi
 
   # Ruby
   if [ -e Gemfile ]; then bundle_install; fi
+  if [ -e backend/Gemfile ]; then (cd backend; bundle_install); fi
 fi
