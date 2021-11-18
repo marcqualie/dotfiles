@@ -17,6 +17,9 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
 source ~/.zsh/aliases.sh
 
+# Disable some default systems loading
+export DISABLE_SPRING=true
+
 # Trigger loadenv as soon as shell is available. Also triggered on directory change
 eval "$(direnv hook zsh)"
 loadenv
