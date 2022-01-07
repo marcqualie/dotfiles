@@ -12,10 +12,11 @@ export PATH=/usr/local/sbin:$PATH
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
-# Custom ZSH extensions
+# Custom ZSH extensions + environment
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
 source ~/.zsh/aliases.sh
+source ~/.zsh/android.sh
 
 # Disable some default systems loading
 export DISABLE_SPRING=true
