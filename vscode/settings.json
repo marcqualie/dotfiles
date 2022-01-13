@@ -142,7 +142,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vetur.experimental.templateInterpolationService": true,
   "vetur.validation.style": false,
-  "vetur.validation.templateProps": true
+  "vetur.validation.templateProps": true,
 
   // Ruby
   "[ruby]": {
