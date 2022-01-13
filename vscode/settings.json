@@ -141,6 +141,9 @@
   "eslint.packageManager": "yarn",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "vetur.experimental.templateInterpolationService": true,
+  "vetur.validation.style": false,
+  "vetur.validation.templateProps": true
 
   // Ruby
   "[ruby]": {
@@ -177,10 +180,5 @@
       "**/.terraform/**/*"
     ],
     "liveIndexing": false
-  },
-
-  // Vue
-  "vetur.experimental.templateInterpolationService": true,
-  "vetur.validation.style": false,
-  "vetur.validation.templateProps": true
+  }
 }
