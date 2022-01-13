@@ -8,39 +8,39 @@
     "tailwindcss",
     "youtube"
   ],
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.formatOnPaste": false,
-  "editor.bracketPairColorization.enabled": true,
   "editor.accessibilitySupport": "off",
-  "editor.tabCompletion": "on",
-  "editor.scrollBeyondLastLine": false,
-  "editor.renderWhitespace": "all",
-  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.tabSize": 2,
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.smoothScrolling": true,
-  "editor.cursorBlinking": "smooth",
-  "editor.suggestSelection": "first",
+  "editor.formatOnPaste": false,
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
-  // "editor.codeActionsOnSave": {
-  //   "source.fixAll.eslint": true
-  // },
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderWhitespace": "all",
+  "editor.scrollBeyondLastLine": false,
+  "editor.smoothScrolling": true,
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
   "eslint.validate": [
     "javascript",
     "typescript",
     "javascriptreact",
     "vue"
   ],
+  "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.packageManager": "yarn",
-  "eslint.alwaysShowStatus": true,
+  "explorer.confirmDelete": true,
   "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
   "files.associations": {
     "Dockerfile*": "dockerfile",
     "*.tmpl": "terraform"
@@ -59,21 +59,20 @@
   "githubPullRequests.remotes": [
     "origin"
   ],
-  "gitlens.blame.separateLines": false,
-  "gitlens.views.repositories.location": "gitlens",
-  "gitlens.views.fileHistory.location": "gitlens",
-  "gitlens.views.lineHistory.location": "gitlens",
-  "gitlens.views.compare.location": "gitlens",
-  "gitlens.views.search.location": "gitlens",
-  "gitlens.statusBar.enabled": false,
   "gitlens.advanced.blame.delayAfterEdit": 120000,
   "gitlens.advanced.blame.sizeThresholdAfterEdit": 120000,
   "gitlens.advanced.maxSearchItems": 50,
-  "gitlens.blame.avatars": false,
+  "gitlens.blame.avatars": true,
   "gitlens.blame.ignoreWhitespace": true,
+  "gitlens.blame.separateLines": false,
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.codeLens.enabled": false,
-  "gulp.autoDetect": "off",
+  "gitlens.statusBar.enabled": false,
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.search.location": "gitlens",
   "redhat.telemetry.enabled": false,
   "stripe.telemetry.enabled": false,
   "tailwindCSS.experimental.classRegex": [
@@ -91,13 +90,13 @@
   "vsnotes.defaultNotePath": "/Users/marc/src/marcqualie/vsnotes",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 1,
-  "workbench.settings.editor": "json",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.tree.renderIndentGuides": "onHover",
-  "workbench.sideBar.location": "right",
+  "workbench.activityBar.visible": false,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.activityBar.visible": false,
+  "workbench.settings.editor": "json",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.renderIndentGuides": "onHover",
   "yaml.schemas": {
     "file:///Users/marc/src/marcqualie/ecsx/schema.json": [
       "ecsx.yml"
@@ -108,16 +107,16 @@
   },
 
   // Go
-  "go.coverOnSave": true,
-  "go.formatTool": "gofmt",
-  "go.formatOnSave": true,
-  "go.gocodeAutoBuild": true,
   "go.autocompleteUnimportedPackages": true,
+  "go.coverOnSave": true,
+  "go.formatOnSave": true,
+  "go.formatTool": "gofmt",
+  "go.gocodeAutoBuild": true,
+  "go.inferGopath": true,
   "go.liveErrors": {
     "enabled": true,
     "delay": 250
   },
-  "go.inferGopath": true,
   "go.useLanguageServer": true,
 
   // JavaScript/TypeScript
@@ -132,22 +131,22 @@
   "[ruby]": {
     // "editor.defaultFormatter": "rebornix.ruby"
   },
-  "ruby.rubocop.executePath": "/Users/marc/.rbenv/shims/",
-  "ruby.rubocop.suppressRubocopWarnings": true,
-  "ruby.rubocop.useBundler": true,
+  "ruby.format": "rubocop",
+  "ruby.intellisense": "rubyLocate",
   "ruby.lint": {
     "rubocop": {
       "useBundler": true
     },
   },
-  "ruby.intellisense": "rubyLocate",
+  "ruby.rubocop.executePath": "/Users/marc/.rbenv/shims/",
+  "ruby.rubocop.suppressRubocopWarnings": true,
+  "ruby.rubocop.useBundler": true,
   "ruby.useBundler": true,
-  "ruby.format": "rubocop",
   "ruby.useLanguageServer": true,
-  "solargraph.formatting": true,
-  "solargraph.checkGemVersion": false,
   "solargraph.bundlerPath": "/Users/marc/.rbenv/shims/bundle",
+  "solargraph.checkGemVersion": false,
   "solargraph.commandPath": "/Users/marc/.rbenv/shims/solargraph",
+  "solargraph.formatting": true,
   "sorbet.bundlerPath": "/Users/marc/.rbenv/shims/bundler",
   "sorbet.useBundler": true,
 
@@ -156,13 +155,13 @@
     "editor.formatOnSave": true
   },
   "terraform.indexing": {
-    "enabled": false,
-    "liveIndexing": false,
     "delay": 500,
+    "enabled": false,
     "exclude": [
       ".terraform/**/*",
       "**/.terraform/**/*"
-    ]
+    ],
+    "liveIndexing": false
   },
 
   // Vue
