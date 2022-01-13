@@ -70,7 +70,6 @@
   "timeline.excludeSources": [
     "git-history"
   ],
-  "vsnotes.defaultNotePath": "/Users/marc/src/marcqualie/vsnotes",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 1,
   "workbench.activityBar.visible": false,
