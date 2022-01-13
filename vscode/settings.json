@@ -1,28 +1,130 @@
 {
   "atomKeymap.promptV3Features": true,
-  "editor.multiCursorModifier": "ctrlCmd",
+  "cSpell.userWords": [
+    "Cogsworth",
+    "marcqualie",
+    "signisto",
+    "supabase",
+    "tailwindcss",
+    "youtube"
+  ],
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
   "editor.formatOnPaste": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.tree.renderIndentGuides": "onHover",
+  "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderWhitespace": "all",
+  "editor.scrollBeyondLastLine": false,
+  "editor.smoothScrolling": true,
+  "editor.suggestSelection": "first",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": true,
+  "explorer.confirmDragAndDrop": false,
   "files.associations": {
     "Dockerfile*": "dockerfile",
     "*.tmpl": "terraform"
   },
-  "go.coverOnSave": true,
-  "go.formatTool": "gofmt",
-  "go.formatOnSave": true,
-  "go.gocodeAutoBuild": true,
+  "git.autofetch": false,
+  "git.autofetchPeriod": 600,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false,
+    "sql": false
+  },
+  "githubPullRequests.defaultMergeMethod": "squash",
+  "githubPullRequests.remotes": [
+    "origin"
+  ],
+  "gitlens.advanced.blame.delayAfterEdit": 120000,
+  "gitlens.advanced.blame.sizeThresholdAfterEdit": 120000,
+  "gitlens.advanced.maxSearchItems": 50,
+  "gitlens.blame.avatars": true,
+  "gitlens.blame.ignoreWhitespace": true,
+  "gitlens.blame.separateLines": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.search.location": "gitlens",
+  "tailwindCSS.experimental.classRegex": [
+    "bg-color"
+  ],
+  "tailwindCSS.experimental.showPixelValues": true,
+  "terminal.integrated.cwd": "${workspaceFolder}",
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "terminal.integrated.env.osx": {
+    "VSCODE_WORKSPACE_ROOT": "${workspaceFolder}"
+  },
+  "timeline.excludeSources": [
+    "git-history"
+  ],
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "window.zoomLevel": 1,
+  "workbench.activityBar.visible": false,
+  "workbench.editor.pinnedTabSizing": "shrink",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.settings.editor": "json",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.renderIndentGuides": "onHover",
+  "yaml.schemas": {
+    "file:///Users/marc/src/marcqualie/ecsx/schema.json": [
+      "ecsx.yml"
+    ],
+    // "https://raw.githubusercontent.com/marcqualie/ecsx/main/schema.json": [
+    //   "ecsx.yml"
+    // ]
+  },
+
+  // Disable tracking
+  "githubPullRequests.telemetry.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "stripe.telemetry.enabled": false,
+
+  // Go
   "go.autocompleteUnimportedPackages": true,
+  "go.coverOnSave": true,
+  "go.formatOnSave": true,
+  "go.formatTool": "gofmt",
+  "go.gocodeAutoBuild": true,
+  "go.inferGopath": true,
   "go.liveErrors": {
     "enabled": true,
     "delay": 250
   },
-  "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.formatOnSave": true,
+  "go.useLanguageServer": true,
+
+  // JavaScript/TypeScript
   "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
@@ -32,80 +134,50 @@
     "javascriptreact",
     "vue"
   ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "editor.tabCompletion": "on",
-  "editor.scrollBeyondLastLine": false,
-  "window.zoomLevel": 0,
-  "explorer.confirmDragAndDrop": false,
-  "editor.minimap.enabled": false,
-  "editor.renderWhitespace": "all",
-  "terminal.integrated.cwd": "${workspaceFolder}",
-  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
-  "terminal.integrated.env.osx": {
-    "VSCODE_WORKSPACE_ROOT": "${workspaceFolder}"
-  },
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "gitlens.blame.separateLines": false,
-  "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.codeLens.authors.enabled": false,
-  "gitlens.views.repositories.location": "gitlens",
-  "gitlens.views.fileHistory.location": "gitlens",
-  "gitlens.views.lineHistory.location": "gitlens",
-  "gitlens.views.compare.location": "gitlens",
-  "gitlens.views.search.location": "gitlens",
-  "workbench.settings.editor": "json",
-  "editor.tabSize": 2,
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.smoothScrolling": true,
-  "editor.cursorBlinking": "smooth",
-  "explorer.confirmDelete": false,
-  "terraform.indexing": {
-    "enabled": false,
-    "liveIndexing": false,
-    "delay": 500,
-    "exclude": [
-      ".terraform/**/*",
-      "**/.terraform/**/*"
-    ]
-  },
-  "terraform.languageServer": {
-    "external": true,
-    "args": [
-      "serve"
-    ]
-  },
-  "go.inferGopath": true,
-  "go.useLanguageServer": true,
-  "workbench.colorTheme": "Default Dark+",
+  "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.packageManager": "yarn",
-  "eslint.alwaysShowStatus": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vetur.experimental.templateInterpolationService": true,
+  "vetur.validation.style": false,
+  "vetur.validation.templateProps": true,
+
   // Ruby
   "[ruby]": {
     // "editor.defaultFormatter": "rebornix.ruby"
   },
-  "ruby.rubocop.executePath": "/Users/marc/.rbenv/shims/",
-  "ruby.rubocop.suppressRubocopWarnings": true,
-  "ruby.rubocop.useBundler": true,
+  "ruby.format": "rubocop",
+  "ruby.intellisense": "rubyLocate",
   "ruby.lint": {
     "rubocop": {
       "useBundler": true
     },
   },
-  "ruby.intellisense": "rubyLocate",
+  "ruby.rubocop.executePath": "/Users/marc/.rbenv/shims/",
+  "ruby.rubocop.suppressRubocopWarnings": true,
+  "ruby.rubocop.useBundler": true,
   "ruby.useBundler": true,
-  "ruby.format": "rubocop",
   "ruby.useLanguageServer": true,
-  "solargraph.formatting": true,
-  "solargraph.checkGemVersion": false,
   "solargraph.bundlerPath": "/Users/marc/.rbenv/shims/bundle",
+  "solargraph.checkGemVersion": false,
   "solargraph.commandPath": "/Users/marc/.rbenv/shims/solargraph",
-  "yaml.schemas": {
-    "https://raw.githubusercontent.com/marcqualie/ecsx/main/schema.json": [
-      "ecsx.yml"
-    ]
+  "solargraph.formatting": true,
+  "sorbet.bundlerPath": "/Users/marc/.rbenv/shims/bundler",
+  "sorbet.useBundler": true,
+
+  // Terraform
+  "[terraform]": {
+    "editor.formatOnSave": true
+  },
+  "terraform.indexing": {
+    "delay": 500,
+    "enabled": false,
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ],
+    "liveIndexing": false
   }
 }
