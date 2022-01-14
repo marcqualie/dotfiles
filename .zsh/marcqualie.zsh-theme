@@ -33,14 +33,14 @@ function maybe_src_path() {
     prefix="%{$FG[240]%}github.com"
   fi
 
-  # In vscode there is less horitzontal real estate, we can strip out the project root
-  if [[ "$VSCODE_WORKSPACE_ROOT" != "" ]]; then
-    parent="$(basename $VSCODE_WORKSPACE_ROOT)"
+  # If we could detect the PWD when the shell booted, we can use that to enhance
+  if [[ "$VSCODE_WORKSPACE_ROOT" != "" && "$ORIGINAL_PWD" != "" ]]; then
+    parent="$(basename $ORIGINAL_PWD)"
     if [[ "$parent" == " " ]]; then; parent = ""; fi
     prefix=""
     dir=$(pwd)
-    dir="${dir/$VSCODE_WORKSPACE_ROOT\// }"
-    dir="${dir/$VSCODE_WORKSPACE_ROOT/}"
+    dir="${dir/$ORIGINAL_PWD\// }"
+    dir="${dir/$ORIGINAL_PWD/}"
     separator=""
     spacer=""
   fi

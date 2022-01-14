@@ -4,6 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 export SHELL=/usr/local/bin/zsh
 export UPDATE_ZSH_DAYS=7
 export LANG=en_US.UTF-8
+export ORIGINAL_PWD=$PWD
 
 # Some homebrew forumlae install to /usr/local/sbin
 export PATH=/usr/local/sbin:$PATH
