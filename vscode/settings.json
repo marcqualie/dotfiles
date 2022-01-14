@@ -62,6 +62,8 @@
     "bg-color"
   ],
   "tailwindCSS.experimental.showPixelValues": true,
+  "testExplorer.useNativeTesting": true,
+  "testExplorer.codeLens": true,
   "terminal.integrated.cwd": "${workspaceFolder}",
   "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
   "terminal.integrated.env.osx": {
