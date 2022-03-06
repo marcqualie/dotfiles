@@ -167,6 +167,7 @@
   "solargraph.commandPath": "/Users/marc/.rbenv/shims/solargraph",
   "solargraph.formatting": true,
   "sorbet.bundlerPath": "/Users/marc/.rbenv/shims/bundler",
+  "sorbet.enabled": true,
   "sorbet.useBundler": true,
 
   // Terraform
