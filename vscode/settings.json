@@ -51,8 +51,6 @@
   "gitlens.blame.ignoreWhitespace": true,
   "gitlens.blame.separateLines": false,
   "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.enabled": false,
-  "gitlens.statusBar.enabled": false,
   "gitlens.views.compare.location": "gitlens",
   "gitlens.views.fileHistory.location": "gitlens",
   "gitlens.views.lineHistory.location": "gitlens",
@@ -189,4 +187,8 @@
     "liveIndexing": false
   },
   "githubPullRequests.terminalLinksHandler": "github",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.defaultTimeFormat": "hh:mm",
+  "gitlens.defaultDateShortFormat": null,
+  "gitlens.defaultDateFormat": "MMMM Do, YYYY hh:mm"
 }
