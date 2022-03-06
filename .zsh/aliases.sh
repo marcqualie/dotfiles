@@ -20,3 +20,6 @@ alias git-branch-cleanup="gbc"
 alias rspec="bundle exec rspec"
 
 alias tf="terraform"
+
+# Cleanup
+alias rm-all-node-modules="find ~/src/ -name node_modules -type d -prune -exec trash {} +"
