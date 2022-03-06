@@ -65,7 +65,12 @@
   "testExplorer.useNativeTesting": true,
   "testExplorer.codeLens": true,
   "terminal.integrated.cwd": "${workspaceFolder}",
-  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "terminal.integrated.profiles.osx": {
+    "zsh": {
+      "path": "/bin/zsh",
+      "args": ["-l", "-i"]
+    }
+  },
   "terminal.integrated.env.osx": {
     "VSCODE_WORKSPACE_ROOT": "${workspaceFolder}"
   },
