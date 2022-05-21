@@ -15,7 +15,7 @@
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
   "editor.formatOnPaste": false,
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
