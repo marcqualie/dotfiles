@@ -40,7 +40,9 @@
     "yaml": false,
     "plaintext": false,
     "markdown": false,
-    "sql": false
+    "sql": false,
+    "ini": false,
+    "shellscript": false
   },
   "githubPullRequests.defaultMergeMethod": "squash",
   "githubPullRequests.remotes": [
