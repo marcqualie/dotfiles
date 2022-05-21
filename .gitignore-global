@@ -22,7 +22,7 @@ yarn-error.log
 node_modules
 Procfile.local
 .ruby-version
-.env.local
+.env.*
 .envrc
 *.crt
 *.key
