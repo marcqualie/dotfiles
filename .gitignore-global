@@ -27,3 +27,4 @@ Procfile.local
 *.crt
 *.key
 *.pem
+*.tfvars
