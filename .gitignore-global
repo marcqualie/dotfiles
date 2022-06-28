@@ -28,3 +28,5 @@ Procfile.local
 *.key
 *.pem
 *.tfvars
+
+secrets*.json
