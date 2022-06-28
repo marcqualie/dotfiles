@@ -16,6 +16,7 @@ alias gpoh="git push -u origin HEAD"
 # https://marcqualie.com/2015/08/remove-deleted-git-branches
 alias gbc="git --no-pager branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
 alias git-branch-cleanup="gbc"
+alias git-set-main-branch="git branch -m master main && git fetch origin && git branch -u origin/main main && git remote set-head origin -a"
 
 alias rspec="bundle exec rspec"
 
