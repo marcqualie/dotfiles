@@ -90,10 +90,10 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.renderIndentGuides": "onHover",
   "yaml.schemas": {
-    "file:///Users/marc/src/marcqualie/ecsx/schema.json": [
+    "file:///Users/marc/src/marcqualie/ecsx/src/schema.json": [
       "ecsx.yml"
     ],
-    // "https://raw.githubusercontent.com/marcqualie/ecsx/main/schema.json": [
+    // "https://raw.githubusercontent.com/marcqualie/ecsx/main/src/schema.json": [
     //   "ecsx.yml"
     // ]
   },
