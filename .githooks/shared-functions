@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 function bundle_install() {
   bundle install -j `sysctl -n hw.ncpu`

@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 alias gs="git status -s"
 alias gd="git diff"

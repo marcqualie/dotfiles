@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 DOTFILES_DIR=$(cd "$(dirname $0)/.."; pwd)
 cd $DOTFILES_DIR

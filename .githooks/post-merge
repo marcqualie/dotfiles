@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 # Ensure ZSH environment is loaded
 source ~/.zshrc
