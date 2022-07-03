@@ -6,8 +6,8 @@ export UPDATE_ZSH_DAYS=7
 export LANG=en_US.UTF-8
 export ORIGINAL_PWD=$PWD
 
-# Some homebrew forumlae install to /usr/local/sbin
-export PATH=/usr/local/sbin:$PATH
+# Homebrew
+export PATH=/opt/homebrew/bin:/usr/local/sbin:$PATH
 
 # Go
 export GOPATH=$HOME/go
