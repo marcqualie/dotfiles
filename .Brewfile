@@ -10,7 +10,7 @@ brew "certbot"
 brew "cfssl"
 brew 'cmake'
 brew "direnv"
-brew "dnsmasq", restart_service: false
+brew "dnsmasq"
 brew "glib"
 brew "gcc@5"
 brew "git"
@@ -29,18 +29,18 @@ brew "libffi"
 brew "libmpc"
 brew "libtool"
 brew "libyaml"
-brew "mailhog", restart_service: false
+brew "mailhog"
 brew "mongodb-community"
 brew "mas"
-brew "nginx", restart_service: false
+brew "nginx"
 brew "node"
 brew "node-build"
 brew "nodenv"
 brew "openssl"
 brew "pinentry-mac"
-brew "postgresql", restart_service: false
+brew "postgresql"
 brew "pyenv"
-brew "redis", restart_service: false
+brew "redis"
 brew "rbenv"
 brew "rbenv-default-gems"
 brew "ruby-build"
