@@ -197,4 +197,5 @@
   "gitlens.defaultDateShortFormat": null,
   "gitlens.defaultDateFormat": "MMMM Do, YYYY hh:mm",
   "debug.console.wordWrap": false,
+  "security.workspace.trust.untrustedFiles": "open",
 }
