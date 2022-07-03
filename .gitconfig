@@ -1,13 +1,11 @@
-[user]
-	signingKey = 822B03FBDEEA045B
-	name = Marc Qualie
-	email = marc@marcqualie.com
+[include]
+  path = ~/.dotfiles/.gitconfig.device
 
 [github]
 	user = marcqualie
 
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /opt/homebrew/bin/gpg
 
 [credential]
 	helper = osxkeychain
