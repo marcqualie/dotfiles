@@ -51,6 +51,7 @@ brew "wget"
 brew "zsh"
 cask "cyberduck"
 cask "github"
+cask "mongodb-compass"
 cask "visual-studio-code"
 cask "xquartz"
 mas "Keynote", id: 409183694
