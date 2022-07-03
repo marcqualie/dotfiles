@@ -8,6 +8,7 @@ export ORIGINAL_PWD=$PWD
 
 # Homebrew
 export PATH=/opt/homebrew/bin:/usr/local/sbin:$PATH
+export HOMEBREW_BUNDLE_FILE=~/.dotfiles/.Brewfile
 
 # Go
 export GOPATH=$HOME/go
