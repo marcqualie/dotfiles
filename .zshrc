@@ -17,7 +17,6 @@ export PATH=$GOPATH/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/functions.sh
 source ~/.zsh/aliases.sh
-source ~/.zsh/android.sh
 
 # Disable some default systems loading
 export DISABLE_SPRING=true
