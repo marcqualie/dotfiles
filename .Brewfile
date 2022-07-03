@@ -43,22 +43,16 @@ brew "rbenv"
 brew "rbenv-default-gems"
 brew "ruby-build"
 brew "s3cmd"
-brew "siege"
 brew "terraform"
 brew "tig"
 brew "wget"
 brew "zsh"
-cask "bartender"
 cask "cyberduck"
-cask "dropbox"
 cask "github"
-cask "spotify"
 cask "visual-studio-code"
 cask "xquartz"
 mas "Keynote", id: 409183694
 mas "Moom", id: 419330170
-mas "Navicat Essentials for PostgreSQL", id: 466725643
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Telegram", id: 747648890
 mas "Xcode", id: 497799835
