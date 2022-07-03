@@ -39,7 +39,11 @@
 	required = true
 
 [hub]
-	protocol = https
+	protocol = ssh
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+[url "git@gist.github.com:"]
+  insteadOf = https://gist.github.com/
 
 [push]
 	default = simple
