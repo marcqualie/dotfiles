@@ -14,6 +14,30 @@ $ update-dotfiles
 ```
 
 
+## Multiple Devices
+
+Syncing this data between M1 + Intel is a pain due to homebrew installing to different directories.
+
+Make sure to add custom device overrides for Git config in `.gitconfig.device`
+
+```conf
+[user]
+  signingKey = 822B03FBDEEA045B
+  name = Marc Qualie
+  email = marc@marcqualie.com
+
+[gpg]
+	program = /usr/local/bin/gpg
+```
+
+Also it's required to link certain binaries since these configs are hard to make dynamic:
+
+```shell
+sudo mkdir -p /opt/homebrew/bin
+sudo chown -R marc: /opt/homebrew
+```
+
+
 ## TODO
 
 - Rewrite scripts to work with Bash (fresh machines don't have zsh yet)
