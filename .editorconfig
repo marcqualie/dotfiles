@@ -8,7 +8,7 @@ tab_width = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{css,scss,gql,graphql,go,haml,html,js,json,jsx,md,py,php,rb,yml}]
+[*.{css,scss,gql,graphql,go,haml,html,js,json,jsx,lock,md,py,php,rb,ts,tsx,yml,vue}]
 charset = utf-8
 
 [*.go]
