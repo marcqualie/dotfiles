@@ -15,6 +15,7 @@ symlink_dotfile Brewfile
 symlink_dotfile railsrc
 symlink_dotfile gitconfig
 symlink_dotfile gitignore-global
+symlink_dotfile zshenv
 symlink_dotfile zshrc
 symlink_dotfile zsh
 symlink_dotfile rbenv/default-gems
