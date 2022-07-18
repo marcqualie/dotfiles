@@ -43,7 +43,8 @@
     "sql": false,
     "ini": false,
     "shellscript": false,
-    "json": false
+    "json": false,
+    "properties": false
   },
   "githubPullRequests.defaultMergeMethod": "squash",
   "githubPullRequests.remotes": [
