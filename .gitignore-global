@@ -30,3 +30,4 @@ Procfile.local
 *.tfvars
 
 secrets*.json
+.infracost
