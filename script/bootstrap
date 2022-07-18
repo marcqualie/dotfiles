@@ -52,5 +52,19 @@ NGINX_CONFIG=${NGINX_CONFIG//\$\{NPROC\}/$(sysctl hw.physicalcpu | awk '{print $
 echo $NGINX_CONFIG > /usr/local/etc/nginx/nginx.conf
 out "configured /usr/local/etc/nginx/nginx.conf"
 
+# Syncthing global ignores
+echo ""
+out "Configuring Syncthing"
+for ORG_PATH in ~/src/*; do
+  cp "$DOTFILES_DIR/.stignore" "$ORG_PATH/.stignore-default"
+  if [ ! -f  "$ORG_PATH/.stignore" ]; then
+    echo "  Including default .stignore in $ORG_PATH"
+    echo "#include .stignore-default" > "$ORG_PATH/.stignore"
+  fi
+done
+
 # Permissions
 chmod -R 700 ~/.gnupg
+
+# Line break before system is reinitialised
+echo ""

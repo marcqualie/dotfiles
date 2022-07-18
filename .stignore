@@ -1,0 +1,12 @@
+.build
+.next
+.terraform
+*.log
+*.serverless
+build/kotlin
+cache
+coverage
+dist
+ios/Pods
+node_modules
+tmp
