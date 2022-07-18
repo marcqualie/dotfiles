@@ -1,6 +1,7 @@
 .build
 .next
 .terraform
+.stignore-default
 *.log
 *.serverless
 build/kotlin
