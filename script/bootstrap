@@ -62,6 +62,8 @@ for ORG_PATH in ~/src/*; do
     echo "#include .stignore-default" > "$ORG_PATH/.stignore"
   fi
 done
+cp "$DOTFILES_DIR/.stignore" ~/Sync/.stignore
+cp "$DOTFILES_DIR/.stignore" ~/Downloads/.stignore
 
 # Permissions
 chmod -R 700 ~/.gnupg
