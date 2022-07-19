@@ -3,6 +3,7 @@
 .next
 .stignore-default
 .terraform
+.webpack
 *.log
 *.serverless
 build/kotlin
