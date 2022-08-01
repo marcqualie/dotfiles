@@ -103,6 +103,7 @@
   "githubPullRequests.telemetry.enabled": false,
   "redhat.telemetry.enabled": false,
   "stripe.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
 
   // Go
   "go.autocompleteUnimportedPackages": true,
