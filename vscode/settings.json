@@ -83,7 +83,6 @@
   ],
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 1,
-  "workbench.activityBar.visible": false,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.iconTheme": "vscode-icons",
   "workbench.settings.editor": "json",
@@ -103,6 +102,7 @@
   "githubPullRequests.telemetry.enabled": false,
   "redhat.telemetry.enabled": false,
   "stripe.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
 
   // Go
   "go.autocompleteUnimportedPackages": true,
@@ -118,33 +118,15 @@
   "go.useLanguageServer": true,
 
   // JavaScript/TypeScript
-  "[javascript]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.formatOnSave": true
-  },
-  "[javascriptreact]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.formatOnSave": true
-  },
-  "[typescript]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.formatOnSave": true
-  },
   "eslint.validate": [
     "javascript",
-    "typescript",
     "javascriptreact",
+    "typescript",
+    "typescriptreact",
     "vue"
   ],
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true,
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
