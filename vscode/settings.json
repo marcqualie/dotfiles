@@ -83,7 +83,6 @@
   ],
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 1,
-  "workbench.activityBar.visible": false,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.iconTheme": "vscode-icons",
   "workbench.settings.editor": "json",
