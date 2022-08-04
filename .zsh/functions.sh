@@ -52,9 +52,6 @@ loadenv() {
   #   +env python
   # fi
 
-  # Always load ruby for denvig
-  +env ruby
-
   # Detect symlinked directories
   # This comes up quite a lot when working with Go
   SYMPATH=$(pwd)
