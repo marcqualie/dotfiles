@@ -12,3 +12,5 @@ else
   export EDITOR='code -w'
 fi
 export BUNDLER_EDITOR=code
+
+normalize_path
