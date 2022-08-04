@@ -22,7 +22,20 @@ cdabs() {
 
 
 
+# macos and other tools can interfere with PATH, so we force ordering
+function normalize_path() {
+  LOCAL_BIN="./bin:./node_modules/.bin"
+  ENV_BIN="$HOME/.nodenv/shims:$HOME/.rbenv/shims"
+  HOMEBREW_BIN="/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin"
+  export PATH=$LOCAL_BIN:$ENV_BIN:$HOMEBREW_BIN:$PATH
+  export PATH=$(ruby -e 'puts ENV["PATH"].split(":").uniq.join(":")')
+}
+
+
+
 loadenv() {
+  normalize_path
+
   if [[ -f Gemfile ]]; then; +env ruby; fi
   if [[ -f .ruby-version ]]; then; +env ruby; fi
   if [[ -f backend/Gemfiile ]]; then; +env ruby; fi
@@ -95,13 +108,5 @@ function +env() {
   eval "$(${cmd} init -)"
 
   # Each of these tools put their own path at the front, we don't want that
-  loadprepath
-}
-
-
-
-# Ensure our own paths are user first
-function loadprepath() {
-  PREPATH="./bin:./node_modules/.bin:"
-  export PATH=$PREPATH${PATH/$PREPATH/}
+  normalize_path
 }
