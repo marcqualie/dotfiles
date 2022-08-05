@@ -11,8 +11,8 @@ export HOMEBREW_BUNDLE_FILE=~/.dotfiles/.Brewfile
 # Trigger loadenv as soon as shell is available. Also triggered on directory change
 source ~/.zsh/functions.sh
 source ~/.zsh/denvig.sh
-eval "$(direnv hook zsh)"
 loadenv
+eval "$(direnv hook zsh)"
 
 # Go
 export GOPATH=$HOME/go
