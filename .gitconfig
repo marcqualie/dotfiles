@@ -16,7 +16,7 @@
 
 [core]
 	excludesfile = ~/.gitignore-global
-	editor = code --wait
+	editor = c --wait
 	mergeoptions = --no-edit
 	hooksPath = ~/.dotfiles/.githooks
 
@@ -24,7 +24,7 @@
   tool = default-difftool
 
 [difftool "default-difftool"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+  cmd = c --wait --diff $LOCAL $REMOTE
 
 [fetch]
 	prune = 1

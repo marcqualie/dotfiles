@@ -19,6 +19,10 @@ alias gbc="git --no-pager branch -vv | grep ': gone]' | awk '{print \$1}' | xarg
 alias git-branch-cleanup="gbc"
 alias git-set-main-branch="git branch -m master main && git fetch origin && git branch -u origin/main main && git remote set-head origin -a"
 
+# vscode
+export CODE_BIN=$(command -v code-insiders || command -v code)
+alias c="$CODE_BIN"
+
 alias rspec="bundle exec rspec"
 
 alias tf="terraform"
