@@ -49,7 +49,10 @@
 [init]
 	defaultBranch = main
 
+[user]
+	name = Marc Qualie
+	email = marc@marcqualie.com
+
 # Per device overrides (M1 vs Intel)
 [include]
   path = ~/.dotfiles/.gitconfig.device
-
