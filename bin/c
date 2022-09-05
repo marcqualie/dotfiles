@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+export CODE_BIN=$(command -v code-insiders || command -v code)
+exec $CODE_BIN $@

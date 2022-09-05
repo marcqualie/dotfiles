@@ -34,6 +34,7 @@ symlink "$DOTFILES_DIR/etc/nginx/server_defaults" "/usr/local/etc/nginx/server_d
 symlink "$DOTFILES_DIR/etc/nginx/public" "/usr/local/etc/nginx/public"
 symlink "$DOTFILES_DIR/etc/redis.conf" "/usr/local/etc/redis.conf"
 symlink "$DOTFILES_DIR/macos/quick-actions/copy-path" "$HOME/Library/Services/copy-path.workflow"
+symlink "$DOTFILES_DIR/bin/c" "/usr/local/bin/c"
 
 # vscode snippets cannot be symlinked
 echo ""
