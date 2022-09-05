@@ -16,7 +16,7 @@
 
 [core]
 	excludesfile = ~/.gitignore-global
-	editor = c --wait
+	editor = code --wait
 	mergeoptions = --no-edit
 	hooksPath = ~/.dotfiles/.githooks
 

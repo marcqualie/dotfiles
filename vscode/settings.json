@@ -100,13 +100,11 @@
     //   "ecsx.yml"
     // ]
   },
-
   // Disable tracking
   "githubPullRequests.telemetry.enabled": false,
   "redhat.telemetry.enabled": false,
   "stripe.telemetry.enabled": false,
   "telemetry.telemetryLevel": "off",
-
   // Go
   "go.autocompleteUnimportedPackages": true,
   "go.coverOnSave": true,
@@ -119,7 +117,6 @@
     "delay": 250
   },
   "go.useLanguageServer": true,
-
   // JavaScript/TypeScript
   "eslint.validate": [
     "javascript",
@@ -139,7 +136,6 @@
   "vetur.experimental.templateInterpolationService": true,
   "vetur.validation.style": false,
   "vetur.validation.templateProps": true,
-
   // Ruby
   "[ruby]": {
     // "editor.defaultFormatter": "rebornix.ruby"
@@ -163,7 +159,6 @@
   "sorbet.bundlerPath": "/Users/marc/.rbenv/shims/bundler",
   "sorbet.enabled": true,
   "sorbet.useBundler": true,
-
   // Terraform
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
