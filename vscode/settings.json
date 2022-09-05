@@ -166,7 +166,14 @@
 
   // Terraform
   "[terraform]": {
-    "editor.formatOnSave": true
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
   },
   "terraform.indexing": {
     "delay": 500,
