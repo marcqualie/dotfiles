@@ -28,7 +28,12 @@ function normalize_path() {
   ENV_BIN="$HOME/.nodenv/shims:$HOME/.rbenv/shims"
   HOMEBREW_BIN="/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin"
   export PATH=$LOCAL_BIN:$ENV_BIN:$HOMEBREW_BIN:$PATH
-  export PATH=$(ruby -e 'puts ENV["PATH"].split(":").map { |dir| dir.gsub(%r{/\z}, "") }.uniq.join(":")')
+  if [ -x "$(command -v ruby)" ]; then
+    UNIQPATH=$(ruby -e 'puts ENV["PATH"].split(":").map { |dir| dir.gsub(%r{/\z}, "") }.uniq.join(":")')
+    if [ "$UNIQPATH" != "" ]; then
+      export PATH=$UNIQPATH
+    fi
+  fi
 }
 
 
