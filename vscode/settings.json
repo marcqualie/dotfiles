@@ -29,6 +29,9 @@
   "editor.tabSize": 2,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "explorer.autoRevealExclude": {
+    "**/node_modules": true
+  },
   "files.associations": {
     "Dockerfile*": "dockerfile",
     "*.tmpl": "terraform"
