@@ -13,7 +13,7 @@
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorBlinking": "smooth",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": false,
   "editor.formatOnPaste": false,
