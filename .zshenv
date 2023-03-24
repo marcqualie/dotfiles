@@ -12,7 +12,7 @@ export HOMEBREW_BUNDLE_FILE=~/.dotfiles/.Brewfile
 source ~/.zsh/functions.sh
 source ~/.zsh/denvig.sh
 loadenv
-eval "$(direnv hook zsh)"
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # Go
 export GOPATH=$HOME/go
