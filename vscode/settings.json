@@ -192,3 +192,4 @@
   "debug.console.wordWrap": false,
   "security.workspace.trust.untrustedFiles": "open",
 }
+  "terminal.integrated.scrollback": 10000,
