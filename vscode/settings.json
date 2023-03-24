@@ -42,12 +42,14 @@
     "*": true,
     "yaml": false,
     "plaintext": false,
-    "markdown": false,
+    "markdown": true,
     "sql": false,
     "ini": false,
-    "shellscript": false,
+    "shellscript": true,
     "json": false,
-    "properties": false
+    "properties": false,
+    "jsonc": false,
+    "csv": false
   },
   "githubPullRequests.defaultMergeMethod": "squash",
   "githubPullRequests.remotes": [
