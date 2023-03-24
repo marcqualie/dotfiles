@@ -191,5 +191,8 @@
   "gitlens.defaultDateFormat": "MMMM Do, YYYY hh:mm",
   "debug.console.wordWrap": false,
   "security.workspace.trust.untrustedFiles": "open",
-}
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "terminal.integrated.scrollback": 10000,
+}
