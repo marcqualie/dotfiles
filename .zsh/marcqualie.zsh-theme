@@ -48,11 +48,17 @@ function maybe_src_path() {
   echo "${prefix}%{$fg[cyan]%}${parent}${spacer}%{$fg_bold[cyan]%}${dir}%{$reset_color%}${spacer}"
 }
 
+function aws_vault_info() {
+  if [ "$AWS_VAULT" != "" ]; then
+    echo "%{$fg[blue]%}[%{$fg[yellow]%}aws%{$reset_color%}:%{$fg_bold[red]%}${AWS_VAULT}%{$reset_color%}%{$fg[blue]%}]%{$reset_color%} "
+  fi
+}
+
 function color() {
   echo "\e[38;5;${1}m"
 }
 
-PROMPT='$(maybe_src_path) $(git_prompt_info)'
+PROMPT='$(maybe_src_path) $(git_prompt_info)$(aws_vault_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
