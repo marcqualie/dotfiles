@@ -4,3 +4,8 @@
 source ~/.zshrc
 
 source $(dirname $0)/update-dependencies
+
+if [ -f .git/hooks/post-checkout ]; then
+  echo "Running local post-checkout hook"
+  .git/hooks/post-checkout $@
+fi
