@@ -21,6 +21,7 @@ venv
 yarn-error.log
 node_modules
 Procfile.local
+.node-version
 .ruby-version
 .env.*
 .envrc
