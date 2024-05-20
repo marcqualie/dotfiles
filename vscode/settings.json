@@ -200,4 +200,5 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "terminal.integrated.scrollback": 10000,
+  "aws.telemetry": false,
 }
