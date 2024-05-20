@@ -94,7 +94,6 @@
     "git-history"
   ],
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "window.zoomLevel": 1,
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.iconTheme": "vscode-icons",
   "workbench.settings.editor": "json",
@@ -195,10 +194,10 @@
   "gitlens.defaultDateFormat": "MMMM Do, YYYY hh:mm",
   "debug.console.wordWrap": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "workbench.activityBar.visible": false,
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "terminal.integrated.scrollback": 10000,
   "aws.telemetry": false,
+  "workbench.activityBar.location": "top",
 }
