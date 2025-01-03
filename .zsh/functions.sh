@@ -36,10 +36,39 @@ function normalize_path() {
   fi
 }
 
+direnv_allowed_paths() {
+  allow_dir=$HOME/.local/share/direnv/allow
+  allow_paths=$(ls -d $allow_dir/* | xargs cat | sort | uniq | sed 's/\/.envrc$//')
+  allow_paths_array=(${(f)allow_paths})
+  print $allow_paths_array
+}
 
+# Check if a path is allowed by direnv
+direnv_path_allowed() {
+  for allowed_path in $(direnv_allowed_paths); do
+    if [[ "$1" == "$allowed_path" ]]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
 
 loadenv() {
   normalize_path
+
+  # Detect symlinked directories
+  # This comes up quite a lot when working with Go
+  SYMPATH=$(pwd)
+  REALPATH=$(pwd -P)
+  [[ "$SYMPATH" == "$REALPATH" ]] || echo "\x1b[33mYou have entered a symlink directory. Real path is \x1b[1m${REALPATH/$HOME/~}\x1b[0m"
+
+  # Only continue if the path is allowed by direnv
+  if direnv_path_allowed $PWD -eq 0; then
+    echo "Trusted directory."
+  else
+    return
+  fi
 
   if [[ -f Gemfile ]]; then; +env ruby; fi
   if [[ -f .ruby-version ]]; then; +env ruby; fi
@@ -56,12 +85,6 @@ loadenv() {
   #   +env go
   #   +env python
   # fi
-
-  # Detect symlinked directories
-  # This comes up quite a lot when working with Go
-  SYMPATH=$(pwd)
-  REALPATH=$(pwd -P)
-  [[ "$SYMPATH" == "$REALPATH" ]] || echo "\x1b[33mYou have entered a symlink directory. Real path is \x1b[1m${REALPATH/$HOME/~}\x1b[0m"
 }
 
 
