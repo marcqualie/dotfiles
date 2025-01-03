@@ -70,6 +70,7 @@ loadenv() {
     return
   fi
 
+  if [[ -f .zshenv.local ]]; then; source .zshenv.local; fi
   if [[ -f Gemfile ]]; then; +env ruby; fi
   if [[ -f .ruby-version ]]; then; +env ruby; fi
   if [[ -f backend/Gemfiile ]]; then; +env ruby; fi

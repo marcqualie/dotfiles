@@ -25,6 +25,7 @@ Procfile.local
 .ruby-version
 .env.*
 .envrc
+.zshenv.local
 *.crt
 *.key
 *.pem
