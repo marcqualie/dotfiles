@@ -1,6 +1,8 @@
 # Shows parent directory if within source code base directory
 # e.g ~/src/project1/web shows "project1/web" instead of just "web" for ambiguous diectories
 
+source ~/.zsh/git.zsh
+
 function maybe_src_path() {
   local wd=$(pwd)
   if [[ "$wd" = "$HOME" ]]; then
@@ -30,7 +32,7 @@ function maybe_src_path() {
     parent=""
     separator=""
     dir=""
-    prefix="%{$FG[240]%}github.com"
+    prefix="%{$FG[240]%}GH"
   fi
 
   # If we could detect the PWD when the shell booted, we can use that to enhance
@@ -58,9 +60,9 @@ function color() {
   echo "\e[38;5;${1}m"
 }
 
-PROMPT='$(maybe_src_path) $(aws_vault_info)$(git_prompt_info)'
+theme_prompt() {
+  PROMPT="$(maybe_src_path) $(aws_vault_info)$(git_prompt_info) "
+}
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})" # ✓
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}✗"
+# ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}✓"
