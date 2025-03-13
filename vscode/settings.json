@@ -1,5 +1,7 @@
 {
   "atomKeymap.promptV3Features": true,
+  "cSpell.diagnosticLevel": "Hint",
+  "cSpell.maxDuplicateProblems": 5,
   "cSpell.userWords": [
     "Cogsworth",
     "marcqualie",
