@@ -7,6 +7,18 @@ My dot files are shared between all my OSX machines.
 
 This repository follows [scripts to rule them all](https://github.com/github/scripts-to-rule-them-all) convention.
 
+
+### Initial setup
+
+The base setup requires homebrew to be installed.
+
+```shell
+$ script/setup
+```
+
+
+### Updating
+
 For convenience I've included the following shell function which calls `script/update` from anywhere.
 
 ``` shell
@@ -27,7 +39,7 @@ Make sure to add custom device overrides for Git config in `.gitconfig.device`
   email = marc@marcqualie.com
 
 [gpg]
-	program = /usr/local/bin/gpg
+  program = /usr/local/bin/gpg
 ```
 
 Also it's required to link certain binaries since these configs are hard to make dynamic:
@@ -36,9 +48,3 @@ Also it's required to link certain binaries since these configs are hard to make
 sudo mkdir -p /opt/homebrew/bin
 sudo chown -R marc: /opt/homebrew
 ```
-
-
-## TODO
-
-- Rewrite scripts to work with Bash (fresh machines don't have zsh yet)
-- Auto configure nginx via ~/src/**/**/.nginx-dev.conf
