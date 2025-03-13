@@ -30,6 +30,7 @@ Procfile.local
 *.key
 *.pem
 *.tfvars
+*.csv
 
 secrets*.json
 .infracost
