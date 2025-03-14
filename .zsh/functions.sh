@@ -93,7 +93,6 @@ loadenv() {
 flushdns () {
   dscacheutil -flushcache
   sudo killall -HUP mDNSResponder
-  sudo brew services restart dnsmasq
 }
 
 
