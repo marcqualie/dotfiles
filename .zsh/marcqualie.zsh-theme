@@ -5,8 +5,9 @@ source ~/.zsh/git.zsh
 
 function maybe_src_path() {
   local wd=$(pwd)
+
   if [[ "$wd" = "$HOME" ]]; then
-    echo "~"
+    echo " ~"
     return
   fi
 
@@ -47,12 +48,18 @@ function maybe_src_path() {
     spacer=""
   fi
 
-  echo "${prefix}%{$fg[cyan]%}${parent}${spacer}%{$fg_bold[cyan]%}${dir}%{$reset_color%}${spacer}"
+  echo " ${prefix}%{$fg[cyan]%}${parent}${spacer}%{$fg_bold[cyan]%}${dir}%{$reset_color%}${spacer}"
 }
 
 function aws_vault_info() {
   if [ "$AWS_VAULT" != "" ]; then
-    echo "%{$fg[blue]%}%{$fg[yellow]%}aws%{$reset_color%}:%{$fg_bold[red]%}${AWS_VAULT}%{$reset_color%}%{$fg[blue]%}%{$reset_color%} "
+    echo " %{$fg[blue]%}%{$fg[yellow]%}aws%{$reset_color%}:%{$fg_bold[red]%}${AWS_VAULT}%{$reset_color%}%{$fg[blue]%}%{$reset_color%}"
+  fi
+}
+
+function ssh_info() {
+  if [[ -n "$SSH_CONNECTION" ]]; then
+    echo "%{$fg[yellow]%}[-> SSH]%{$reset_color%}"
   fi
 }
 
@@ -61,7 +68,7 @@ function color() {
 }
 
 theme_prompt() {
-  PROMPT="$(maybe_src_path) $(aws_vault_info)$(git_prompt_info) "
+  PROMPT="$(ssh_info)$(maybe_src_path)$(aws_vault_info)$(git_prompt_info) "
 }
 
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}✗"
