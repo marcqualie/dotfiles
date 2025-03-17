@@ -18,7 +18,7 @@ function git_prompt_info() {
 
   local branch=$(git symbolic-ref --short HEAD 2>/dev/null) || return
 
-  echo "%{$fg_bold[blue]%}(%{$fg[red]%}$branch%{$fg_bold[blue]%})%{$fg[red]%}$(parse_git_dirty)%{$reset_color%}"
+  echo " %{$fg_bold[blue]%}(%{$fg[red]%}$branch%{$fg_bold[blue]%})%{$fg[red]%}$(parse_git_dirty)%{$reset_color%}"
 }
 
 function parse_git_dirty() {
