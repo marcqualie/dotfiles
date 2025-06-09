@@ -5,8 +5,10 @@ source $(dirname $0)/shared-functions
 # Only run out custom stuff inside project root
 if [[ "$PWD/" = $HOME/src/* ]]; then
   # JavaScript
-  if [ -e yarn.lock ] || [ -e package.json ]; then; yarn_install; fi
-  if [ -e frontend/yarn.lock ] || [ -e frontend/package.json ]; then (cd frontend; yarn_install); fi
+    if  [ -e yarn.lock ]; then; yarn install;
+  elif [[ -e pnpm-lock.yaml || -e pnpm-lock.yml ]]; then; pnpm install;
+  elif  [ -e package-lock.json ]; then; npm install;
+  fi
 
   # Ruby
   if [ -e Gemfile ]; then bundle_install; fi
