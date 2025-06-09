@@ -63,18 +63,7 @@
   "githubPullRequests.remotes": [
     "origin"
   ],
-  "gitlens.advanced.blame.delayAfterEdit": 120000,
-  "gitlens.advanced.blame.sizeThresholdAfterEdit": 120000,
-  "gitlens.advanced.maxSearchItems": 50,
-  "gitlens.blame.avatars": true,
-  "gitlens.blame.ignoreWhitespace": true,
-  "gitlens.blame.separateLines": false,
-  "gitlens.codeLens.authors.enabled": false,
-  "gitlens.views.compare.location": "gitlens",
-  "gitlens.views.fileHistory.location": "gitlens",
-  "gitlens.views.lineHistory.location": "gitlens",
-  "gitlens.views.repositories.location": "gitlens",
-  "gitlens.views.search.location": "gitlens",
+  "git.blame.editorDecoration.enabled": true,
   "tailwindCSS.experimental.classRegex": [
     "bg-color"
   ],
@@ -192,10 +181,6 @@
     "liveIndexing": false
   },
   "githubPullRequests.terminalLinksHandler": "github",
-  "gitlens.codeLens.enabled": false,
-  "gitlens.defaultTimeFormat": "hh:mm",
-  "gitlens.defaultDateShortFormat": null,
-  "gitlens.defaultDateFormat": "MMMM Do, YYYY hh:mm",
   "debug.console.wordWrap": false,
   "security.workspace.trust.untrustedFiles": "open",
   "[jsonc]": {
