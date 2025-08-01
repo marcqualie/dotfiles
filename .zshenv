@@ -13,7 +13,6 @@ export HOMEBREW_BUNDLE_FILE=~/.dotfiles/.Brewfile
 
 # Trigger loadenv as soon as shell is available. Also triggered on directory change
 source ~/.zsh/functions.sh
-source ~/.zsh/denvig.sh
 loadenv
 command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
