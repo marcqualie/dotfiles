@@ -28,6 +28,6 @@ alias tf="terraform"
 alias rm-all-node-modules="find ~/src/ -name node_modules -type d -prune -exec trash {} +"
 
 # DNS
-alias dns-primary="networksetup -setdnsservers Ethernet 192.168.2.53"
-alias dns-backup="networksetup -setdnsservers Ethernet 192.168.2.52"
-alias dns-cloudflare="networksetup -setdnsservers Ethernet 1.1.1.1 1.0.0.1"
+alias dns-primary="sudo networksetup -setdnsservers Ethernet 192.168.2.53"
+alias dns-backup="sudo networksetup -setdnsservers Ethernet 192.168.2.52"
+alias dns-cloudflare="sudo networksetup -setdnsservers Ethernet 1.1.1.1 1.0.0.1"
