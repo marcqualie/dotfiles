@@ -5,9 +5,9 @@ source $(dirname $0)/shared-functions
 # Only run out custom stuff inside project root
 if [[ "$PWD/" = $HOME/src/* ]]; then
   # JavaScript
-    if  [ -e yarn.lock ]; then; yarn install;
-  elif [[ -e pnpm-lock.yaml || -e pnpm-lock.yml ]]; then; pnpm install;
-  elif  [ -e package-lock.json ]; then; npm install;
+    if  [ -e yarn.lock ]; then; denvig install;
+  elif [[ -e pnpm-lock.yaml || -e pnpm-lock.yml ]]; then; denvig install;
+  elif  [ -e package-lock.json ]; then; denvig install;
   fi
 
   # Ruby
