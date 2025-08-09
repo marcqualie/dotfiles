@@ -65,7 +65,9 @@ loadenv() {
 
   # Only continue if the path is allowed by direnv
   if direnv_path_allowed $PWD -eq 0; then
-    echo "Trusted directory."
+    if [[ "$PRINT_TRUSTED_DIR" -ne "false" ]]; then
+      echo "Trusted directory."
+    fi
   else
     return
   fi

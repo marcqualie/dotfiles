@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+export PRINT_TRUSTED_DIR="false"
+
 DOTFILES_DIR=$(cd "$(dirname $0)/.."; pwd)
 cd $DOTFILES_DIR
 
