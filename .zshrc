@@ -18,6 +18,7 @@ source ~/.zsh/marcqualie.zsh-theme
 # Customization
 source ~/.zsh/keybindings.zsh
 source ~/.zsh/aliases.sh
+source ~/.zsh/claude.sh
 
 # Override default editors
 if [[ -n $SSH_CONNECTION ]]; then
