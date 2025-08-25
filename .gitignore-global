@@ -38,5 +38,6 @@ secrets*.json
 
 # AI
 .claude
+AGENTS.md
 CLAUDE.md
 opencode.json
