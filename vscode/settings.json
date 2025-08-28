@@ -220,4 +220,5 @@
   "aws.telemetry": false,
   "workbench.activityBar.location": "top",
   "typescript.enablePromptUseWorkspaceTsdk": true,
+  "window.newWindowDimensions": "inherit"
 }
