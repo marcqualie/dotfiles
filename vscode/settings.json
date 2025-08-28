@@ -28,7 +28,7 @@
   "editor.renderWhitespace": "all",
   "editor.rulers": [
     80,
-    120,
+    120
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.smoothScrolling": true,
@@ -97,7 +97,7 @@
   "yaml.schemas": {
     "file:///Users/marc/src/marcqualie/ecsx/src/schema.json": [
       "ecsx.yml"
-    ],
+    ]
     // "https://raw.githubusercontent.com/marcqualie/ecsx/main/src/schema.json": [
     //   "ecsx.yml"
     // ]
@@ -127,7 +127,39 @@
     "typescriptreact",
     "vue"
   ],
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  // Formatting
+  "editor.defaultFormatter": false,
+  "biome.enabled": true,
+  "biome.requireConfiguration": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit"
+    }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
   "editor.formatOnSave": true,
   "eslint.alwaysShowStatus": true,
   "eslint.format.enable": true,
@@ -147,7 +179,7 @@
   "ruby.lint": {
     "rubocop": {
       "useBundler": true
-    },
+    }
   },
   "ruby.rubocop.executePath": "/Users/marc/.rbenv/shims/",
   "ruby.rubocop.suppressRubocopWarnings": true,
@@ -184,9 +216,6 @@
   "githubPullRequests.terminalLinksHandler": "github",
   "debug.console.wordWrap": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
   "terminal.integrated.scrollback": 10000,
   "aws.telemetry": false,
   "workbench.activityBar.location": "top",
