@@ -55,6 +55,7 @@
     "markdown": true,
     "python": true,
     "ruby": true,
+    "terraform": true,
     "typescript": true,
     "typescriptreact": true,
     "shellscript": true,
