@@ -1,0 +1,27 @@
+{
+  "react-component": {
+    "prefix": ["react", "react-component"],
+    "body": [
+      "import type { FC } from 'react'",
+      "",
+      "export const $1: FC = () => {",
+      "  $0",
+      "}"
+    ],
+    "description": "Basic React component"
+  },
+  "react-component-with-props": {
+    "prefix": ["react-component-with-props"],
+    "body": [
+      "import type { FC } from 'react'",
+      "",
+      "type Props = {",
+      "}",
+      "",
+      "export const $1: FC<Props> = (props) => {",
+      "  $0",
+      "}"
+    ],
+    "description": "Basic React component with props"
+  }
+}
