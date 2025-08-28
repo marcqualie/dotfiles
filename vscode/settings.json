@@ -1,5 +1,6 @@
 {
   "atomKeymap.promptV3Features": true,
+  "json.validate.enable": false,
   "cSpell.diagnosticLevel": "Hint",
   "cSpell.maxDuplicateProblems": 5,
   "cSpell.userWords": [
