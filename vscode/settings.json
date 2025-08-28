@@ -222,4 +222,9 @@
   "workbench.activityBar.location": "top",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "window.newWindowDimensions": "inherit"
+  "docker.extension.enableComposeLanguageServer": false,
+  "githubPullRequests.pullBranch": "never",
+  "git.openRepositoryInParentFolders": "never",
+  "files.autoSave": "off",
+  "python.analysis.typeCheckingMode": "standard",
 }
