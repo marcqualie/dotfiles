@@ -69,7 +69,7 @@ function color() {
 
 theme_prompt() {
   PROMPT="$(ssh_info)$(maybe_src_path)$(aws_vault_info)$(git_prompt_info) "
-  if [ $INCOGNISHELL -eq "1" ]; then
+  if [ "$INCOGNISHELL" -eq "1" ]; then
     PROMPT=" 🤫🙈$PROMPT"
   fi
 }
