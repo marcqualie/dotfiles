@@ -20,6 +20,7 @@ ehthumbs.db
 venv
 *.code-workspace
 yarn-error.log
+*.tsbuildinfo
 node_modules
 Procfile.local
 .node-version
