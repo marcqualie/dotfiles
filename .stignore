@@ -1,15 +1,30 @@
-.build
-.DS_Store
-.next
-.stignore-default
-.terraform
-.webpack
-*.log
-*.serverless
-build/kotlin
-cache
-coverage
-dist
-ios/Pods
-node_modules
-tmp
+(?d).build
+(?d).DS_Store
+(?d).next
+(?d).stignore-default
+(?d).terraform
+(?d).turbo
+(?d).yarn
+(?d).webpack
+(?d)*.log
+(?d)*.serverless
+(?d)build/kotlin
+(?d)cache
+(?d)coverage
+(?d)dist
+(?d)ios/Pods
+(?d)node_modules
+(?d)tmp
+
+// Certs are self signed per machine
+(?d)certs/*.key
+(?d)certs/*.crt
+
+// docker/k8s
+(?d)docker/*/volumes
+
+// homelab
+(?d)adguard/volumes
+(?d)open-webui/data
+(?d)mongodb/backup
+(?d)devbox/data/mongodb
