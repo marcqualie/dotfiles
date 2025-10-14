@@ -29,12 +29,25 @@ function normalize_path() {
   HOMEBREW_BIN="/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin"
   PNPM_HOME="$HOME/Library/pnpm"
   export PATH=$LOCAL_BIN:$PNPM_HOME:$SHIMS_BIN:$HOMEBREW_BIN:$PATH
-  if [ -x "$(command -v ruby)" ]; then
-    UNIQPATH=$(ruby -e 'puts ENV["PATH"].split(":").map { |dir| dir.gsub(%r{/\z}, "") }.uniq.join(":")')
-    if [ "$UNIQPATH" != "" ]; then
-      export PATH=$UNIQPATH
+
+  # Remove duplicate paths and trailing slashes
+  path_array=("${(@s/:/)PATH}")
+  declare -A seen
+  new_path=""
+  for dir in "${path_array[@]}"; do
+    # Remove trailing slash
+    dir="${dir%/}"
+    # Skip if already seen
+    if [[ -z "${seen[$dir]}" ]]; then
+      seen[$dir]=1
+      if [[ -z "$new_path" ]]; then
+        new_path="$dir"
+      else
+        new_path="$new_path:$dir"
+      fi
     fi
-  fi
+  done
+  export PATH="$new_path"
 }
 
 direnv_allowed_paths() {
