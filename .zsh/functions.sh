@@ -24,7 +24,7 @@ cdabs() {
 
 # macos and other tools can interfere with PATH, so we force ordering
 function normalize_path() {
-  LOCAL_BIN="./bin:./node_modules/.bin"
+  LOCAL_BIN="./node_modules/.bin"
   SHIMS_BIN="$HOME/.nodenv/shims:$HOME/.rbenv/shims"
   HOMEBREW_BIN="/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin"
   PNPM_HOME="$HOME/Library/pnpm"
