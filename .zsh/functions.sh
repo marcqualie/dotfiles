@@ -25,9 +25,10 @@ cdabs() {
 # macos and other tools can interfere with PATH, so we force ordering
 function normalize_path() {
   LOCAL_BIN="./bin:./node_modules/.bin"
-  ENV_BIN="$HOME/.nodenv/shims:$HOME/.rbenv/shims"
+  SHIMS_BIN="$HOME/.nodenv/shims:$HOME/.rbenv/shims"
   HOMEBREW_BIN="/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin"
-  export PATH=$LOCAL_BIN:$ENV_BIN:$HOMEBREW_BIN:$PATH
+  PNPM_HOME="$HOME/Library/pnpm"
+  export PATH=$LOCAL_BIN:$PNPM_HOME:$SHIMS_BIN:$HOMEBREW_BIN:$PATH
   if [ -x "$(command -v ruby)" ]; then
     UNIQPATH=$(ruby -e 'puts ENV["PATH"].split(":").map { |dir| dir.gsub(%r{/\z}, "") }.uniq.join(":")')
     if [ "$UNIQPATH" != "" ]; then

@@ -30,9 +30,3 @@ export BUNDLER_EDITOR=code
 
 normalize_path
 
-# pnpm
-export PNPM_HOME="/Users/marc/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
