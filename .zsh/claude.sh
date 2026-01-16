@@ -13,5 +13,5 @@ claude() {
   fi
 
   # shellcheck disable=SC2068
-  /Users/marc/.nodenv/shims/claude $@
+  /opt/homebrew/bin/claude $@
 }
