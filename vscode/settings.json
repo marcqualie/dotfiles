@@ -203,7 +203,7 @@
   "githubPullRequests.terminalLinksHandler": "github",
   "debug.console.wordWrap": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.scrollback": 1000000,
   "aws.telemetry": false,
   "workbench.activityBar.location": "top",
   "typescript.enablePromptUseWorkspaceTsdk": true,
