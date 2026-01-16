@@ -128,39 +128,6 @@ boost-timemachine() {
 }
 
 
-# Remote unlock a LUKS drive over Dropbear SSH
-#
-# @param ADDR The IP address of the remote machine
-#
-# Usage:
-#  delunks ADDR
-#
-# Example:
-#   deluks 192.168.69.69
-deluks() {
-  ADDR=$1
-  if [[ -z "$ADDR" ]]; then
-    echo "Usage: deluks ADDR"
-    return 1
-  fi
-
-  # Get password from 1password and save it to the clipboard
-  PASSWORD=$(op read --account $LUKS_1PASSWORD_ACCOUNT "op://Employee/LUKS/passwords/$ADDR")
-  echo $PASSWORD
-  if [[ -z "$PASSWORD" ]]; then
-    echo "No password found for $ADDR"
-    return 1
-  fi
-  echo $PASSWORD | pbcopy
-  echo "Password copied to clipboard"
-  echo "Connecting to $ADDR..."
-  echo ""
-
-  ssh -p 2222 root@$ADDR
-}
-
-
-
 typeset -AHg envz
 function +env() {
   local cmd="${1}env"
