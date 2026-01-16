@@ -137,10 +137,14 @@ function +env() {
     python) cmd="pyenv" ;;
   esac
   if [ "$envz[$cmd]" != "" ]; then
-    echo "+env ${cmd} ${fg[black]}(cached)${reset_color}"
+    if [[ -o interactive ]]; then
+      echo "+env ${cmd} ${fg[black]}(cached)${reset_color}"
+    fi
     return 1
   else
-    echo "+env ${cmd}"
+    if [[ -o interactive ]]; then
+      echo "+env ${cmd}"
+    fi
   fi
   envz[$cmd]=$cmd
 
