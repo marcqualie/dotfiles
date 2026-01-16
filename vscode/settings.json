@@ -65,7 +65,7 @@
   "githubPullRequests.remotes": ["origin"],
   "git.blame.editorDecoration.enabled": true,
   "tailwindCSS.experimental.classRegex": ["bg-color"],
-  "tailwindCSS.experimental.showPixelValues": true,
+  "tailwindCSS.showPixelEquivalents": true,
   "testExplorer.useNativeTesting": true,
   "testExplorer.codeLens": true,
   "terminal.integrated.cwd": "${workspaceFolder}",
