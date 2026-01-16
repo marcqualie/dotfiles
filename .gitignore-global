@@ -41,6 +41,7 @@ secrets*.json
 # AI
 .claude
 .codex
+.playwright-mcp
 AGENTS.md
 CLAUDE.md
 opencode.json
