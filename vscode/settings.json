@@ -43,6 +43,7 @@
     "*.envrc": "shellscript",
   },
   "git.autofetch": false,
+  "git.autorefresh": true,
   "git.autofetchPeriod": 600,
   "github.copilot.enable": {
     "*": false,
