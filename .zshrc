@@ -7,6 +7,7 @@ setopt SHARE_HISTORY
 setopt APPEND_HISTORY
 
 # Plugins
+fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 autoload -U promptinit && promptinit
 autoload -U colors && colors
