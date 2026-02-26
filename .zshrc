@@ -9,7 +9,8 @@ setopt APPEND_HISTORY
 # Plugins
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+local -a zcd=(~/.zcompdump(N.mh+24))
+if (( $#zcd )); then
   compinit
 else
   compinit -C
