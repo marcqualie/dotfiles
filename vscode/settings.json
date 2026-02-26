@@ -124,6 +124,10 @@
     "typescriptreact",
     "vue",
   ],
+
+  // Python
+  "python.analysis.typeCheckingMode": "strict",
+
   // Formatting
   "editor.defaultFormatter": false,
   "biome.enabled": true,
@@ -218,6 +222,5 @@
   "githubPullRequests.pullBranch": "never",
   "git.openRepositoryInParentFolders": "never",
   "files.autoSave": "off",
-  "python.analysis.typeCheckingMode": "standard",
   "window.newWindowDimensions": "inherit",
 }
