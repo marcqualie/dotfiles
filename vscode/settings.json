@@ -1,6 +1,7 @@
 {
   "atomKeymap.promptV3Features": true,
   "json.validate.enable": false,
+  "chat.useAgentsMdFile": true,
   "cSpell.diagnosticLevel": "Hint",
   "cSpell.maxDuplicateProblems": 5,
   "cSpell.userWords": [
