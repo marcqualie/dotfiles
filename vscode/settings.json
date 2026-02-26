@@ -66,6 +66,7 @@
   "githubPullRequests.defaultMergeMethod": "squash",
   "githubPullRequests.remotes": ["origin"],
   "git.blame.editorDecoration.enabled": true,
+  "security.workspace.trust.banner": "always",
   "tailwindCSS.experimental.classRegex": ["bg-color"],
   "tailwindCSS.showPixelEquivalents": true,
   "testExplorer.useNativeTesting": true,
