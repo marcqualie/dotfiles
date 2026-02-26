@@ -85,6 +85,7 @@
   "workbench.iconTheme": "vscode-icons",
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.renderIndentGuides": "onHover",
   "yaml.schemas": {
