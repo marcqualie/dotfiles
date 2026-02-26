@@ -50,21 +50,15 @@ function normalize_path() {
   export PATH="$new_path"
 }
 
-direnv_allowed_paths() {
-  allow_dir=$HOME/.local/share/direnv/allow
-  allow_paths=$(ls -d $allow_dir/* | xargs cat | sort | uniq | sed 's/\/.envrc$//')
-  allow_paths_array=(${(f)allow_paths})
-  print $allow_paths_array
-}
-
-# Check if a path is allowed by direnv
+# Check if a path is allowed by direnv (pure zsh, no subprocesses)
 direnv_path_allowed() {
-  for allowed_path in $(direnv_allowed_paths); do
-    if [[ "$1" == "$allowed_path" ]]; then
-      return 0
-    fi
+  local allow_dir=$HOME/.local/share/direnv/allow
+  local f allowed_path
+  for f in $allow_dir/*(N); do
+    allowed_path=$(<$f)
+    allowed_path=${allowed_path%/.envrc}
+    [[ "$1" == "$allowed_path" ]] && return 0
   done
-
   return 1
 }
 
@@ -141,16 +135,19 @@ function +env() {
       echo "+env ${cmd} ${fg[black]}(cached)${reset_color}"
     fi
     return 1
-  else
-    if [[ -o interactive ]]; then
-      echo "+env ${cmd}"
-    fi
   fi
   envz[$cmd]=$cmd
 
-  # echo "Initializing ${cmd}"
-  eval "$(${cmd} init -)"
+  if [[ -o interactive ]]; then
+    echo "+env ${cmd}"
+  fi
 
-  # Each of these tools put their own path at the front, we don't want that
-  normalize_path
+  # Lazy init: defer eval "$(cmd init -)" until the env manager is actually invoked.
+  # Commands like node/ruby already work via shims on PATH.
+  eval "function $cmd() {
+    unfunction $cmd 2>/dev/null
+    eval \"\$(command $cmd init -)\"
+    normalize_path
+    $cmd \"\$@\"
+  }"
 }

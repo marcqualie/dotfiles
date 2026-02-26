@@ -1,4 +1,3 @@
 # ~/.zprofile
 # Re-normalize PATH after /etc/zprofile's path_helper mangles it
-source ~/.zsh/functions.sh
 normalize_path

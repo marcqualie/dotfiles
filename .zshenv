@@ -12,11 +12,11 @@ export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 # Homebrew
 export HOMEBREW_BUNDLE_FILE=~/.dotfiles/.Brewfile
 
-# Trigger loadenv as soon as shell is available. Also triggered on directory change
-source ~/.zsh/functions.sh
-loadenv
-command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
-
 # Go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+# Make shell functions available and set up PATH.
+# Non-interactive scripts get node/ruby via shims on PATH without needing loadenv.
+source ~/.zsh/functions.sh
+normalize_path
