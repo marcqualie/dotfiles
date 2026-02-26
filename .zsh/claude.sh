@@ -1,6 +1,6 @@
 #!/bin/sh
 
-claude() {
+claude_with_custom_env() {
   for file in ~/.envrc/claude.*; do
     if [ -f "$file" ]; then
       echo "sourcing $file"
