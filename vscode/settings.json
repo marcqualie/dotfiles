@@ -93,6 +93,17 @@
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.renderIndentGuides": "onHover",
+
+  // Schema
+  "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://biomejs.dev": true,
+  },
+  "yaml.schemaStore.enable": true,
   "yaml.schemas": {
     "file:///Users/marc/src/marcqualie/ecsx/src/schema.json": ["ecsx.yml"],
     // "https://raw.githubusercontent.com/marcqualie/ecsx/main/src/schema.json": [
