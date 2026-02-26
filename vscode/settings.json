@@ -70,6 +70,8 @@
   "tailwindCSS.showPixelEquivalents": true,
   "testExplorer.useNativeTesting": true,
   "testExplorer.codeLens": true,
+  "terminal.integrated.enableVisualBell": true,
+  "terminal.integrated.bellDuration": 10000,
   "terminal.integrated.cwd": "${workspaceFolder}",
   "terminal.integrated.profiles.osx": {
     "zsh": {
