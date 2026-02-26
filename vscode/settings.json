@@ -105,10 +105,13 @@
   },
   "yaml.schemaStore.enable": true,
   "yaml.schemas": {
-    "file:///Users/marc/src/marcqualie/ecsx/src/schema.json": ["ecsx.yml"],
-    // "https://raw.githubusercontent.com/marcqualie/ecsx/main/src/schema.json": [
-    //   "ecsx.yml"
-    // ]
+    "https://denvig.com/schemas/config.json": [".denvig.yml"],
+    "https://denvig.com/schemas/config.global.json": [
+      "/Users/*/.denvig/config.yml",
+    ],
+    "https://raw.githubusercontent.com/marcqualie/ecsx/main/src/schema.json": [
+      "ecsx.yml",
+    ],
   },
   // Disable tracking
   "githubPullRequests.telemetry.enabled": false,
