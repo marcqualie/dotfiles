@@ -15,6 +15,7 @@
   ],
   "coverage-gutters.showGutterCoverage": true,
   "coverage-gutters.showLineCoverage": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorBlinking": "smooth",
