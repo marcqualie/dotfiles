@@ -21,6 +21,7 @@ venv
 *.code-workspace
 yarn-error.log
 *.tsbuildinfo
+*.cpuprofile
 node_modules
 Procfile.local
 .node-version
