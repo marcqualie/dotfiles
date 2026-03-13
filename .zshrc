@@ -8,7 +8,13 @@ setopt APPEND_HISTORY
 
 # Plugins
 fpath=(~/.zsh/completions $fpath)
-autoload -U compinit && compinit
+autoload -U compinit
+local -a zcd=(~/.zcompdump(N.mh+24))
+if (( $#zcd )); then
+  compinit
+else
+  compinit -C
+fi
 autoload -U promptinit && promptinit
 autoload -U colors && colors
 
@@ -29,5 +35,7 @@ else
 fi
 export BUNDLER_EDITOR=code
 
-normalize_path
+# Environment detection (triggers +env for project dirs) and direnv
+loadenv
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 

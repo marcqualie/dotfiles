@@ -75,6 +75,7 @@
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.bellDuration": 10000,
   "terminal.integrated.cwd": "${workspaceFolder}",
+  "terminal.integrated.initialHint": false,
   "terminal.integrated.profiles.osx": {
     "zsh": {
       "path": "/bin/zsh",
