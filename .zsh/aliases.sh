@@ -31,3 +31,6 @@ alias rm-all-node-modules="find ~/src/ -name node_modules -type d -prune -exec t
 alias dns-primary="sudo networksetup -setdnsservers Ethernet 192.168.2.53"
 alias dns-backup="sudo networksetup -setdnsservers Ethernet 192.168.2.52"
 alias dns-cloudflare="sudo networksetup -setdnsservers Ethernet 1.1.1.1 1.0.0.1"
+
+# Denvig
+alias denvig="/opt/homebrew/bin/denvig"
