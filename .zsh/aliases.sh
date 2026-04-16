@@ -14,6 +14,7 @@ alias gcomp="git -c core.hooksPath=/dev/null checkout main && git -c core.hooksP
 alias gcm="git commit -m"
 alias gcam="git commit -a -m"
 alias gpoh="git push -u origin HEAD"
+alias gsrom="git add -A && git stash && git fetch --all && git rebase origin/main && git stash pop"
 
 # https://marcqualie.com/2015/08/remove-deleted-git-branches
 alias gbc="git --no-pager branch -vv | grep ': gone]' | awk '{print \$1}' | xargs git branch -D"
