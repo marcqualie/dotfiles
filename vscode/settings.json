@@ -48,6 +48,7 @@
   "git.autofetch": false,
   "git.autorefresh": true,
   "git.autofetchPeriod": 600,
+  "git.detectWorktrees": true,
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
