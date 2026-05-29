@@ -27,7 +27,6 @@ symlink_dotfile tmux.conf
 echo ""
 symlink "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 symlink "$DOTFILES_DIR/macos/quick-actions/copy-path" "$HOME/Library/Services/copy-path.workflow"
-symlink "$DOTFILES_DIR/bin/c" "/usr/local/bin/c"
 
 # vscode snippets cannot be symlinked
 echo ""
