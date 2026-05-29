@@ -8,10 +8,6 @@ cd $DOTFILES_DIR
 source $DOTFILES_DIR/script/.shared
 out "dotfiles/script/setup"
 
-# Apply MacOS defaults
-echo ""
-run "sh $DOTFILES_DIR/macos/defaults.sh"
-
 echo ""
 symlink_dotfile Brewfile
 symlink_dotfile railsrc
@@ -58,6 +54,13 @@ cp "$DOTFILES_DIR/.stignore" ~/Downloads/.stignore
 
 # Permissions
 chmod -R 700 ~/.gnupg
+
+# Apply macOS defaults last so the "log out to apply" notice is shown at the end.
+# defaults.sh does its own logging, so run it directly rather than via `run`
+# (which would re-indent its output).
+echo ""
+out "macos/defaults"
+zsh "$DOTFILES_DIR/macos/defaults.sh"
 
 # Line break before system is reinitialised
 echo ""

@@ -63,3 +63,57 @@ symlink_dotfile_force() {
   [[ -d $(dirname $SYMLINK_AS) ]] || mkdir -p $(dirname $SYMLINK_AS)
   run "ln -f -s ${DOTFILES_DIR/ /\\ }/${DOTFILE/ /\\ } ${SYMLINK_AS/ /\\ }"
 }
+
+# Space separated list of "domain.key" entries that changed during this run.
+# Lets callers restart affected apps (killall) or warn about logging out only
+# when something they care about actually changed. See macos_defaults_changed.
+MACOS_DEFAULTS_CHANGED=""
+
+# defaults_write <domain> <key> <type> <value>
+# Writes a macOS default only when it differs from the current value.
+# Works for any domain, e.g.
+#   defaults_write NSGlobalDomain KeyRepeat -int 1
+#   defaults_write com.apple.finder ShowRecentTags -bool false
+defaults_write() {
+  DOMAIN="$1"
+  KEY="$2"
+  TYPE="$3"
+  VALUE="$4"
+
+  # Normalise the desired value to match how `defaults read` reports it.
+  DESIRED="$VALUE"
+  if [ "$TYPE" = "-bool" ]; then
+    case "$VALUE" in
+      true|yes|1) DESIRED="1" ;;
+      false|no|0) DESIRED="0" ;;
+    esac
+  fi
+
+  CURRENT=$(defaults read "$DOMAIN" "$KEY" 2>/dev/null)
+  if [ "$CURRENT" = "$DESIRED" ]; then
+    out "defaults write $DOMAIN $KEY $TYPE $VALUE \033[32m(already set)" "37" "  $ "
+  else
+    run "defaults write $DOMAIN $KEY $TYPE $VALUE"
+    MACOS_DEFAULTS_CHANGED="$MACOS_DEFAULTS_CHANGED $DOMAIN.$KEY"
+  fi
+}
+
+# macos_defaults_changed [pattern]
+# Returns success if a default changed this run. With a pattern, only matches
+# changed entries containing it (case-insensitive), e.g.
+#   macos_defaults_changed finder && killall Finder
+macos_defaults_changed() {
+  if [ -z "$1" ]; then
+    [ -n "$MACOS_DEFAULTS_CHANGED" ]
+  else
+    echo "$MACOS_DEFAULTS_CHANGED" | grep -qi "$1"
+  fi
+}
+
+# Warns (in yellow) that a logout is required, but only if a default actually
+# changed this run. Does NOT log out automatically.
+warn_if_macos_defaults_changed() {
+  if macos_defaults_changed; then
+    out "macOS defaults changed — log out and back in for them to take effect" "33"
+  fi
+}
