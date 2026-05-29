@@ -26,6 +26,7 @@ symlink_dotfile editorconfig
 symlink_dotfile tigrc
 symlink_dotfile gnupg/gpg.conf
 symlink_dotfile gnupg/gpg-agent.conf
+symlink_dotfile tmux.conf
 
 echo ""
 symlink "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
