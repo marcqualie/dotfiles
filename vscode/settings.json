@@ -64,7 +64,7 @@
     "typescript": true,
     "typescriptreact": true,
     "shellscript": true,
-    "yaml": true,
+    "yaml": false
   },
   "githubPullRequests.defaultMergeMethod": "squash",
   "githubPullRequests.remotes": ["origin"],
