@@ -39,6 +39,7 @@
   "explorer.autoRevealExclude": {
     "**/node_modules": true,
   },
+  "extensions.autoUpdate": false,
   "files.associations": {
     "Dockerfile*": "dockerfile",
     "*.tmpl": "terraform",
