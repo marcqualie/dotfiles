@@ -28,9 +28,11 @@ RC_DIRTY_GLYPH=$(printf '\342\234\227')         # U+2717  ballot X (dirty workin
 #   RC_BICON    branch icon (worktree variant inside a linked worktree)
 #   RC_DIRTY    1 when the working tree is dirty, else empty
 #   RC_DETACHED 1 when HEAD is detached (RC_BRANCH holds a short SHA, not a ref)
+#   RC_DIR      the directory that was inspected (used by repo_github_pr)
 repo_context() {
   RC_ICON=""; RC_KIND=""; RC_LABEL=""; RC_BRANCH=""; RC_BICON=""; RC_DIRTY=""; RC_DETACHED=""
   rc_dir="${1:-$HOME}"
+  RC_DIR="$rc_dir"
 
   if git -C "$rc_dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     # Current branch, falling back to a short SHA when HEAD is detached.
@@ -118,6 +120,11 @@ repo_github_pr() {
   [ -z "$RC_DETACHED" ] || return 0        # a detached SHA is not a PR head
   [ -n "$RC_BRANCH" ] || return 0
   command -v gh >/dev/null 2>&1 || return 0
+
+  # Only a branch that has been pushed can have a PR. The remote-tracking ref
+  # refs/remotes/origin/<branch> appears once it is pushed, so this stays a
+  # purely local check (no network) that skips brand-new local-only branches.
+  git -C "$RC_DIR" show-ref --verify --quiet "refs/remotes/origin/$RC_BRANCH" 2>/dev/null || return 0
 
   rc_pr_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/tmux-status"
   # Cache key is repo + branch with path separators flattened.
