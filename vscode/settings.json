@@ -20,7 +20,7 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "Geist, 'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'Cascadia Mono NF', 'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": false,
   "editor.formatOnPaste": false,
   "editor.inlineSuggest.enabled": true,
