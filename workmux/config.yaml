@@ -1,4 +1,9 @@
 nerdfont: true
+merge_strategy: squash
+merge_keep: false
+agent: claude
+worktree_dir: ".worktrees"
+mode: window
 
 # Don't overwrite the tmux window-status format on agent tabs; the slanted theme
 # in ~/.tmux.conf styles all tabs and renders #{@workmux_status} itself.
@@ -9,3 +14,17 @@ status_icons:
   working: "󱓦"
   waiting: "󰠗"
   done: ""
+
+panes:
+  - command: <agent>
+    focus: true
+
+post_create:
+  - /opt/homebrew/bin/denvig run install
+
+files:
+  symlink:
+    - .claude/settings.local.json
+    - .denvig.yml
+    - .env
+    - .env.local
