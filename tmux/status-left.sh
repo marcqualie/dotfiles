@@ -21,8 +21,7 @@
 base="#2e3440"      # status bar background
 seg1_bg="#434c5e"   # repo/path segment background
 seg1_fg="#eceff4"   # repo/path segment text
-seg2_bg="#3b4252"   # branch segment background
-seg2_fg="#81a1c1"   # branch segment text (nova blue)
+seg2_fg="#81a1c1"   # branch text (nova blue), shown on the same bg as the path
 dirty_fg="#ebcb8b"  # dirty working-tree marker (yellow), mirrors the zsh prompt
 
 # --- glyphs (Nerd Font: CascadiaMonoNF), built via octal to keep this ASCII ---
@@ -107,15 +106,12 @@ else
   fi
 fi
 
-# Repo/path segment.
-printf '#[fg=%s,bg=%s,bold] %s %s ' "$seg1_fg" "$seg1_bg" "$icon" "$label"
+# Repo/path + branch on a single segment: one shared background, no separator
+# between them (just a space), then one slant into the bar background.
+printf '#[fg=%s,bg=%s,bold] %s %s' "$seg1_fg" "$seg1_bg" "$icon" "$label"
 
 if [ -n "$branch" ]; then
-  # seg1 -> seg2 slant, branch segment, seg2 -> base slant.
-  printf '#[fg=%s,bg=%s,nobold]%s' "$seg1_bg" "$seg2_bg" "$slant"
-  printf '#[fg=%s,bg=%s] %s %s%s ' "$seg2_fg" "$seg2_bg" "$bicon" "$branch" "$dirty"
-  printf '#[fg=%s,bg=%s,nobold]%s' "$seg2_bg" "$base" "$slant"
-else
-  # seg1 -> base slant.
-  printf '#[fg=%s,bg=%s,nobold]%s' "$seg1_bg" "$base" "$slant"
+  printf '#[fg=%s,bg=%s,nobold] %s %s%s' "$seg2_fg" "$seg1_bg" "$bicon" "$branch" "$dirty"
 fi
+
+printf ' #[fg=%s,bg=%s,nobold]%s' "$seg1_bg" "$base" "$slant"
