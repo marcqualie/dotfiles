@@ -27,14 +27,15 @@ RC_DIRTY_GLYPH=$(printf '\342\234\227')         # U+2717  ballot X (dirty workin
 #   RC_BRANCH   current branch or short SHA (empty when not a git repo)
 #   RC_BICON    branch icon (worktree variant inside a linked worktree)
 #   RC_DIRTY    1 when the working tree is dirty, else empty
+#   RC_DETACHED 1 when HEAD is detached (RC_BRANCH holds a short SHA, not a ref)
 repo_context() {
-  RC_ICON=""; RC_KIND=""; RC_LABEL=""; RC_BRANCH=""; RC_BICON=""; RC_DIRTY=""
+  RC_ICON=""; RC_KIND=""; RC_LABEL=""; RC_BRANCH=""; RC_BICON=""; RC_DIRTY=""; RC_DETACHED=""
   rc_dir="${1:-$HOME}"
 
   if git -C "$rc_dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     # Current branch, falling back to a short SHA when HEAD is detached.
     RC_BRANCH=$(GIT_OPTIONAL_LOCKS=0 git -C "$rc_dir" symbolic-ref --short HEAD 2>/dev/null)
-    [ -n "$RC_BRANCH" ] || RC_BRANCH=$(GIT_OPTIONAL_LOCKS=0 git -C "$rc_dir" rev-parse --short HEAD 2>/dev/null)
+    [ -n "$RC_BRANCH" ] || { RC_DETACHED=1; RC_BRANCH=$(GIT_OPTIONAL_LOCKS=0 git -C "$rc_dir" rev-parse --short HEAD 2>/dev/null); }
 
     # Linked worktrees live under <repo>/.git/worktrees/<name>; swap the branch
     # icon to signal a worktree rather than appending a second glyph.
@@ -99,4 +100,65 @@ repo_context() {
       fi
     fi
   fi
+}
+
+# repo_github_pr
+# Resolves an open GitHub pull request for the current branch and populates:
+#   RC_PR_NUMBER   PR number (digits only), empty when none/unknown
+#   RC_PR_URL      web URL of the PR, empty when none/unknown
+#
+# Must be called after repo_context (uses RC_KIND/RC_LABEL/RC_BRANCH). The
+# `gh pr list` lookup is a network call, so results are cached on disk and the
+# refresh runs detached in the background: the status bar reads a cached answer
+# (or nothing on the very first sighting) and never blocks. Requires the GitHub
+# CLI (`gh`); silently no-ops when it is missing or unauthenticated.
+repo_github_pr() {
+  RC_PR_NUMBER=""; RC_PR_URL=""
+  [ "$RC_KIND" = github ] || return 0      # only github.com origins
+  [ -z "$RC_DETACHED" ] || return 0        # a detached SHA is not a PR head
+  [ -n "$RC_BRANCH" ] || return 0
+  command -v gh >/dev/null 2>&1 || return 0
+
+  rc_pr_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/tmux-status"
+  # Cache key is repo + branch with path separators flattened.
+  rc_pr_key=$(printf '%s@%s' "$RC_LABEL" "$RC_BRANCH" | tr '/ :@' '____')
+  rc_pr_cache="$rc_pr_cache_dir/pr-$rc_pr_key"
+
+  # Use whatever the last lookup found (cache line is "<number> <url>" or "none").
+  if [ -f "$rc_pr_cache" ]; then
+    rc_pr_line=$(cat "$rc_pr_cache" 2>/dev/null)
+    case "$rc_pr_line" in
+      none|"") : ;;
+      *) RC_PR_NUMBER=${rc_pr_line%% *}; RC_PR_URL=${rc_pr_line#* } ;;
+    esac
+  fi
+
+  # Refresh in the background when the cache is missing or older than 5 minutes.
+  if [ -z "$(find "$rc_pr_cache" -mmin -5 2>/dev/null)" ]; then
+    ( rc_github_pr_fetch "$RC_LABEL" "$RC_BRANCH" "$rc_pr_cache" >/dev/null 2>&1 & )
+  fi
+}
+
+# rc_github_pr_fetch <owner/repo> <branch> <cache-file>
+# Background worker: queries the GitHub CLI for the open PR whose head is
+# <branch> and writes "<number> <url>" (or "none") to <cache-file> atomically.
+# Single-flighted via a lock dir so overlapping status ticks fire one fetch.
+rc_github_pr_fetch() {
+  _repo=$1; _branch=$2; _cache=$3
+  mkdir -p "$(dirname "$_cache")" 2>/dev/null
+
+  _lock="$_cache.lock"
+  if [ -d "$_lock" ]; then
+    # Fresh lock => another fetch is in flight; stale lock => reclaim it.
+    [ -n "$(find "$_lock" -mmin -1 2>/dev/null)" ] && return 0
+    rmdir "$_lock" 2>/dev/null
+  fi
+  mkdir "$_lock" 2>/dev/null || return 0
+
+  _pr=$(gh pr list --repo "$_repo" --head "$_branch" --state open \
+          --json number,url --jq '.[0] | select(.number) | "\(.number) \(.url)"' 2>/dev/null)
+  [ -n "$_pr" ] || _pr=none
+  printf '%s\n' "$_pr" > "$_cache.tmp" 2>/dev/null && mv "$_cache.tmp" "$_cache" 2>/dev/null
+
+  rmdir "$_lock" 2>/dev/null
 }
