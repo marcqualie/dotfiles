@@ -6,6 +6,6 @@ status_format: false
 
 # Nerd Font agent-status icons (rendered inside the themed tmux tab).
 status_icons:
-  working: "󱙺"
-  waiting: "󱚠"
-  done: "󱜚"
+  working: "󱓦"
+  waiting: "󰠗"
+  done: ""
