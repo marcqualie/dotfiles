@@ -23,11 +23,12 @@ symlink_dotfile tigrc
 symlink_dotfile gnupg/gpg.conf
 symlink_dotfile gnupg/gpg-agent.conf
 symlink_dotfile tmux.conf
+symlink_dotfile tmux
 
 echo ""
 symlink "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 symlink "$DOTFILES_DIR/macos/quick-actions/copy-path" "$HOME/Library/Services/copy-path.workflow"
-symlink "$DOTFILES_DIR/.workmux.yaml" "$HOME/.config/workmux/config.yaml"
+symlink "$DOTFILES_DIR/workmux/config.yaml" "$HOME/.config/workmux/config.yaml"
 
 # vscode snippets cannot be symlinked
 echo ""
