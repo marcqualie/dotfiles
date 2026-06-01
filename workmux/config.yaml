@@ -1,0 +1,11 @@
+nerdfont: true
+
+# Don't overwrite the tmux window-status format on agent tabs; the slanted theme
+# in ~/.tmux.conf styles all tabs and renders #{@workmux_status} itself.
+status_format: false
+
+# Nerd Font agent-status icons (rendered inside the themed tmux tab).
+status_icons:
+  working: "󰚩"
+  waiting: ""
+  done: ""
