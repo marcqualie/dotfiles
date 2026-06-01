@@ -98,10 +98,9 @@ function _format_duration() {
   fi
 }
 
-# Two-line status block printed inside tmux after a command finishes:
-#   <blank>
-#   ● <duration>          (green dot for success, red dot + code for failure)
-#   <blank>
+# Status line printed inside tmux after a command finishes. The ┗ corner ties
+# it to the prompt block of the command that just ran:
+#   ┗ ● <duration>        (green dot for success, red dot + code for failure)
 function _print_status_line() {
   local exit=$1
   local circle elapsed
@@ -111,9 +110,8 @@ function _print_status_line() {
     circle="%{$fg[red]%}●%{$reset_color%} %{$fg[red]%}${exit}%{$reset_color%}"
   fi
   elapsed=$(_format_duration ${_prompt_started:+$(( EPOCHREALTIME - _prompt_started ))})
-  print -P ""
-  print -P "${circle} %{$FG[240]%}${elapsed}%{$reset_color%}"
-  print -P ""
+  print -P "%F{236}┗ %f${circle} %F{240}${elapsed}%f"
+  print ""
 }
 
 theme_prompt() {
@@ -132,8 +130,8 @@ theme_prompt() {
     # ┏ <icon> <owner/repo | path>
     # ┗ $
     repo_context "$PWD"
-    PROMPT="%{$FG[240]%}┏ %{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}"$'\n'
-    PROMPT+="%{$FG[240]%}┗ %{$reset_color%}\$ "
+    PROMPT="%F{236}┏ %{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}"$'\n'
+    PROMPT+="%F{236}┗ %f\$ "
   else
     PROMPT="$(ssh_info)$(maybe_src_path)$(aws_vault_info)$(git_prompt_info) "
   fi
