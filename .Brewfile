@@ -37,3 +37,8 @@ brew "terraform"
 brew "tig"
 brew "tree"
 brew "wget"
+# fonts
+cask "font-cascadia-code"
+cask "font-cascadia-code-nf"
+cask "font-cascadia-mono"
+cask "font-cascadia-mono-nf"
