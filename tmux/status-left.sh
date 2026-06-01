@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 #
-# tmux status-left renderer (nova-inspired, no plugins).
+# tmux status-left renderer (no plugins).
 #
 # Invoked from ~/.tmux.conf as:
 #   status-left "#(~/.tmux/status-left.sh '#{pane_current_path}')"
@@ -21,7 +21,7 @@
 base="#2e3440"      # status bar background
 seg1_bg="#434c5e"   # repo/path segment background
 seg1_fg="#eceff4"   # repo/path segment text
-seg2_fg="#81a1c1"   # branch text (nova blue), shown on the same bg as the path
+seg2_fg="#81a1c1"   # branch text (blue), shown on the same bg as the path
 dirty_fg="#ebcb8b"  # dirty working-tree marker (yellow), mirrors the zsh prompt
 
 # --- glyphs (Nerd Font: CascadiaMonoNF), built via octal to keep this ASCII ---
