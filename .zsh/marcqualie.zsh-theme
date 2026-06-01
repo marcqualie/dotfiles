@@ -68,7 +68,13 @@ function color() {
 }
 
 theme_prompt() {
-  PROMPT="$(ssh_info)$(maybe_src_path)$(aws_vault_info)$(git_prompt_info) "
+  # Inside tmux the status bar already shows the path, git branch, etc., so keep
+  # the prompt minimal. Outside tmux, show the full context.
+  if [[ -n "$TMUX" ]]; then
+    PROMPT='$ '
+  else
+    PROMPT="$(ssh_info)$(maybe_src_path)$(aws_vault_info)$(git_prompt_info) "
+  fi
   if [ "$INCOGNISHELL" -eq "1" ]; then
     PROMPT=" 🤫🙈$PROMPT"
   fi
