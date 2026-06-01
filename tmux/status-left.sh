@@ -23,6 +23,7 @@ seg1_bg="#434c5e"   # repo/path segment background
 seg1_fg="#eceff4"   # repo/path segment text
 seg2_bg="#3b4252"   # branch segment background
 seg2_fg="#81a1c1"   # branch segment text (nova blue)
+dirty_fg="#ebcb8b"  # dirty working-tree marker (yellow), mirrors the zsh prompt
 
 # --- glyphs (Nerd Font: CascadiaMonoNF), built via octal to keep this ASCII ---
 gh_icon=$(printf '\357\202\233')        # U+F09B  GitHub mark
@@ -31,12 +32,14 @@ folder_icon=$(printf '\357\201\273')    # U+F07B  folder
 branch_icon=$(printf '\357\204\246')          # U+F126  branch (normal checkout)
 worktree_branch_icon=$(printf '\356\251\243') # U+EA63  branch (linked worktree)
 slant=$(printf '\356\202\260')          # U+E0B0  solid right slant
+dirty_glyph=$(printf '\342\234\227')    # U+2717  ballot X (dirty working tree)
 
 dir="${1:-$HOME}"
 icon=""
 label=""
 branch=""
 bicon=""
+dirty=""
 
 if git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   # Current branch, falling back to a short SHA when HEAD is detached.
@@ -49,6 +52,12 @@ if git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   case "$(git -C "$dir" rev-parse --git-dir 2>/dev/null)" in
     */worktrees/*) bicon=$worktree_branch_icon ;;
   esac
+
+  # Yellow cross when the working tree is dirty (untracked counts), mirroring
+  # parse_git_dirty in ~/.zsh/git.zsh.
+  if [ -n "$(GIT_OPTIONAL_LOCKS=0 git -C "$dir" status --porcelain 2>/dev/null)" ]; then
+    dirty=" #[fg=$dirty_fg]$dirty_glyph"
+  fi
 
   # Parse host + owner/repo from the origin URL (https, ssh, or scp-like).
   url=$(git -C "$dir" config --get remote.origin.url 2>/dev/null)
@@ -104,7 +113,7 @@ printf '#[fg=%s,bg=%s,bold] %s %s ' "$seg1_fg" "$seg1_bg" "$icon" "$label"
 if [ -n "$branch" ]; then
   # seg1 -> seg2 slant, branch segment, seg2 -> base slant.
   printf '#[fg=%s,bg=%s,nobold]%s' "$seg1_bg" "$seg2_bg" "$slant"
-  printf '#[fg=%s,bg=%s] %s %s ' "$seg2_fg" "$seg2_bg" "$bicon" "$branch"
+  printf '#[fg=%s,bg=%s] %s %s%s ' "$seg2_fg" "$seg2_bg" "$bicon" "$branch" "$dirty"
   printf '#[fg=%s,bg=%s,nobold]%s' "$seg2_bg" "$base" "$slant"
 else
   # seg1 -> base slant.
