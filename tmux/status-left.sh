@@ -28,24 +28,26 @@ seg2_fg="#81a1c1"   # branch segment text (nova blue)
 gh_icon=$(printf '\357\202\233')        # U+F09B  GitHub mark
 git_icon=$(printf '\356\234\202')       # U+E702  git
 folder_icon=$(printf '\357\201\273')    # U+F07B  folder
-branch_icon=$(printf '\356\202\240')    # U+E0A0  branch
-worktree_icon=$(printf '\357\204\246')  # U+F126  fork (linked worktree)
+branch_icon=$(printf '\357\204\246')          # U+F126  branch (normal checkout)
+worktree_branch_icon=$(printf '\356\251\243') # U+EA63  branch (linked worktree)
 slant=$(printf '\356\202\260')          # U+E0B0  solid right slant
 
 dir="${1:-$HOME}"
 icon=""
 label=""
 branch=""
-wt=""
+bicon=""
 
 if git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   # Current branch, falling back to a short SHA when HEAD is detached.
   branch=$(GIT_OPTIONAL_LOCKS=0 git -C "$dir" symbolic-ref --short HEAD 2>/dev/null)
   [ -n "$branch" ] || branch=$(GIT_OPTIONAL_LOCKS=0 git -C "$dir" rev-parse --short HEAD 2>/dev/null)
 
-  # Linked worktrees live under <repo>/.git/worktrees/<name>.
+  # Linked worktrees live under <repo>/.git/worktrees/<name>; swap the branch
+  # icon to signal a worktree rather than appending a second glyph.
+  bicon=$branch_icon
   case "$(git -C "$dir" rev-parse --git-dir 2>/dev/null)" in
-    */worktrees/*) wt=" $worktree_icon" ;;
+    */worktrees/*) bicon=$worktree_branch_icon ;;
   esac
 
   # Parse host + owner/repo from the origin URL (https, ssh, or scp-like).
@@ -102,7 +104,7 @@ printf '#[fg=%s,bg=%s,bold] %s %s ' "$seg1_fg" "$seg1_bg" "$icon" "$label"
 if [ -n "$branch" ]; then
   # seg1 -> seg2 slant, branch segment, seg2 -> base slant.
   printf '#[fg=%s,bg=%s,nobold]%s' "$seg1_bg" "$seg2_bg" "$slant"
-  printf '#[fg=%s,bg=%s] %s %s%s ' "$seg2_fg" "$seg2_bg" "$branch_icon" "$branch" "$wt"
+  printf '#[fg=%s,bg=%s] %s %s ' "$seg2_fg" "$seg2_bg" "$bicon" "$branch"
   printf '#[fg=%s,bg=%s,nobold]%s' "$seg2_bg" "$base" "$slant"
 else
   # seg1 -> base slant.
