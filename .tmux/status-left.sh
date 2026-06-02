@@ -22,6 +22,7 @@ seg1_bg="#434c5e"   # repo/path segment background
 seg1_fg="#eceff4"   # repo/path segment text
 sub_fg="#7b88a1"    # sub-path text (faded grey), shown after the repo label
 seg2_fg="#81a1c1"   # branch text (blue), shown on the same bg as the path
+worktree_fg="#ebcb8b" # worktree branch icon (loud yellow), matches the aws block
 dirty_fg="#ebcb8b"  # dirty working-tree marker (yellow), mirrors the zsh prompt
 pr_fg="#a3be8c"     # github PR link (green), distinct from the branch text
 aws_bg="#ebcb8b"    # aws-vault segment background (loud yellow — hard to miss)
@@ -62,7 +63,13 @@ if [ -n "$RC_SUBPATH" ]; then
 fi
 
 if [ -n "$RC_BRANCH" ]; then
-  printf '#[fg=%s,bg=%s,nobold] %s %s%s' "$seg2_fg" "$seg1_bg" "$RC_BICON" "$RC_BRANCH" "$dirty"
+  # A linked worktree gets its branch icon in the loud aws yellow so it stands
+  # out from a standard checkout's blue branch icon; the branch text itself
+  # stays blue either way.
+  bicon_fg="$seg2_fg"
+  [ "$RC_BICON" = "$RC_WORKTREE_BRANCH_ICON" ] && bicon_fg="$worktree_fg"
+  printf '#[fg=%s,bg=%s,nobold] %s#[fg=%s] %s%s' \
+    "$bicon_fg" "$seg1_bg" "$RC_BICON" "$seg2_fg" "$RC_BRANCH" "$dirty"
 fi
 
 # aws-vault session — a loud yellow "<icon> <profile>" block right after the
