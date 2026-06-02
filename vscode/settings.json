@@ -20,7 +20,7 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "'Cascadia Mono NF', 'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'JetBrainsMono NF', 'Cascadia Mono NF', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": false,
   "editor.formatOnPaste": false,
   "editor.inlineSuggest.enabled": true,
@@ -76,7 +76,7 @@
   "testExplorer.codeLens": true,
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.bellDuration": 10000,
-  "terminal.integrated.fontFamily": "'Cascadia Mono NF', Menlo, monospace",
+  "terminal.integrated.fontFamily": "'JetBrainsMono NF', 'Cascadia Mono NF', Menlo, monospace",
   "terminal.integrated.cwd": "${workspaceFolder}",
   "terminal.integrated.initialHint": false,
   "terminal.integrated.profiles.osx": {

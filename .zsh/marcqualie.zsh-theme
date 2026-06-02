@@ -120,6 +120,16 @@ theme_prompt() {
   local exit_code=$?
 
   if [[ -n "$TMUX" ]]; then
+    # Publish the aws-vault session into a pane-scoped tmux option so the status
+    # bar can surface it — same detection as aws_vault_info above, but the status
+    # bar runs in a separate process and can't read this shell's $AWS_VAULT, so
+    # we hand it over here. Cleared when no session is loaded.
+    if [[ -n "$AWS_VAULT" ]]; then
+      tmux set-option -p @aws_vault "$AWS_VAULT" 2>/dev/null
+    else
+      tmux set-option -pu @aws_vault 2>/dev/null
+    fi
+
     # Status line for the command that just ran (skipped on a fresh shell or an
     # empty line, where preexec never fired).
     if [[ -n "$_prompt_ran" ]]; then
