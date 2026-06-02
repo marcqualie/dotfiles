@@ -20,6 +20,7 @@
 base="#2e3440"      # status bar background
 seg1_bg="#434c5e"   # repo/path segment background
 seg1_fg="#eceff4"   # repo/path segment text
+sub_fg="#7b88a1"    # sub-path text (faded grey), shown after the repo label
 seg2_fg="#81a1c1"   # branch text (blue), shown on the same bg as the path
 dirty_fg="#ebcb8b"  # dirty working-tree marker (yellow), mirrors the zsh prompt
 pr_fg="#a3be8c"     # github PR link (green), distinct from the branch text
@@ -52,6 +53,13 @@ last_bg="$seg1_bg"
 # Repo/path + branch on a single segment: one shared background, no separator
 # between them (just a space).
 printf '#[fg=%s,bg=%s,bold] %s %s' "$seg1_fg" "$seg1_bg" "$RC_ICON" "$RC_LABEL"
+
+# Outside the repo root, append the folder icon + path from the root in faded
+# grey so the bright repo name stays the anchor and the sub-path reads as
+# context (mirrors the folder glyph used for plain non-git dirs).
+if [ -n "$RC_SUBPATH" ]; then
+  printf '#[fg=%s,bg=%s,nobold] %s %s' "$sub_fg" "$seg1_bg" "$RC_FOLDER_ICON" "$RC_SUBPATH"
+fi
 
 if [ -n "$RC_BRANCH" ]; then
   printf '#[fg=%s,bg=%s,nobold] %s %s%s' "$seg2_fg" "$seg1_bg" "$RC_BICON" "$RC_BRANCH" "$dirty"

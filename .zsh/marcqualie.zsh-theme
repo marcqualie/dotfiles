@@ -137,10 +137,15 @@ theme_prompt() {
       unset _prompt_ran
     fi
 
-    # ┏ <icon> <owner/repo | path>
+    # ┏ <icon> <owner/repo | path>[ <folder> <sub/path>]
     # ┗ $
+    # Outside the repo root, append the folder icon + path from the root in a
+    # faded grey so the bright repo label stays the anchor and the sub-path
+    # reads as context.
     repo_context "$PWD"
-    PROMPT="%F{236}┏ %{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}"$'\n'
+    local rc_sub=""
+    [[ -n "$RC_SUBPATH" ]] && rc_sub=" %F{240}${RC_FOLDER_ICON} ${RC_SUBPATH}%f"
+    PROMPT="%F{236}┏ %{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}${rc_sub}"$'\n'
     PROMPT+="%F{236}┗ %f\$ "
   else
     PROMPT="$(ssh_info)$(maybe_src_path)$(aws_vault_info)$(git_prompt_info) "

@@ -24,17 +24,23 @@ RC_DIRTY_GLYPH=$(printf '\342\234\227')         # U+2717  ballot X (dirty workin
 #   RC_ICON     icon glyph for the directory (github / git / folder)
 #   RC_KIND     one of: github | git | folder
 #   RC_LABEL    owner/repo (github), repo (other git), or parent/dir (folder)
+#   RC_SUBPATH  path from the repo root to <dir>, empty at the root / non-git
 #   RC_BRANCH   current branch or short SHA (empty when not a git repo)
 #   RC_BICON    branch icon (worktree variant inside a linked worktree)
 #   RC_DIRTY    1 when the working tree is dirty, else empty
 #   RC_DETACHED 1 when HEAD is detached (RC_BRANCH holds a short SHA, not a ref)
 #   RC_DIR      the directory that was inspected (used by repo_github_pr)
 repo_context() {
-  RC_ICON=""; RC_KIND=""; RC_LABEL=""; RC_BRANCH=""; RC_BICON=""; RC_DIRTY=""; RC_DETACHED=""
+  RC_ICON=""; RC_KIND=""; RC_LABEL=""; RC_SUBPATH=""; RC_BRANCH=""; RC_BICON=""; RC_DIRTY=""; RC_DETACHED=""
   rc_dir="${1:-$HOME}"
   RC_DIR="$rc_dir"
 
   if git -C "$rc_dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    # Path from the repo root to the inspected dir (trailing slash trimmed),
+    # so callers can append it faded after the repo label. Empty at the root.
+    RC_SUBPATH=$(GIT_OPTIONAL_LOCKS=0 git -C "$rc_dir" rev-parse --show-prefix 2>/dev/null)
+    RC_SUBPATH=${RC_SUBPATH%/}
+
     # Current branch, falling back to a short SHA when HEAD is detached.
     RC_BRANCH=$(GIT_OPTIONAL_LOCKS=0 git -C "$rc_dir" symbolic-ref --short HEAD 2>/dev/null)
     [ -n "$RC_BRANCH" ] || { RC_DETACHED=1; RC_BRANCH=$(GIT_OPTIONAL_LOCKS=0 git -C "$rc_dir" rev-parse --short HEAD 2>/dev/null); }
