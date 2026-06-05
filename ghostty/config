@@ -10,6 +10,13 @@ macos-titlebar-style = hidden
 clipboard-paste-protection = false
 copy-on-select = true
 
+# Map Cmd+arrow to the Alt+arrow escape sequences so tmux can switch panes.
+# tmux's `bind -n M-Left/Right/Up/Down` bindings catch these.
+keybind = cmd+left=csi:1;3D
+keybind = cmd+right=csi:1;3C
+keybind = cmd+up=csi:1;3A
+keybind = cmd+down=csi:1;3B
+
 # fonts
 font-size = 13
 font-family = "Cascadia Code NF"
