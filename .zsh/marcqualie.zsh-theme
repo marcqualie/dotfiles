@@ -7,6 +7,12 @@ source ~/.zsh/repo-context.sh
 # High-resolution clock for measuring how long each command takes.
 zmodload zsh/datetime 2>/dev/null
 
+# Faint/dim SGR attribute — renders the same hue at reduced intensity (the
+# terminal equivalent of opacity). Used to dim the frame corners while keeping
+# them standard cyan. A real ESC char so it works in PROMPT expansion, not just
+# `print -P`.
+FAINT=$'\e[2m'
+
 function maybe_src_path() {
   local wd=$(pwd)
 
@@ -110,7 +116,7 @@ function _print_status_line() {
     circle="%{$fg[red]%}●%{$reset_color%} %{$fg[red]%}${exit}%{$reset_color%}"
   fi
   elapsed=$(_format_duration ${_prompt_started:+$(( EPOCHREALTIME - _prompt_started ))})
-  print -P "%F{236}┗ %f${circle} %F{240}${elapsed}%f"
+  print -P "%{${FAINT}$fg[cyan]%}┗ %{$reset_color%}${circle} %{$fg[240]%}${elapsed}%f"
   print ""
 }
 
@@ -145,8 +151,8 @@ theme_prompt() {
     repo_context "$PWD"
     local rc_sub=""
     [[ -n "$RC_SUBPATH" ]] && rc_sub=" %F{240}${RC_FOLDER_ICON} ${RC_SUBPATH}%f"
-    PROMPT="%F{236}┏ %{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}${rc_sub}"$'\n'
-    PROMPT+="%F{236}┗ %f\$ "
+    PROMPT="%{${FAINT}$fg[cyan]%}┏ %{$reset_color%}%{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}${rc_sub}"$'\n'
+    PROMPT+="%{$fg[cyan]%}\$%{$reset_color%} "
   else
     PROMPT="$(ssh_info)$(maybe_src_path)$(aws_vault_info)$(git_prompt_info) "
   fi
