@@ -4,7 +4,7 @@
 
 # macos specifics
 macos-option-as-alt = true
-macos-titlebar-style = hidden
+#macos-titlebar-style = hidden
 
 # behaviours
 clipboard-paste-protection = false
