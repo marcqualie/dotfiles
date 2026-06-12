@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# Use denvig via workmux + claude to upgrade dependencides.
+# Use denvig via git worktrees + tmux + claude to upgrade dependencides.
 # Runs in the current directory, which should be a denvig project directory.
 #
 # Usage: denvig_upgrade_npm_dependencies [patch|minor|all|package-name]
@@ -36,6 +36,18 @@ function denvig_upgrade_npm_dependencoes() {
     echo "$outdated"
   fi
 
-  # start a new workmux window and run the claude skill
-  workmux add "denvig-$(date +%s)" -a claude -p "/denvig-upgrade-npm-dependencies $1"
+  # create a git worktree and run the claude skill inside a new tmux window
+  local name="denvig-$(date +%s)"
+  local worktree_dir="$PWD/.worktrees/$name"
+  git worktree add -b "$name" "$worktree_dir" || return 1
+
+  # symlink local settings from the main checkout so they stay in sync
+  [[ -f "$PWD/.env.local" ]] && ln -sf "$PWD/.env.local" "$worktree_dir/.env.local"
+  if [[ -f "$PWD/.claude/settings.local.json" ]]; then
+    mkdir -p "$worktree_dir/.claude"
+    ln -sf "$PWD/.claude/settings.local.json" "$worktree_dir/.claude/settings.local.json"
+  fi
+
+  tmux new-window -n "$name" -c "$worktree_dir" \
+    "claude --model sonnet --permission-mode acceptEdits '/denvig-upgrade-npm-dependencies $1'"
 }
