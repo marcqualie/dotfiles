@@ -11,6 +11,9 @@ FIVE_RESET=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 WEEK=$(echo "$input"       | jq -r '.rate_limits.seven_day.used_percentage // empty')
 WEEK_RESET=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
 
+# --- Session cost (estimated at API rates, even on subscription) ---
+COST=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
+
 # Window lengths (seconds)
 FIVE_WINDOW=18000     # 5h
 WEEK_WINDOW=604800    # 7d
@@ -62,6 +65,19 @@ bar() {
   printf '%s %s%s%%%s' "$out" "$color" "$p" "$RESET"
 }
 
+# cost_str USD -> " $1.23" (more precision when small; empty if no/invalid value)
+cost_str() {
+  local usd=$1 fmt
+  case "$usd" in (''|*[!0-9.]*) return;; esac
+  fmt=$(awk -v c="$usd" 'BEGIN {
+    if (c >= 1)      printf "$%.2f", c
+    else if (c >= 0.01) printf "$%.2f", c
+    else if (c > 0)  printf "$%.3f", c
+    else             printf "$0.00"
+  }')
+  printf '%s' "  ${DIM}${fmt}${RESET}"
+}
+
 # reset_str EPOCH FORMAT -> dim " 22:30" (empty if no/invalid timestamp)
 reset_str() {
   local epoch=$1 fmt=$2 when
@@ -80,5 +96,7 @@ if [ -n "$WEEK" ]; then
   M=$(marker_idx "$WEEK_RESET" "$WEEK_WINDOW" 10)
   OUT="$OUT  ${DIM}7d${RESET} $(bar "$WEEK" "$M")$(reset_str "$WEEK_RESET" '%a %H:%M')"
 fi
+
+OUT="$OUT$(cost_str "$COST")"
 
 echo "$OUT"
