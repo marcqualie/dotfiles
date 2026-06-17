@@ -30,6 +30,7 @@ Procfile.local
 .node-version
 .ruby-version
 .env.*
+!.env.schema
 .envrc
 .zshenv.local
 *.crt
