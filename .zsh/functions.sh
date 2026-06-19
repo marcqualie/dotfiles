@@ -100,6 +100,58 @@ loadenv() {
 
 
 
+# https://marcqualie.com/2015/08/remove-deleted-git-branches
+# Cleanup local branches whose upstream has been deleted from the remote.
+# git always pads the marker column to 2 chars (* current, + worktree), so
+# strip those before reading the name to avoid grabbing the "+" sign.
+git-branch-cleanup() {
+  local gbc_gone_branches gbc_branch_line gbc_branch_name gbc_confirm gbc_worktree_path
+  local -a gbc_plain_branches gbc_worktree_branches
+  gbc_gone_branches=$(git --no-pager branch -vv | grep ': gone]')
+
+  if [[ -z "$gbc_gone_branches" ]]; then
+    echo "No gone branches to clean up."
+    return 0
+  fi
+
+  echo "The following branches have been deleted from the remote:"
+  while IFS= read -r gbc_branch_line; do
+    gbc_branch_name=$(echo "$gbc_branch_line" | cut -c3- | awk '{print $1}')
+    if [[ "$gbc_branch_line" == "+"* ]]; then
+      gbc_worktree_branches+=("$gbc_branch_name")
+      echo "  $gbc_branch_name (worktree)"
+    else
+      gbc_plain_branches+=("$gbc_branch_name")
+      echo "  $gbc_branch_name"
+    fi
+  done <<< "$gbc_gone_branches"
+
+  echo -n "Delete all of these branches? [y/N] "
+  read -r gbc_confirm
+  if [[ "$gbc_confirm" != [yY] ]]; then
+    echo "Aborted."
+    return 0
+  fi
+
+  # Plain branches can be deleted directly.
+  for gbc_branch_name in "${gbc_plain_branches[@]}"; do
+    git branch -D "$gbc_branch_name"
+  done
+
+  # Worktree branches are checked out elsewhere, so remove the worktree first,
+  # then delete the now-detached branch.
+  for gbc_branch_name in "${gbc_worktree_branches[@]}"; do
+    gbc_worktree_path=$(git worktree list --porcelain | awk -v br="refs/heads/$gbc_branch_name" '
+      $1 == "worktree" { wt = $2 }
+      $1 == "branch" && $2 == br { print wt }')
+    if [[ -n "$gbc_worktree_path" ]]; then
+      git worktree remove "$gbc_worktree_path" && git branch -D "$gbc_branch_name"
+    else
+      git branch -D "$gbc_branch_name"
+    fi
+  done
+}
+
 flushdns () {
   dscacheutil -flushcache
   sudo killall -HUP mDNSResponder
