@@ -44,9 +44,9 @@ secrets*.json
 .infracost
 
 # AI
-.claude
+.claude/settings.local.json
 .codex
 .playwright-mcp
 AGENTS.md
-CLAUDE.md
+CLAUDE.local.md
 opencode.json
