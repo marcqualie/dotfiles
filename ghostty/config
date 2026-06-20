@@ -2,6 +2,9 @@
 # Docs: https://ghostty.org/docs/config
 # Run `ghostty +show-config --default --docs` to list all options.
 
+# setup
+initial-command = "/opt/homebrew/bin/tmux new-session -A -s ghostty"
+
 # macos specifics
 macos-option-as-alt = true
 #macos-titlebar-style = hidden
