@@ -7,7 +7,7 @@ setopt SHARE_HISTORY
 setopt APPEND_HISTORY
 
 # Plugins
-fpath=(~/.zsh/completions $fpath)
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
 autoload -U compinit
 local -a zcd=(~/.zcompdump(N.mh+24))
 if (( $#zcd )); then
