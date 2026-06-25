@@ -152,6 +152,37 @@ git-branch-cleanup() {
   done
 }
 
+git-checkout-main-pull() {
+  local gcomp_git_dir gcomp_common_dir gcomp_main_root
+
+  # Bail early if we're not inside a git repository.
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "Not inside a git repository."
+    return 1
+  fi
+
+  # In a linked worktree the per-worktree git dir differs from the shared
+  # common dir. main is already checked out in the primary worktree, so cd
+  # there first to avoid "main is already checked out" errors. Ask git for
+  # absolute paths directly rather than resolving via cd, which would invoke
+  # the custom cd() override and mask the result.
+  gcomp_git_dir=$(git rev-parse --path-format=absolute --git-dir)
+  gcomp_common_dir=$(git rev-parse --path-format=absolute --git-common-dir)
+  if [[ "$gcomp_git_dir" != "$gcomp_common_dir" ]]; then
+    gcomp_main_root=$(dirname "$gcomp_common_dir")
+    if [[ -z "$gcomp_main_root" || "$gcomp_main_root" == "." ]]; then
+      echo "Failed to resolve primary worktree path (common dir: '$gcomp_common_dir')." >&2
+      return 1
+    fi
+    echo "In a worktree, switching to primary worktree: $gcomp_main_root"
+    cd "$gcomp_main_root" || return 1
+  fi
+
+  git -c core.hooksPath=/dev/null checkout main &&
+    git -c core.hooksPath=/dev/null pull &&
+    ~/.dotfiles/.githooks/post-checkout
+}
+
 flushdns () {
   dscacheutil -flushcache
   sudo killall -HUP mDNSResponder
