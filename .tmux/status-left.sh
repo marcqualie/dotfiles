@@ -14,7 +14,7 @@
 #   not a git repo   ->   parent/dir (<=2)             (folder icon)
 #
 # A worktree icon replaces the branch icon when the pane is in a linked git
-# worktree (e.g. one created by workmux) rather than the main checkout.
+# worktree rather than the main checkout.
 
 # --- palette (kept in sync with ~/.tmux.conf) ---------------------------------
 base="#2e3440"      # status bar background

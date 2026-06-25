@@ -15,8 +15,6 @@ ehthumbs.db
 /.bundle/
 .denvig.yml
 .worktrees
-.workmux.yaml
-.github/hooks/workmux-status
 .stfolder
 .vscode
 .go-version
