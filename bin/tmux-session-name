@@ -1,0 +1,54 @@
+#!/usr/bin/env sh
+#
+# tmux-session-name — derive a stable, tmux-safe session name for a directory,
+# used by the VS Code integrated-terminal "tmux-project" profile so each project
+# window attaches to its own session.
+#
+#   git repo (github)   ->  vscode-owner/repo
+#   git repo (other)    ->  vscode-repo
+#   linked worktree     ->  vscode-owner/repo/<worktree>   (grouped, distinct)
+#   not a git repo      ->  vscode-<~/full/path>
+#
+# tmux forbids '.' and ':' in session names: a '.' makes `new-session` fail
+# outright (which is why ~/.dotfiles — session "vscode-marc/.dotfiles" — could
+# never launch a terminal). '/' is legal and kept so windows nest under a repo
+# label; every other reserved character is folded to '-'.
+#
+# Repo identity comes from the primary worktree's origin, so a linked worktree
+# under <repo>/.worktrees/<branch> resolves to owner/repo instead of the useless
+# "<.worktrees>/<branch>" the old inline ${PWD} expansion produced.
+
+set -u
+
+dir="${1:-$PWD}"
+
+# tmux session names can't contain '.' or ':'; fold both to '-' and squeeze runs.
+sanitize() {
+  printf '%s' "$1" | tr '.:' '--' | tr -s '-'
+}
+
+# Reuse the exact repo/path detection the zsh prompt and tmux status bar use,
+# so the session name matches how the directory is labelled everywhere else.
+. "$HOME/.dotfiles/.zsh/repo-context.sh"
+repo_context "$dir"
+
+if [ -n "$RC_KIND" ] && [ "$RC_KIND" != "folder" ]; then
+  name="$RC_LABEL"
+  # Linked worktrees keep their git dir under <repo>/.git/worktrees/<name>;
+  # append that name so each worktree gets a distinct session grouped under the
+  # primary repo label.
+  case "$(git -C "$dir" rev-parse --git-dir 2>/dev/null)" in
+    */worktrees/*)
+      name="$name/$(basename "$(git -C "$dir" rev-parse --git-dir 2>/dev/null)")"
+      ;;
+  esac
+else
+  # Not a git repo: fall back to the full path with $HOME rendered as '~'.
+  case "$dir" in
+    "$HOME") name="~" ;;
+    "$HOME"/*) name="~/${dir#"$HOME"/}" ;;
+    *) name="$dir" ;;
+  esac
+fi
+
+printf 'vscode-%s\n' "$(sanitize "$name")"

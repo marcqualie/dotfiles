@@ -86,7 +86,7 @@
     },
     "tmux-project": {
       "path": "/bin/zsh",
-      "args": ["-c", "exec /opt/homebrew/bin/tmux new-session -A -s \"vscode-${${PWD:h}:t}/${PWD:t}\""]
+      "args": ["-c", "exec /opt/homebrew/bin/tmux new-session -A -s \"$(~/.dotfiles/bin/tmux-session-name)\""]
     }
   },
   "terminal.integrated.defaultProfile.osx": "tmux-project",
