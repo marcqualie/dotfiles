@@ -125,37 +125,39 @@ theme_prompt() {
   # clobbers $?.
   local exit_code=$?
 
+  # Publish the aws-vault session into a pane-scoped tmux option so the status
+  # bar can surface it — same detection as aws_vault_info above, but the status
+  # bar runs in a separate process and can't read this shell's $AWS_VAULT, so
+  # we hand it over here. Cleared when no session is loaded. tmux-only; outside
+  # tmux the session is surfaced in the prompt itself (see rc_aws below).
   if [[ -n "$TMUX" ]]; then
-    # Publish the aws-vault session into a pane-scoped tmux option so the status
-    # bar can surface it — same detection as aws_vault_info above, but the status
-    # bar runs in a separate process and can't read this shell's $AWS_VAULT, so
-    # we hand it over here. Cleared when no session is loaded.
     if [[ -n "$AWS_VAULT" ]]; then
       tmux set-option -p @aws_vault "$AWS_VAULT" 2>/dev/null
     else
       tmux set-option -pu @aws_vault 2>/dev/null
     fi
-
-    # Status line for the command that just ran (skipped on a fresh shell or an
-    # empty line, where preexec never fired).
-    if [[ -n "$_prompt_ran" ]]; then
-      _print_status_line $exit_code
-      unset _prompt_ran
-    fi
-
-    # ┏ <icon> <owner/repo | path>[ <folder> <sub/path>]
-    # ┗ $
-    # Outside the repo root, append the folder icon + path from the root in a
-    # faded grey so the bright repo label stays the anchor and the sub-path
-    # reads as context.
-    repo_context "$PWD"
-    local rc_sub=""
-    [[ -n "$RC_SUBPATH" ]] && rc_sub=" %F{240}${RC_FOLDER_ICON} ${RC_SUBPATH}%f"
-    PROMPT="%{${FAINT}$fg[cyan]%}┏ %{$reset_color%}%{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}${rc_sub}"$'\n'
-    PROMPT+="%{$fg[cyan]%}\$%{$reset_color%} "
-  else
-    PROMPT="$(ssh_info)$(maybe_src_path)$(aws_vault_info)$(git_prompt_info) "
   fi
+
+  # Status line for the command that just ran (skipped on a fresh shell or an
+  # empty line, where preexec never fired).
+  if [[ -n "$_prompt_ran" ]]; then
+    _print_status_line $exit_code
+    unset _prompt_ran
+  fi
+
+  # ┏ <icon> <owner/repo | path>[ <folder> <sub/path>]
+  # ┗ $
+  # Outside the repo root, append the folder icon + path from the root in a
+  # faded grey so the bright repo label stays the anchor and the sub-path
+  # reads as context.
+  repo_context "$PWD"
+  local rc_sub=""
+  [[ -n "$RC_SUBPATH" ]] && rc_sub=" %F{240}${RC_FOLDER_ICON} ${RC_SUBPATH}%f"
+  # No tmux status bar outside tmux, so surface the aws-vault session inline.
+  local rc_aws=""
+  [[ -z "$TMUX" ]] && rc_aws="$(aws_vault_info)"
+  PROMPT="%{${FAINT}$fg[cyan]%}┏ %{$reset_color%}%{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}${rc_sub}${rc_aws}"$'\n'
+  PROMPT+="%{$fg[cyan]%}\$%{$reset_color%} "
   if [ "$INCOGNISHELL" -eq "1" ]; then
     PROMPT=" 🤫🙈$PROMPT"
   fi
