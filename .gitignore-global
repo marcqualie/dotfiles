@@ -43,6 +43,7 @@ secrets*.json
 
 # AI
 .claude/settings.local.json
+**/.claude/settings.local.json
 .claude/worktrees
 .codex
 .playwright-mcp
