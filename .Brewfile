@@ -6,6 +6,7 @@ brew "certbot"
 brew "cfssl"
 brew 'cmake'
 brew "direnv"
+brew "fd"
 brew "glib"
 brew "gcc"
 brew "git"
