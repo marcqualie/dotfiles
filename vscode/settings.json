@@ -265,4 +265,5 @@
   "[github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
   },
+  "workbench.experimental.modernUI": true,
 }
