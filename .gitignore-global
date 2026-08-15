@@ -47,6 +47,7 @@ secrets*.json
 .claude/worktrees
 .codex
 .playwright-mcp
+.playwright-cli
 AGENTS.md
 CLAUDE.local.md
 opencode.json
