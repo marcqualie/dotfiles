@@ -36,7 +36,19 @@ else
 fi
 export BUNDLER_EDITOR=code
 
-# Environment detection (triggers +env for project dirs) and direnv
-loadenv
-command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
+# Environment detection (triggers +env for project dirs) and direnv.
+# Skip for Claude Code / agents so the dynamic direnv hook is never installed in
+# non-interactive Bash-tool shells (avoids "is blocked" noise inside worktrees).
+# Keyed on multiple markers because not every entrypoint sets CLAUDECODE.
+if [[ -z "$CLAUDECODE" && -z "$AI_AGENT" && -z "$CLAUDE_CODE_ENTRYPOINT" ]]; then
+  loadenv
+  command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
+
+  # Root-cause kill: strip inherited DIRENV_* before launching Claude so its shell
+  # snapshot and every Bash-tool shell start clean, regardless of guard/resume timing.
+  claude() {
+    env -u DIRENV_DIR -u DIRENV_DIFF -u DIRENV_FILE -u DIRENV_WATCHES DIRENV_LOG_FORMAT= \
+      command claude "$@"
+  }
+fi
 

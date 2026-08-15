@@ -52,9 +52,14 @@ function normalize_path() {
 
 # Check if a path is allowed by direnv (pure zsh, no subprocesses)
 direnv_path_allowed() {
+  # Force null_glob locally so an empty/missing allow dir expands to nothing
+  # instead of throwing a fatal "no matches found" (which aborts cd-prefixed
+  # commands under shells that don't honor the (N) qualifier, e.g. Claude's).
+  emulate -L zsh
+  setopt local_options null_glob
   local allow_dir=$HOME/.local/share/direnv/allow
   local f allowed_path
-  for f in $allow_dir/*(N); do
+  for f in $allow_dir/*; do
     allowed_path=$(<$f)
     allowed_path=${allowed_path%/.envrc}
     [[ "$1" == "$allowed_path" ]] && return 0
@@ -63,6 +68,11 @@ direnv_path_allowed() {
 }
 
 loadenv() {
+  # No-op under Claude Code / agents. loadenv can get wired into a chpwd hook
+  # that persists in Claude's frozen shell snapshot; returning early keeps cd
+  # from triggering direnv/env work in non-interactive Bash-tool shells.
+  [[ -n "$CLAUDECODE" || -n "$AI_AGENT" || -n "$CLAUDE_CODE_ENTRYPOINT" ]] && return
+
   normalize_path
 
   # Detect symlinked directories
