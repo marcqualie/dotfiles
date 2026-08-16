@@ -11,7 +11,13 @@
     "dock": "left"
   },
   "terminal": {
-    "dock": "bottom"
+    "dock": "bottom",
+    "font_family": "JetBrainsMono NF",
+    "font_fallbacks": ["Cascadia Mono NF", "Menlo"],
+    "font_features": {
+      "calt": false
+    },
+    "max_scroll_history_lines": 100000
   },
   "project_panel": {
     "dock": "right"
@@ -29,6 +35,11 @@
     "model_parameters": []
   },
   "ui_font_size": 16,
+  "buffer_font_family": "JetBrainsMono NF",
+  "buffer_font_fallbacks": ["Cascadia Mono NF", "Menlo"],
+  "buffer_font_features": {
+    "calt": false
+  },
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
