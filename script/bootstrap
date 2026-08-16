@@ -31,6 +31,7 @@ symlink "$DOTFILES_DIR/vscode/settings.json" "$HOME/Library/Application Support/
 symlink "$DOTFILES_DIR/macos/quick-actions/copy-path" "$HOME/Library/Services/copy-path.workflow"
 symlink "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 symlink "$DOTFILES_DIR/zed/settings.json" "$HOME/.config/zed/settings.json"
+symlink "$DOTFILES_DIR/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 
 # vscode snippets cannot be symlinked
 echo ""

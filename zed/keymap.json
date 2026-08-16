@@ -1,0 +1,20 @@
+// For information on how to configure Zed's keymap, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+[
+  {
+    "context": "Terminal",
+    "bindings": {
+      "shift-enter": ["terminal::SendText", "\u001b\r"]
+    }
+  },
+  // vscode muscle memory. Note the docks are flipped vs Zed's defaults: the
+  // project panel is on the right, git/agent panels on the left.
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-g": "git_panel::ToggleFocus",
+      "cmd-b": "workspace::ToggleRightDock",
+      "cmd-alt-b": "workspace::ToggleLeftDock"
+    }
+  }
+]
