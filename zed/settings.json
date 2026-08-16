@@ -12,6 +12,23 @@
   },
   "terminal": {
     "dock": "bottom",
+    // Attach each terminal to a per-project tmux session, sharing the "ide-"
+    // session namespace with vscode's "tmux-project" profile so both editors
+    // land in the same session. The name is derived from $PWD, so the
+    // working_directory below is what links a terminal to its project.
+    "working_directory": "current_project_directory",
+    "shell": {
+      "with_arguments": {
+        "program": "/bin/zsh",
+        "args": [
+          "-c",
+          "exec /opt/homebrew/bin/tmux new-session -A -s \"$(~/.dotfiles/bin/tmux-session-name)\""
+        ]
+      }
+    },
+    // Zed would otherwise type an activate command into the attached tmux
+    // session on startup.
+    "detect_venv": "off",
     "font_family": "JetBrainsMono NF",
     "font_fallbacks": ["Cascadia Mono NF", "Menlo"],
     "font_features": {

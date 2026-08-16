@@ -1,16 +1,22 @@
 #!/usr/bin/env sh
 #
 # tmux-session-name — derive a stable, tmux-safe session name for a directory,
-# used by the VS Code integrated-terminal "tmux-project" profile so each project
-# window attaches to its own session.
+# used by editor integrated-terminal profiles (VS Code "tmux-project", Zed
+# terminal.shell) so each project window attaches to its own session.
 #
-#   git repo (github)   ->  vscode-owner/repo
-#   git repo (other)    ->  vscode-repo
-#   linked worktree     ->  vscode-owner/repo/<worktree>   (grouped, distinct)
-#   not a git repo      ->  vscode-<~/full/path>
+#   git repo (github)   ->  ide-owner/repo
+#   git repo (other)    ->  ide-repo
+#   linked worktree     ->  ide-owner/repo/<worktree>   (grouped, distinct)
+#   not a git repo      ->  ide-<~/full/path>
+#
+# The prefix is editor-agnostic ("ide-") on purpose: opening a project in both
+# VS Code and Zed attaches both to the same session, so the two stay in sync.
+# tmux's default `window-size latest` means the window follows whichever client
+# was used most recently, so sharing doesn't pin it to the smaller viewport.
+# Override with TMUX_SESSION_PREFIX to carve out a separate namespace.
 #
 # tmux forbids '.' and ':' in session names: a '.' makes `new-session` fail
-# outright (which is why ~/.dotfiles — session "vscode-marc/.dotfiles" — could
+# outright (which is why ~/.dotfiles — session "ide-marc/.dotfiles" — could
 # never launch a terminal). '/' is legal and kept so windows nest under a repo
 # label; every other reserved character is folded to '-'.
 #
@@ -51,4 +57,4 @@ else
   esac
 fi
 
-printf 'vscode-%s\n' "$(sanitize "$name")"
+printf '%s%s\n' "${TMUX_SESSION_PREFIX-ide-}" "$(sanitize "$name")"
