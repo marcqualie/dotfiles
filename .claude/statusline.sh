@@ -14,6 +14,9 @@ WEEK_RESET=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
 # --- Session cost (estimated at API rates, even on subscription) ---
 COST=$(echo "$input" | jq -r '.cost.total_cost_usd // empty')
 
+# --- Context window tokens (input only, matching used_percentage) ---
+TOKENS=$(echo "$input" | jq -r '.context_window.total_input_tokens // empty')
+
 # Window lengths (seconds)
 FIVE_WINDOW=18000     # 5h
 WEEK_WINDOW=604800    # 7d
@@ -78,6 +81,18 @@ cost_str() {
   printf '%s' "  ${DIM}${fmt}${RESET}"
 }
 
+# tokens_str N -> " 30k" (rounded up; whole number under 10k; empty if no/invalid value)
+tokens_str() {
+  local n=$1 fmt
+  case "$n" in (''|*[!0-9]*) return;; esac
+  if [ "$n" -lt 10000 ]; then
+    fmt=$n
+  else
+    fmt="$(( (n + 999) / 1000 ))k"
+  fi
+  printf '%s' "  ${DIM}${fmt}${RESET}"
+}
+
 # reset_str EPOCH FORMAT -> dim " 22:30" (empty if no/invalid timestamp)
 reset_str() {
   local epoch=$1 fmt=$2 when
@@ -97,6 +112,6 @@ if [ -n "$WEEK" ]; then
   OUT="$OUT  ${DIM}7d${RESET} $(bar "$WEEK" "$M")$(reset_str "$WEEK_RESET" '%a %H:%M')"
 fi
 
-OUT="$OUT$(cost_str "$COST")"
+OUT="$OUT$(cost_str "$COST")$(tokens_str "$TOKENS")"
 
 echo "$OUT"
