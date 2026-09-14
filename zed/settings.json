@@ -58,9 +58,5 @@
     "calt": false
   },
   "buffer_font_size": 15,
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark",
-  },
+  "theme": "One Dark",
 }
