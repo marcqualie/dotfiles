@@ -79,6 +79,7 @@
   "terminal.integrated.fontFamily": "'JetBrainsMono NF', 'Cascadia Mono NF', Menlo, monospace",
   "terminal.integrated.cwd": "${workspaceFolder}",
   "terminal.integrated.initialHint": false,
+  "terminal.integrated.macOptionClickForcesSelection": true,
   "terminal.integrated.profiles.osx": {
     "zsh": {
       "path": "/bin/zsh",
