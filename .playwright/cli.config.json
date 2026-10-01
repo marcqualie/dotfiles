@@ -1,6 +1,7 @@
 {
   "browser": {
     "browserName": "chromium",
+    "userDataDir": "/Users/marc/.playwright/profiles/playwright-cli",
     "launchOptions": {
       "channel": "chrome-beta",
       "headless": false
