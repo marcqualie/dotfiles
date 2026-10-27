@@ -1,6 +1,10 @@
 // For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
 {
+  "edit_predictions": {
+    "provider": "ollama"
+  },
+  "disable_ai": true,
   "outline_panel": {
     "dock": "left"
   },
@@ -8,9 +12,13 @@
     "dock": "left"
   },
   "git_panel": {
+    "file_icons": false,
+    "tree_view": false,
+    "starts_open": true,
     "dock": "left"
   },
   "terminal": {
+    "show_count_badge": false,
     "dock": "bottom",
     // Attach each terminal to a per-project tmux session, sharing the "ide-"
     // session namespace with vscode's "tmux-project" profile so both editors
@@ -47,6 +55,10 @@
     }
   },
   "agent": {
+    "enable_feedback": false,
+    "threads_sidebar": {
+      "auto_open": false
+    },
     "dock": "left",
     "favorite_models": [],
     "model_parameters": []
