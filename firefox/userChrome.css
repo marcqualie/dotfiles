@@ -1,0 +1,41 @@
+@keyframes pulse {
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/**
+ * Compact vertical tabs.
+ */
+#tabbrowser-tabs[orient="vertical"] {
+  & .tab-background {
+    margin-block: 0 !important;
+    border-radius: 6px !important;
+  }
+
+  & .tabbrowser-tab {
+    padding-block: 0 !important;
+  }
+}
+
+/**
+ * Improved visuals for container tabs and adjusted for compact tabs.
+ */
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line {
+  animation: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin-block-start: auto !important;
+  margin-inline-start: auto !important;
+  border-radius: 6px !important;
+  background: linear-gradient(to left, color-mix(in srgb, var(--identity-stroke-color) 50%, transparent), rgba(0, 0, 0, 0)) !important;
+
+  &:after {
+    content: '';
+    margin-left: -7px;
+    width: 2px;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--identity-stroke-color);
+  }
+}

@@ -1,0 +1,4 @@
+/* Copy this folder and user.js into the Firefox profile once per machine using
+   Finder (about:support → Profile Folder → Show in Finder). The profile is
+   protected by macOS so it can't be symlinked from script/bootstrap. */
+@import url("file:///Users/marc/.dotfiles/firefox/userChrome.css");
