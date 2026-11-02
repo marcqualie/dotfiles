@@ -67,9 +67,38 @@ function aws_vault_info() {
   fi
 }
 
+# "<icon> <host>" in yellow when this shell was reached over ssh, so it's
+# obvious which machine a remote session is on. SSH_CONNECTION also reaches new
+# tmux panes via tmux's default update-environment when attaching over ssh.
+#
+# Nerd Font glyph built via octal to keep this file ASCII, like repo-context.sh.
+SSH_ICON=$(printf '\363\260\214\230')  # U+F0318  nf-md-lan_connect
+#
+# Herdr tabs (HC_TERMINAL_ID set) are spawned by the local herdr-core daemon,
+# never by sshd, so they don't inherit SSH_CONNECTION even when viewed over ssh.
+# For those, check for a `herdr-core connect` client whose parent is an
+# sshd-session, i.e. someone attached remotely. Note the tab may be viewed
+# locally at the same time; this only knows a remote viewer exists. pgrep
+# costs ~30ms per call, so the answer is cached for 10s.
+function _herdr_ssh_viewer() {
+  if (( EPOCHSECONDS - ${_herdr_ssh_checked:-0} >= 10 )); then
+    _herdr_ssh_checked=$EPOCHSECONDS
+    _herdr_ssh_remote=
+    local sshd_pids
+    sshd_pids=$(pgrep -d, sshd-session) &&
+      pgrep -qf -P "$sshd_pids" 'herdr-core connect' &&
+      _herdr_ssh_remote=1
+  fi
+  [[ -n $_herdr_ssh_remote ]]
+}
+
+# Sets REPLY rather than echoing so it runs in the current shell (no $(...)
+# subshell) and the Herdr cache above survives between prompts.
 function ssh_info() {
-  if [[ -n "$SSH_CONNECTION" ]]; then
-    echo "%{$fg[yellow]%}[-> SSH]%{$reset_color%}"
+  REPLY=
+  if [[ -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]] ||
+     { [[ -n "$HC_TERMINAL_ID" ]] && _herdr_ssh_viewer; }; then
+    REPLY=" %F{yellow}${SSH_ICON} ${HOST%%.*}%f"
   fi
 }
 
@@ -156,7 +185,9 @@ theme_prompt() {
   # No tmux status bar outside tmux, so surface the aws-vault session inline.
   local rc_aws=""
   [[ -z "$TMUX" ]] && rc_aws="$(aws_vault_info)"
-  PROMPT="%{${FAINT}$fg[cyan]%}┏ %{$reset_color%}%{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}${rc_sub}${rc_aws}"$'\n'
+  ssh_info
+  local rc_ssh=$REPLY
+  PROMPT="%{${FAINT}$fg[cyan]%}┏ %{$reset_color%}%{$fg[cyan]%}${RC_ICON} %{$fg_bold[cyan]%}${RC_LABEL}%{$reset_color%}${rc_sub}${rc_aws}${rc_ssh}"$'\n'
   PROMPT+="%{$fg[cyan]%}\$%{$reset_color%} "
   if [ "$INCOGNISHELL" -eq "1" ]; then
     PROMPT=" 🤫🙈$PROMPT"
