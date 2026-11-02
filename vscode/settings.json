@@ -267,5 +267,4 @@
     "editor.defaultFormatter": "redhat.vscode-yaml",
   },
   "workbench.experimental.modernUI": true,
-  "chat.disableAIFeatures": true,
 }
