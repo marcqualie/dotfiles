@@ -2,6 +2,16 @@
 
 input=$(cat)
 
+# --- Herdr ---
+# Herdr's status bar (homelab herdr/mods/marc-status) shows the focused terminal's usage from the
+# latest input, saved per Herdr terminal with the time it was saved.
+if [ -n "${HC_TERMINAL_ID-}" ]; then
+  HERDR_DIR="$HOME/.cache/claude-statusline"
+  mkdir -p "$HERDR_DIR" &&
+    echo "$input" | jq -c --argjson at "$(date +%s)" '. + {saved_at: $at}' > "$HERDR_DIR/$HC_TERMINAL_ID.json.tmp" &&
+    mv "$HERDR_DIR/$HC_TERMINAL_ID.json.tmp" "$HERDR_DIR/$HC_TERMINAL_ID.json"
+fi
+
 # --- Model ---
 MODEL=$(echo "$input" | jq -r '.model.display_name')
 
