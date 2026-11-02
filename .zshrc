@@ -27,6 +27,7 @@ source ~/.zsh/keybindings.zsh
 source ~/.zsh/aliases.sh
 source ~/.zsh/claude.sh
 source ~/.zsh/denvig.sh
+source ~/.zsh/title.zsh
 
 # Remote (ssh) sessions: match the local Ghostty experience as closely as possible.
 if [[ -n $SSH_CONNECTION ]]; then
