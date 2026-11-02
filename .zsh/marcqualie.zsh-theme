@@ -92,11 +92,16 @@ function _herdr_ssh_viewer() {
   [[ -n $_herdr_ssh_remote ]]
 }
 
+# Orca terminals are likely viewed remotely, and like Herdr tabs they don't come
+# from sshd, so they always show the host. TERM_PROGRAM alone would miss tmux
+# inside Orca, which overwrites it; the terminal handle survives that.
+#
 # Sets REPLY rather than echoing so it runs in the current shell (no $(...)
 # subshell) and the Herdr cache above survives between prompts.
 function ssh_info() {
   REPLY=
   if [[ -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]] ||
+     [[ -n "$ORCA_TERMINAL_HANDLE" || "$TERM_PROGRAM" == Orca ]] ||
      { [[ -n "$HC_TERMINAL_ID" ]] && _herdr_ssh_viewer; }; then
     REPLY=" %F{yellow}${SSH_ICON} ${HOST%%.*}%f"
   fi
