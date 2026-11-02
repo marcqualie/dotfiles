@@ -26,6 +26,28 @@ $ update-dotfiles
 ```
 
 
+## Zsh Config Files
+
+Zsh picks which files to load based on whether the shell is a login shell and whether it is interactive. They always load in the order shown, top to bottom.
+
+| File         | Login + interactive | Interactive only | Login only | Neither |
+| ------------ | ------------------- | ---------------- | ---------- | ------- |
+| `.zshenv`    | Yes                 | Yes              | Yes        | Yes     |
+| `.zprofile`  | Yes                 | No               | Yes        | No      |
+| `.zshrc`     | Yes                 | Yes              | No         | No      |
+
+- **Login + interactive:** new terminal windows and tabs on macOS, `ssh host`
+- **Interactive only:** running `zsh` inside an existing shell
+- **Login only:** `zsh -lc 'command'`
+- **Neither:** scripts, `zsh -c 'command'`, `ssh host command`
+
+What belongs where:
+
+- `.zshenv` is for anything every shell needs, including scripts: environment variables and `PATH`.
+- `.zprofile` is for login shells only. macOS runs `path_helper` from `/etc/zprofile` after `.zshenv`, which moves system directories to the front of `PATH`, so this is where version managers get put back in front of them.
+- `.zshrc` is for the interactive experience: prompt, completions, aliases and keybindings.
+
+
 ## Multiple Devices
 
 Syncing this data between M1 + Intel is a pain due to homebrew installing to different directories.
