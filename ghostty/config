@@ -3,7 +3,10 @@
 # Run `ghostty +show-config --default --docs` to list all options.
 
 # setup
-initial-command = "/opt/homebrew/bin/tmux new-session -A -s ghostty"
+# `command` runs for every new window/tab/split (`initial-command` only runs for
+# the very first one at app launch). One shared "ghostty" tmux session, a new
+# tmux window per Ghostty surface — see bin/ghostty-tmux.
+command = /Users/marc/.dotfiles/bin/ghostty-tmux
 
 # macos specifics
 macos-option-as-alt = true

@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+#
+# ghostty-tmux — Ghostty's `command`: one shared "ghostty" tmux session, with a
+# new tmux window for every Ghostty window/tab/split.
+#
+# Each Ghostty surface attaches through its own *grouped* session (ghostty-1,
+# ghostty-2, ...). Grouped sessions share the same set of windows but track
+# their own current window, so tabs don't mirror each other and switching
+# windows in one tab doesn't move the others. The grouped session is destroyed
+# when its tab closes (destroy-unattached); the window itself lives on in
+# "ghostty" until you exit its shell.
+#
+# The base session is created detached first so concurrent launches (e.g.
+# restored windows) can't race: only the call that actually created it reuses
+# its first window, every other call opens a new one.
+
+tmux=/opt/homebrew/bin/tmux
+
+if "$tmux" new-session -d -s ghostty -c "$PWD" 2>/dev/null; then
+  exec "$tmux" new-session -t '=ghostty' \; set-option destroy-unattached on
+else
+  exec "$tmux" new-session -t '=ghostty' \; set-option destroy-unattached on \; new-window -c "$PWD"
+fi
