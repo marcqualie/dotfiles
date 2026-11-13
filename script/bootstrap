@@ -22,12 +22,14 @@ symlink_dotfile gemrc
 symlink_dotfile editorconfig
 symlink_dotfile tigrc
 symlink_dotfile gnupg/gpg.conf
-symlink_dotfile gnupg/gpg-agent.conf
 symlink_dotfile tmux.conf
 symlink_dotfile tmux
 symlink_dotfile npmrc
 
 if [[ "$OSTYPE" == darwin* ]]; then
+  # gpg-agent.conf uses pinentry-mac; Linux keeps gpg's default pinentry.
+  symlink_dotfile gnupg/gpg-agent.conf
+
   # The playwright config points at a headed chrome-beta profile, which only
   # makes sense on a desktop Mac.
   symlink_dotfile playwright/cli.config.json
