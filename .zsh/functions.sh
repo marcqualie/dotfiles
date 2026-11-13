@@ -25,10 +25,17 @@ cdabs() {
 # macos and other tools can interfere with PATH, so we force ordering
 function normalize_path() {
   LOCAL_BIN="./node_modules/.bin"
-  SHIMS_BIN="$HOME/.nodenv/shims:$HOME/.rbenv/shims"
-  HOMEBREW_BIN="/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin"
-  PNPM_HOME="$HOME/Library/pnpm"
-  export PATH=$LOCAL_BIN:$PNPM_HOME:$SHIMS_BIN:$HOMEBREW_BIN:$PATH
+  if [[ "$OSTYPE" == darwin* ]]; then
+    SHIMS_BIN="$HOME/.nodenv/shims:$HOME/.rbenv/shims"
+    HOMEBREW_BIN="/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin"
+    PNPM_HOME="$HOME/Library/pnpm"
+    export PATH=$LOCAL_BIN:$PNPM_HOME:$SHIMS_BIN:$HOMEBREW_BIN:$PATH
+  else
+    # Linux: mise manages runtimes; ~/.local/bin holds user-installed CLIs.
+    MISE_SHIMS="$HOME/.local/share/mise/shims"
+    USER_BIN="$HOME/.local/bin"
+    export PATH=$LOCAL_BIN:$MISE_SHIMS:$USER_BIN:/usr/local/bin:$PATH
+  fi
 
   # Remove duplicate paths and trailing slashes
   path_array=("${(@s/:/)PATH}")

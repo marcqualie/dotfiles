@@ -13,5 +13,5 @@ claude_with_custom_env() {
   fi
 
   # shellcheck disable=SC2068
-  /opt/homebrew/bin/claude $@
+  command claude $@
 }
