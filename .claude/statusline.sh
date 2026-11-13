@@ -3,7 +3,7 @@
 input=$(cat)
 
 # --- Herdr ---
-# Herdr's status bar (homelab herdr/mods/marc-status) shows the focused terminal's usage from the
+# The Herdr status bar mod shows the focused terminal's usage from the
 # latest input, saved per Herdr terminal with the time it was saved.
 if [ -n "${HC_TERMINAL_ID-}" ]; then
   HERDR_DIR="$HOME/.cache/claude-statusline"

@@ -6,3 +6,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   # path_helper in /etc/zprofile moves system dirs first; put version managers back ahead of them
   export PATH="$HOME/.rbenv/shims:$HOME/.nodenv/shims:/opt/homebrew/bin:$PATH"
 fi
+
+# Private settings that don't belong in a public repo (gitignored).
+[[ -f ~/.dotfiles/.zshenv.private ]] && source ~/.dotfiles/.zshenv.private

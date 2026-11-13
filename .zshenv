@@ -31,3 +31,6 @@ fi
 # Non-interactive scripts get node/ruby via shims on PATH without needing loadenv.
 source ~/.zsh/functions.sh
 normalize_path
+
+# Private settings that don't belong in a public repo (gitignored).
+[[ -f ~/.dotfiles/.zshenv.private ]] && source ~/.dotfiles/.zshenv.private

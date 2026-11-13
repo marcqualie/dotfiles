@@ -1,3 +1,6 @@
 # Sepcific to current device
 .gitconfig.device
 .Brewfile.lock.json
+
+# Private settings, never commit
+.zshenv.private

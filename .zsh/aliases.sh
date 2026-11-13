@@ -35,7 +35,3 @@ alias dns-cloudflare="sudo networksetup -setdnsservers Ethernet 1.1.1.1 1.0.0.1"
 
 # Denvig
 [[ -x /opt/homebrew/bin/denvig ]] && alias denvig="/opt/homebrew/bin/denvig"
-
-# SSH agent: remote (MacBook's forwarded 1Password) / local / auto, machine-wide.
-# See homelab: docs/SSH Agent Forwarding.md
-alias ssh-agent-mode="$HOME/src/marcqualie/homelab/ssh/agent-mode"
