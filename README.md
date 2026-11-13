@@ -1,6 +1,6 @@
 # Marc Qualie's Dot Files
 
-My dot files are shared between all my OSX machines.
+My dot files are shared between all my macOS machines, and also work on Linux (Ubuntu).
 
 
 ## Usage
@@ -10,11 +10,16 @@ This repository follows [scripts to rule them all](https://github.com/github/scr
 
 ### Initial setup
 
-The base setup requires homebrew to be installed.
+On macOS the base setup requires homebrew to be installed.
 
 ```shell
 $ script/setup
 ```
+
+On Linux, install `git` and `zsh` with the system package manager first. The
+macOS-only steps (Homebrew, `~/Library` links, `defaults`) are skipped, and a
+`.gitconfig.device` is written that turns off commit signing and the macOS
+keychain/editor settings.
 
 
 ### Updating

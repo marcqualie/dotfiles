@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 function bundle_install() {
-  bundle install -j `sysctl -n hw.ncpu`
+  bundle install -j "$(nproc 2>/dev/null || sysctl -n hw.ncpu)"
 }
 
 function yarn_install() {

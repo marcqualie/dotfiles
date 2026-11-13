@@ -3,7 +3,8 @@
 source $(dirname $0)/shared-functions
 
 # Only run out custom stuff inside project root
-if [[ "$PWD/" = $HOME/src/* ]]; then
+# denvig may not be installed everywhere (e.g. Linux boxes); skip quietly.
+if [[ "$PWD/" = $HOME/src/* ]] && command -v denvig &> /dev/null; then
   # JavaScript
     if  [ -e yarn.lock ]; then; denvig install;
   elif [[ -e pnpm-lock.yaml || -e pnpm-lock.yml ]]; then; denvig install;
